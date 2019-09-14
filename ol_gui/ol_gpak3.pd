@@ -1,0 +1,411 @@
+#N canvas 827 267 578 481 10;
+#X declare -stdpath iemguts -path iemguts;
+#X declare -stdlib zexy -lib zexy ;
+#X obj 263 209 r \$0-n1;
+#X obj 329 209 r \$0-n2;
+#X obj 329 237 t b f;
+#X obj 399 236 t b f;
+#X obj 399 209 r \$0-n3;
+#X obj 404 396 outlet;
+#X obj 404 352 list prepend set;
+#X obj 404 374 list trim;
+#X obj 25 107 inlet;
+#X obj 20 312 s \$0-n1-r;
+#X obj 175 312 s \$0-n3-r;
+#X obj 94 312 s \$0-n2-r;
+#X obj 25 205 unpack 0 0 0;
+#X msg 25 269 set \$1;
+#X msg 72 269 set \$1;
+#X msg 119 269 set \$1;
+#X obj 113 205 unpack 0 0 0;
+#X obj 264 239 t b f;
+#X obj 264 312 pack 0 0 0 0;
+#X obj 264 335 route 0;
+#X obj 0 0 cnv 2 121 20 empty empty empty 20 12 0 14 -99865 -66577
+0;
+#X obj 2 2 cnv 2 119 16 empty empty empty 20 12 0 14 -204786 -66577
+0;
+#X obj 3 3 nbx 4 14 -1e+037 1e+037 0 0 \$0-n1 \$0-n1-r empty 0 -8 1
+10 -262144 -1 -1 0 256;
+#X obj 41 3 nbx 4 14 -1e+037 1e+037 0 0 \$0-n2 \$0-n2-r empty 0 -8
+1 10 -262144 -1 -1 0 256;
+#X obj 79 3 nbx 4 14 -1e+037 1e+037 0 0 \$0-n3 \$0-n3-r empty 0 -8
+1 10 -262144 -1 -1 0 256;
+#X obj 117 3 cnv 2 3 13 empty empty empty 20 12 0 14 -99865 -66577
+0;
+#X obj 118 2 cnv 2 2 16 empty empty empty 20 12 0 14 -204786 -66577
+0;
+#X obj 120 0 cnv 1 1 20 empty empty empty 20 12 0 14 -99865 -66577
+0;
+#X obj 257 209 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X obj 323 209 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X obj 393 209 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X obj 398 396 cnv 5 5 17 empty empty empty 20 12 0 14 -102336 -66577
+0;
+#X obj 19 107 cnv 5 5 17 empty empty empty 20 12 0 14 -118750 -66577
+0;
+#X obj 14 312 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 169 312 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 88 312 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 449 92 cnv 10 80 15 empty empty empty 2 7 0 9 -257985 -66577
+0;
+#N canvas 1118 303 640 512 remotename 0;
+#X obj 260 9 cnv 10 330 470 empty empty for_the_ol_sss_system: 80 16
+1 16 -229368 -66577 0;
+#X obj 20 279 cnv 10 200 200 empty empty REMOTE 100 17 1 20 -261682
+-4160 0;
+#X obj 148 403 spigot;
+#X obj 37 403 spigot;
+#X obj 148 379 r \$1-r;
+#X obj 37 427 send;
+#X obj 148 426 s \$0-in;
+#X obj 37 379 r \$0-out;
+#X obj 58 314 r \$0-remotename;
+#X obj 142 379 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X obj 31 427 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 142 426 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 31 379 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X obj 52 314 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X obj 51 340 sel none;
+#X msg 97 366 0, f 1;
+#X msg 107 366 1, f 1;
+#X obj 107 340 t b;
+#X obj 101 386 f;
+#X floatatom 101 411 2 0 0 0 - - -, f 2;
+#X symbolatom 134 331 13 0 0 0 - - -, f 13;
+#X obj 313 79 spigot;
+#X obj 313 49 r get_ol_sss_objects;
+#X obj 313 399 s get_ol_sss_object_names;
+#X obj 380 208 makefilename %s-r;
+#X text 498 209 receive name;
+#X text 476 398 global send !;
+#X text 448 48 global receive !;
+#X obj 307 49 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X obj 307 399 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 360 136 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X obj 313 153 symbol;
+#X obj 313 208 t b s s, f 9;
+#X obj 418 299 r \$0-out;
+#X obj 412 299 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X obj 313 300 v \$0-nameflag;
+#X obj 307 300 cnv 5 5 17 empty empty empty 20 12 0 14 -194048 -66577
+0;
+#X obj 313 333 pack 0 s s;
+#X obj 313 365 list append 0 0 0;
+#X obj 18 23 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X obj 24 23 r \$0-lb;
+#X obj 24 75 list 0 \$1;
+#X obj 24 98 list split 1;
+#X obj 124 175 canvasdollarzero 2;
+#X text 84 23 any float \, "none" or "empty" as 1st argument: no remote
+name, f 24;
+#X obj 24 47 t b b;
+#X obj 24 145 bang;
+#X obj 24 122 route float symbol;
+#X obj 24 235 s \$0-remotename;
+#X obj 18 235 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X msg 24 175 symbol none;
+#X obj 60 145 sel none empty;
+#X obj 44 204 cnv 3 88 15 empty empty empty 2 7 0 10 -257985 -66577
+0;
+#N canvas 1137 211 605 622 check_$____ 0;
+#X text 50 6 string in;
+#X obj 60 25 inlet;
+#X obj 311 524 outlet;
+#X obj 54 25 cnv 5 5 17 empty empty empty 20 12 0 14 -118750 -66577
+0;
+#X obj 305 524 cnv 5 5 17 empty empty empty 20 12 0 14 -102336 -66577
+0;
+#X obj 60 69 list fromsymbol;
+#X obj 60 216 list store, f 16;
+#X obj 60 117 until;
+#X obj 60 141 f;
+#X obj 101 141 + 1;
+#X msg 60 193 get \$1 1;
+#X msg 101 117 0;
+#X text 165 69 list drip;
+#X obj 60 92 t b b l b, f 22;
+#X msg 189 306 0;
+#X obj 410 507 list tosymbol;
+#X obj 60 47 t s s, f 26;
+#X obj 60 239 sel 36, f 7;
+#X text 112 239 detect dollar;
+#X msg 60 291 1;
+#X msg 132 294 0;
+#X obj 99 323 spigot;
+#X obj 99 367 sel 48;
+#X obj 99 345 t f b, f 11;
+#X msg 99 389 1;
+#X obj 145 367 t b;
+#X text 38 367 detect 0;
+#X msg 145 389 2;
+#X text 220 306 normal name;
+#X text 175 389 \$1 \, \$2 etc;
+#X text 72 390 \$0;
+#X obj 152 425 f;
+#X obj 99 263 t b f;
+#X obj 335 241 f;
+#X obj 60 165 t f f;
+#X obj 293 46 sel 0 1 2, f 28;
+#X obj 311 98 symbol;
+#X obj 416 179 list fromsymbol;
+#X obj 403 331 list store, f 16;
+#X obj 403 238 until;
+#X obj 403 262 f;
+#X obj 444 262 + 1;
+#X msg 403 308 get \$1 1;
+#X msg 444 238 0;
+#X obj 403 213 t b b l b, f 22;
+#X obj 403 286 t f f;
+#X obj 403 353 sel 92, f 7;
+#X text 456 354 remove bsl;
+#X obj 442 399 list store;
+#X msg 442 376 append \$1;
+#X obj 504 469 inlet;
+#X obj 498 469 cnv 5 5 17 empty empty empty 20 12 0 14 -118750 -66577
+0;
+#X obj 504 494 list fromsymbol, f 10;
+#X obj 410 484 list prepend;
+#X obj 333 180 list split;
+#X obj 442 422 demux 0 1 2;
+#X obj 333 152 list store;
+#X obj 152 448 t f f f, f 17;
+#X obj 416 82 symbol \$1;
+#X text 481 82 <---;
+#X text 427 104 this method makes sure that in case of \$1 \, \$2 etc
+in the remote name \, the arguments get expanded correctly, f 25;
+#X text 298 21 0: normal / 1:\$0 / 2: \$1 etc;
+#X text 321 261 split point after \$0, f 12;
+#X obj 152 497 v \$0-nameflag;
+#X obj 146 497 cnv 5 5 17 empty empty empty 20 12 0 14 -194048 -66577
+0;
+#X obj 152 473 == 1;
+#X obj 305 446 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 323 416 list tosymbol;
+#X obj 311 446 s \$0-sss_remotename;
+#X connect 1 0 16 0;
+#X connect 5 0 13 0;
+#X connect 6 0 17 0;
+#X connect 6 1 7 1;
+#X connect 6 1 31 0;
+#X connect 7 0 8 0;
+#X connect 8 0 34 0;
+#X connect 9 0 8 1;
+#X connect 9 0 33 1;
+#X connect 10 0 6 0;
+#X connect 11 0 8 1;
+#X connect 13 0 7 0;
+#X connect 13 1 11 0;
+#X connect 13 2 6 1;
+#X connect 13 2 56 1;
+#X connect 13 3 14 0;
+#X connect 14 0 31 1;
+#X connect 14 0 21 1;
+#X connect 15 0 2 0;
+#X connect 16 0 5 0;
+#X connect 16 1 36 1;
+#X connect 17 0 19 0;
+#X connect 17 1 32 0;
+#X connect 19 0 21 1;
+#X connect 20 0 21 1;
+#X connect 21 0 23 0;
+#X connect 22 0 24 0;
+#X connect 22 0 33 0;
+#X connect 22 1 25 0;
+#X connect 23 0 22 0;
+#X connect 23 1 20 0;
+#X connect 24 0 31 1;
+#X connect 25 0 27 0;
+#X connect 27 0 31 1;
+#X connect 31 0 57 0;
+#X connect 32 0 20 0;
+#X connect 32 1 21 0;
+#X connect 33 0 54 1;
+#X connect 34 0 10 0;
+#X connect 34 1 9 0;
+#X connect 35 0 36 0;
+#X connect 35 1 56 0;
+#X connect 35 2 58 0;
+#X connect 36 0 2 0;
+#X connect 36 0 68 0;
+#X connect 37 0 44 0;
+#X connect 38 0 46 0;
+#X connect 38 1 39 1;
+#X connect 38 1 48 0;
+#X connect 39 0 40 0;
+#X connect 40 0 45 0;
+#X connect 41 0 40 1;
+#X connect 42 0 38 0;
+#X connect 43 0 40 1;
+#X connect 44 0 39 0;
+#X connect 44 1 43 0;
+#X connect 44 2 38 1;
+#X connect 44 3 48 1;
+#X connect 45 0 42 0;
+#X connect 45 1 41 0;
+#X connect 46 1 49 0;
+#X connect 48 0 55 0;
+#X connect 48 0 67 0;
+#X connect 49 0 48 0;
+#X connect 50 0 52 0;
+#X connect 52 0 53 1;
+#X connect 53 0 15 0;
+#X connect 54 1 44 0;
+#X connect 55 1 53 0;
+#X connect 55 2 15 0;
+#X connect 56 0 54 0;
+#X connect 57 0 65 0;
+#X connect 57 1 35 0;
+#X connect 57 2 55 1;
+#X connect 58 0 37 0;
+#X connect 65 0 63 0;
+#X connect 67 0 68 0;
+#X restore 43 203 pd check_$____;
+#X obj 366 136 r \$0-sss_remotename;
+#X symbolatom 326 180 15 0 0 0 - - -, f 15;
+#X connect 2 0 6 0;
+#X connect 3 0 5 0;
+#X connect 4 0 2 0;
+#X connect 7 0 3 0;
+#X connect 8 0 5 1;
+#X connect 8 0 14 0;
+#X connect 8 0 20 0;
+#X connect 14 0 15 0;
+#X connect 14 1 17 0;
+#X connect 15 0 18 0;
+#X connect 16 0 18 0;
+#X connect 17 0 16 0;
+#X connect 18 0 3 1;
+#X connect 18 0 2 1;
+#X connect 18 0 19 0;
+#X connect 18 0 21 1;
+#X connect 21 0 31 0;
+#X connect 22 0 21 0;
+#X connect 24 0 37 2;
+#X connect 31 0 32 0;
+#X connect 31 0 55 0;
+#X connect 32 0 35 0;
+#X connect 32 1 37 1;
+#X connect 32 2 24 0;
+#X connect 33 0 38 1;
+#X connect 35 0 37 0;
+#X connect 37 0 38 0;
+#X connect 38 0 23 0;
+#X connect 40 0 45 0;
+#X connect 41 0 42 0;
+#X connect 42 1 47 0;
+#X connect 43 0 53 1;
+#X connect 45 0 41 0;
+#X connect 45 1 43 0;
+#X connect 46 0 50 0;
+#X connect 47 0 46 0;
+#X connect 47 1 51 0;
+#X connect 50 0 48 0;
+#X connect 51 0 50 0;
+#X connect 51 1 50 0;
+#X connect 51 2 53 0;
+#X connect 53 0 48 0;
+#X connect 54 0 31 1;
+#X restore 448 91 pd remotename;
+#X obj 478 115 loadbang;
+#X obj 472 189 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 478 189 s \$0-lb;
+#X text 23 78 ARGUMENT: remote name;
+#X obj 261 429 outlet;
+#X obj 255 429 cnv 5 5 17 empty empty empty 20 12 0 14 -102336 -66577
+0;
+#X obj 261 404 r \$0-out;
+#X obj 255 404 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X obj 258 356 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 264 356 s \$0-out;
+#X obj 67 107 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X obj 73 107 r \$0-in;
+#X obj 141 107 inlet;
+#X obj 135 107 cnv 5 5 17 empty empty empty 20 12 0 14 -118750 -66577
+0;
+#X obj 240 106 inlet;
+#X obj 234 106 cnv 5 5 17 empty empty empty 20 12 0 14 -118750 -66577
+0;
+#X obj 143 173 list store;
+#X msg 258 175 range \$1 \$2;
+#X obj 25 130 route set list float bang range;
+#X obj 430 158 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X obj 436 158 r ol_GUI_reinit;
+#X text 365 136 force loadbang from outside;
+#X obj 299 42 cnv 14 230 15 empty empty empty 2 2 0 9 -253181 -66577
+0;
+#X obj 298 41 declare -stdpath iemguts -path iemguts;
+#X obj 360 13 cnv 10 170 20 empty empty needs IEMGUTS ZEXY 10 11
+0 14 -4160 -262144 0;
+#X obj 299 59 cnv 14 230 15 empty empty empty 2 2 0 9 -253181 -66577
+0;
+#X obj 298 58 declare -stdlib zexy -lib zexy , f 38;
+#X connect 0 0 17 0;
+#X connect 1 0 2 0;
+#X connect 2 0 18 0;
+#X connect 2 1 18 2;
+#X connect 3 0 18 0;
+#X connect 3 1 18 3;
+#X connect 4 0 3 0;
+#X connect 6 0 7 0;
+#X connect 7 0 5 0;
+#X connect 8 0 56 0;
+#X connect 12 0 13 0;
+#X connect 12 0 18 1;
+#X connect 12 1 14 0;
+#X connect 12 1 18 2;
+#X connect 12 2 15 0;
+#X connect 12 2 18 3;
+#X connect 13 0 9 0;
+#X connect 14 0 11 0;
+#X connect 15 0 10 0;
+#X connect 16 0 9 0;
+#X connect 16 1 11 0;
+#X connect 16 2 10 0;
+#X connect 17 0 18 0;
+#X connect 17 1 18 1;
+#X connect 18 0 19 0;
+#X connect 19 0 6 0;
+#X connect 19 0 47 0;
+#X connect 19 0 54 1;
+#X connect 38 0 40 0;
+#X connect 44 0 42 0;
+#X connect 49 0 56 0;
+#X connect 50 0 11 0;
+#X connect 52 0 10 0;
+#X connect 54 0 12 0;
+#X connect 54 0 47 0;
+#X connect 55 0 9 0;
+#X connect 55 0 11 0;
+#X connect 55 0 10 0;
+#X connect 56 0 12 0;
+#X connect 56 0 54 1;
+#X connect 56 1 16 0;
+#X connect 56 2 9 0;
+#X connect 56 3 54 0;
+#X connect 56 4 55 0;
+#X connect 58 0 40 0;
+#X coords 0 -1 1 1 121 20 2 0 0;

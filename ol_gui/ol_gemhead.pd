@@ -1,0 +1,225 @@
+#N canvas 36 331 869 503 10;
+#X declare -stdlib Gem -lib Gem;
+#X declare -stdpath iemguts -path iemguts;
+#X obj 463 15 loadbang;
+#X msg 463 330 set \$1;
+#X obj 20 20 hradio 15 1 0 4 \$0-switch \$0-switch-r empty 0 8 0 8
+-262144 -1 -1 2;
+#X obj 415 218 inlet;
+#X obj 281 18 inlet;
+#X obj 533 240 s \$0-cnv-r;
+#X msg 533 217 label;
+#X obj 343 418 s \$0-cnv-r;
+#X msg 343 395 color \$1 \$1 \$2;
+#X obj 340 302 sel 0 1;
+#X msg 281 285 0;
+#X obj 281 241 t b b;
+#X msg 308 285 1;
+#X obj 549 374 s \$0-cnv-r;
+#X msg 549 352 label \$1;
+#X obj 549 330 makefilename %d;
+#X obj 184 17 r \$0-switch;
+#X obj 184 39 t b;
+#X obj 606 240 v \$0-state;
+#X msg 606 217 1;
+#X obj 184 60 v \$0-state;
+#X obj 184 201 == 0;
+#X obj 463 427 outlet;
+#X obj 184 223 v \$0-state;
+#X obj 463 283 f;
+#X obj 21 21 cnv 10 58 13 \$0-cnv \$0-cnv-r 33 32 7 0 14 -131027 -66577
+0;
+#X obj 20 20 cnv 1 1 1 empty \$0-text1 gem 2 3 0 10 -66577 -66577 0
+;
+#X obj 20 20 cnv 1 1 1 empty \$0-text2 head 8 10 0 10 -66577 -66577
+0;
+#X msg 27 74 pos 20 20;
+#X obj 27 164 s \$0-text1;
+#X obj 27 187 s \$0-text2;
+#X msg 27 122 label_pos 2 3;
+#X msg 27 98 label_pos 8 10;
+#X obj 409 218 cnv 5 5 17 empty empty empty 20 12 0 14 -118750 -66577
+0;
+#X obj 275 18 cnv 5 5 17 empty empty empty 20 12 0 14 -118750 -66577
+0;
+#X obj 527 240 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 337 418 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 543 374 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 178 17 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X obj 457 427 cnv 5 5 17 empty empty empty 20 12 0 14 -102336 -66577
+0;
+#X obj 21 164 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 21 187 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 323 18 r ol_gemhead;
+#X msg 323 182 1;
+#X obj 323 162 t b;
+#X obj 350 162 t b;
+#X msg 350 182 0;
+#X obj 493 283 v \$0-head;
+#X obj 362 40 v \$0-head;
+#X obj 323 40 t a b;
+#X obj 323 133 sel;
+#X floatatom 381 199 5 0 0 0 - - -, f 5;
+#X obj 323 111 route solo all;
+#X obj 308 72 route;
+#X obj 551 16 cnv 14 230 33 empty empty empty 2 2 0 9 -253181 -66577
+0;
+#X msg 363 361 \$1 2;
+#X msg 287 363 2 \$1;
+#X obj 363 337 v \$0-green;
+#X obj 287 338 v \$0-green;
+#X obj 568 303 v \$0-green;
+#X msg 526 177 bang;
+#X msg 568 282 -8.32289e+006;
+#X obj 281 218 route bang float set;
+#X obj 281 263 del 150;
+#X obj 108 431 s pd-\$0-properties;
+#X obj 102 431 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X msg 133 319 bang;
+#X msg 108 380 vis 0 \, relocate \$1x\$2+0+0 0x0+\$3+\$4 \, vis 1 \,
+editmode 0, f 20;
+#X text 135 334 size x y \, pos x y;
+#X obj 108 293 propertybang;
+#N canvas 30 50 350 140 \$0-properties 0;
+#X obj 1 1 cnv 5 346 136 empty empty PROPERTIES: 120 18 1 16 -220544
+-122932 0;
+#X obj 6 36 cnv 4 334 52 empty empty empty 20 20 0 14 -1 -262144 0
+;
+#X obj 7 37 cnv 14 332 50 empty empty gemhead layer number 120
+26 1 12 -262130 -64 0;
+#X obj 20 47 nbx 3 32 0 999 0 0 \$0-prop \$0-prop-r empty 0 -8 1 30
+-262144 -1 -1 0 256;
+#X obj 22 109 cnv 5 300 18 empty empty empty 20 20 0 14 -1 -262144
+0;
+#X obj 23 110 cnv 10 298 16 empty empty DON'T_FORGET_TO_SAVE_THE_PARENT_PATCH_!
+6 9 1 12 -261234 -66577 0;
+#X obj 23 124 cnv 2 298 1 empty empty empty 6 -20 1 8 -261234 -66577
+0;
+#X obj 295 55 hradio 14 1 0 2 \$0-properties_ok \$0-properties_ok-r
+empty 0 -8 0 10 -262144 -1 -1 0;
+#X obj 296 56 cnv 12 26 12 \$0-properties_ok_cnv \$0-properties_ok_cnv-r
+OK 4 6 1 12 -204786 -99865 0;
+#X restore 550 88 pd \$0-properties;
+#X obj 463 99 canvasargs;
+#X obj 463 123 route float;
+#X msg 463 167 50;
+#X obj 463 145 sel 0;
+#X obj 463 241 pipe;
+#X obj 463 194 t f f b b, f 18;
+#X obj 463 355 gemhead 50;
+#X obj 526 404 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 532 404 s \$0-prop-r;
+#X msg 108 355 350 140 30 30;
+#X msg 27 414 vis 0;
+#X obj 457 77 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X obj 463 77 r \$0-args;
+#X obj 457 36 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 463 36 s \$0-args;
+#X obj 60 252 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X obj 27 276 f, f 7;
+#X obj 21 229 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X obj 66 252 r \$0-prop;
+#X obj 27 229 r \$0-properties_ok;
+#X obj 27 252 t b;
+#X obj 27 300 t b f;
+#X obj 36 326 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 42 326 s \$0-args;
+#X obj 550 15 declare -stdlib Gem -lib Gem, f 38;
+#X obj 550 32 declare -stdpath iemguts -path iemguts;
+#X connect 0 0 85 0;
+#X connect 1 0 77 0;
+#X connect 3 0 24 0;
+#X connect 4 0 62 0;
+#X connect 6 0 5 0;
+#X connect 8 0 7 0;
+#X connect 9 0 58 0;
+#X connect 9 1 57 0;
+#X connect 10 0 9 0;
+#X connect 11 0 63 0;
+#X connect 11 1 12 0;
+#X connect 12 0 9 0;
+#X connect 14 0 13 0;
+#X connect 15 0 14 0;
+#X connect 16 0 17 0;
+#X connect 17 0 20 0;
+#X connect 19 0 18 0;
+#X connect 20 0 21 0;
+#X connect 21 0 23 0;
+#X connect 21 0 62 0;
+#X connect 24 0 1 0;
+#X connect 24 0 15 0;
+#X connect 24 0 47 0;
+#X connect 24 0 79 0;
+#X connect 28 0 29 0;
+#X connect 28 0 30 0;
+#X connect 31 0 29 0;
+#X connect 32 0 30 0;
+#X connect 42 0 49 0;
+#X connect 43 0 51 0;
+#X connect 43 0 62 0;
+#X connect 44 0 43 0;
+#X connect 45 0 46 0;
+#X connect 46 0 51 0;
+#X connect 46 0 62 0;
+#X connect 48 0 50 1;
+#X connect 48 0 53 1;
+#X connect 49 0 53 0;
+#X connect 49 1 48 0;
+#X connect 50 0 44 0;
+#X connect 50 1 45 0;
+#X connect 52 0 50 0;
+#X connect 52 1 62 0;
+#X connect 53 0 62 0;
+#X connect 53 1 52 0;
+#X connect 55 0 8 0;
+#X connect 56 0 8 0;
+#X connect 57 0 55 0;
+#X connect 58 0 56 0;
+#X connect 60 0 76 0;
+#X connect 61 0 59 0;
+#X connect 62 0 11 0;
+#X connect 62 0 77 0;
+#X connect 62 1 9 0;
+#X connect 62 1 77 0;
+#X connect 62 2 24 0;
+#X connect 63 0 10 0;
+#X connect 66 0 80 0;
+#X connect 67 0 64 0;
+#X connect 69 0 80 0;
+#X connect 71 0 72 0;
+#X connect 72 0 74 0;
+#X connect 73 0 76 0;
+#X connect 74 0 73 0;
+#X connect 74 1 76 0;
+#X connect 75 0 24 0;
+#X connect 76 0 75 0;
+#X connect 76 1 75 1;
+#X connect 76 2 6 0;
+#X connect 76 2 57 0;
+#X connect 76 3 19 0;
+#X connect 76 3 61 0;
+#X connect 77 0 22 0;
+#X connect 80 0 67 0;
+#X connect 81 0 64 0;
+#X connect 83 0 71 0;
+#X connect 87 0 92 0;
+#X connect 89 0 87 1;
+#X connect 90 0 91 0;
+#X connect 91 0 87 0;
+#X connect 92 0 81 0;
+#X connect 92 0 94 0;
+#X connect 92 1 94 0;
+#X coords 0 -1 1 1 60 15 2 20 20;

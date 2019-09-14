@@ -1,0 +1,120 @@
+#N canvas 798 495 675 440 10;
+#X declare -stdlib Gem -lib Gem;
+#X obj 30 72 inlet;
+#X obj 30 193 outlet;
+#X obj 38 20 hsl 80 15 0 1 0 0 \$0-fader \$0-fader-r blend 25 8 1 10
+-180224 -1 -99865 7900 1;
+#X msg 105 145 1 1 1 \$1, f 13;
+#X obj 30 170 color 1 1 1 1;
+#X obj 30 144 alpha;
+#X obj 20 20 tgl 15 0 \$0-alpha \$0-alpha-r 1 17 10 1 9 -4032 -1 -99865
+1 1;
+#X obj 418 230 loadbang;
+#X obj 529 339 s \$0-fader-r;
+#X obj 529 392 s \$0-alpha-r;
+#X obj 105 121 r \$0-fader;
+#X obj 51 98 r \$0-alpha;
+#X obj 225 72 inlet;
+#X obj 331 168 clip 0 1;
+#X obj 245 144 clip 0 1;
+#X obj 59 302 route 0;
+#X obj 92 328 s \$0-in;
+#X obj 111 302 route;
+#X obj 437 287 \$1;
+#X obj 437 310 sel 0;
+#X obj 437 355 v \$0-inst;
+#X obj 176 260 r \$0-lb;
+#X msg 437 332 -1;
+#X obj 176 285 v \$0-inst;
+#X text 172 18 ARGUMENTS:;
+#X text 171 32 1.) instance number;
+#X msg 209 362 label \$1;
+#X obj 209 339 makefilename %d;
+#X obj 24 72 cnv 5 5 17 empty empty empty 20 12 0 14 -118750 -66577
+0;
+#X obj 24 193 cnv 5 5 17 empty empty empty 20 12 0 14 -102336 -66577
+0;
+#X obj 523 339 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 523 392 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 99 121 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X obj 45 98 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X obj 219 72 cnv 5 5 17 empty empty empty 20 12 0 14 -118750 -66577
+0;
+#X obj 53 278 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X obj 86 328 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 431 355 cnv 5 5 17 empty empty empty 20 12 0 14 -194048 -66577
+0;
+#X obj 170 260 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X obj 170 285 cnv 5 5 17 empty empty empty 20 12 0 14 -194048 -66577
+0;
+#X obj 203 388 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 267 72 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X obj 413 18 cnv 14 200 15 empty empty empty 2 2 0 9 -253181 -66577
+0;
+#X text 30 52 gemlist;
+#X text 27 212 gemlist;
+#X text 219 52 messages;
+#X obj 418 252 t b b b, f 19;
+#X msg 529 304 1;
+#X obj 412 392 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 418 392 s \$0-lb;
+#X msg 356 371 label;
+#X obj 59 278 r ol_gem_blend;
+#X obj 273 72 r \$0-in;
+#X obj 176 308 sel -1;
+#X obj 209 388 s \$0-alpha-r;
+#X obj 331 145 line, f 9;
+#X obj 170 194 outlet;
+#X obj 164 194 cnv 5 5 17 empty empty empty 20 12 0 14 -102336 -66577
+0;
+#X text 164 215 fader value;
+#X obj 412 17 declare -stdlib Gem -lib Gem, f 33;
+#X obj 245 95 route on list float;
+#X connect 0 0 5 0;
+#X connect 3 0 4 1;
+#X connect 4 0 1 0;
+#X connect 5 0 4 0;
+#X connect 7 0 46 0;
+#X connect 10 0 3 0;
+#X connect 10 0 56 0;
+#X connect 11 0 5 0;
+#X connect 12 0 60 0;
+#X connect 13 0 8 0;
+#X connect 14 0 9 0;
+#X connect 15 0 16 0;
+#X connect 15 1 17 0;
+#X connect 17 0 16 0;
+#X connect 18 0 19 0;
+#X connect 19 0 22 0;
+#X connect 19 1 20 0;
+#X connect 21 0 23 0;
+#X connect 22 0 20 0;
+#X connect 23 0 17 1;
+#X connect 23 0 53 0;
+#X connect 26 0 54 0;
+#X connect 27 0 26 0;
+#X connect 46 0 49 0;
+#X connect 46 1 18 0;
+#X connect 46 2 47 0;
+#X connect 46 2 50 0;
+#X connect 47 0 8 0;
+#X connect 47 0 9 0;
+#X connect 50 0 54 0;
+#X connect 51 0 15 0;
+#X connect 52 0 60 0;
+#X connect 53 1 27 0;
+#X connect 55 0 13 0;
+#X connect 60 0 14 0;
+#X connect 60 1 55 0;
+#X connect 60 2 55 0;
+#X coords 0 -1 1 1 100 15 2 20 20;

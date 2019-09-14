@@ -1,0 +1,16 @@
+EXEC_NAME ABSOLUTE_PATH_WITH_QUOTES;
+[WINDOWS];
+ffmpeg "D:/STANDALONES/_EXE_/ffmpeg.exe";
+ffprobe "D:/STANDALONES/_EXE_/ffprobe.exe";
+sox "D:/STANDALONES/_EXE_/SOX/sox.exe";
+pdsend "D:/pd_0.48/bin/pdsend.exe";
+fart "D:/STANDALONES/_EXE_/fart.exe";
+[/WINDOWS];
+[LINUX];
+ffmpeg /usr/local/bin/ffmpeg;
+ffprobe /usr/local/bin/ffprobe;
+[/LINUX];
+[MACOS];
+ffmpeg /usr/local/bin/ffmpeg;
+ffprobe /usr/local/bin/ffprobe;
+[/MACOS];

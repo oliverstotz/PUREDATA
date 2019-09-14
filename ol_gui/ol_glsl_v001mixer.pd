@@ -1,0 +1,316 @@
+#N canvas 346 50 1083 614 10;
+#X declare -stdlib Gem -lib Gem;
+#X declare -stdlib zexy -lib zexy;
+#X declare -stdpath tof -path tof;
+#X obj 56 451 glsl_program;
+#X obj 151 388 pack 0 0;
+#X obj 169 348 t b f;
+#X obj 169 323 change;
+#X msg 151 412 link \$1 \$2;
+#X obj 56 295 glsl_vertex;
+#X obj 56 322 glsl_fragment;
+#X obj 151 295 change;
+#X obj 56 169 inlet;
+#X msg 396 529 amount \$1 \$1 \$1 \$1;
+#X obj 781 224 inlet;
+#X obj 781 378 s \$0-amount-r;
+#X floatatom 472 482 5 0 0 0 - - -, f 5;
+#X obj 396 481 r \$0-amount;
+#X obj 155 11 hradio 8 1 0 5 \$0-info \$0-info-r empty 0 -8 0 10 -262144
+-1 -1 1;
+#X obj 114 11 hradio 8 1 0 5 \$0-mid \$0-mid-r empty 0 -8 0 10 -262144
+-1 -1 1;
+#X obj 11 11 cnv 5 184 31 empty empty v001-mixer 112 5 0 11 -261682
+-4160 0;
+#X obj 14 24 nbx 4 15 0 23 0 0 \$0-mixmode \$0-mixmode-r additive 1
+-8 0 11 -262144 -1 -1 0 256;
+#X obj 62 24 hsl 128 15 0 1 0 0 \$0-amount \$0-amount-r empty 43 7
+1 10 -262144 -1 -1 0 0;
+#X obj 736 191 r \$0-mid;
+#X msg 736 239 0.5;
+#X obj 736 215 t b;
+#X obj 781 322 clip 0 1;
+#X obj 325 134 r \$0-mixmode;
+#X obj 338 205 symbol;
+#X obj 338 250 s \$0-mixmode-r;
+#X msg 338 228 label \$1;
+#X obj 611 289 v \$0-howmany;
+#X obj 66 419 r \$0-glsl;
+#X obj 151 435 s \$0-glsl;
+#X obj 396 552 s \$0-glsl;
+#X obj 618 433 s \$0-mixmode-r;
+#X msg 618 395 range 0 \$1;
+#X obj 396 504 f;
+#X obj 156 468 t b b;
+#X obj 156 561 s \$0-amount-r;
+#X obj 586 395 \$1;
+#X obj 601 328 t b f b b;
+#X msg 674 329 label;
+#X obj 840 350 s \$0-mixmode-r;
+#X obj 840 322 clip 0 1;
+#X obj 904 322 s \$0-glsl;
+#X msg 904 290 tex0 \$1 \, tex1 \$2;
+#X obj 800 135 text define -k \$0-mixmodes;
+#A set additive \; alphablend \; average \; brightlight \; burn \;
+darken \; difference \; dodge \; exclude \; freeze \; glow \; hardlight
+\; heat \; inverse \; lighten \; multiply \; negate \; overlay \; reflect
+\; screen \; softlight \; stamp \; subtractive \;;
+#X obj 601 264 text size \$0-mixmodes;
+#X obj 338 182 text get \$0-mixmodes;
+#X obj 913 414 text search \$0-mixmodes;
+#X obj 1000 385 symbol;
+#X obj 967 440 s \$0-mixmode-r;
+#X obj 913 440 sel -1;
+#X obj 64 40 cnv 2 2 2 \$0-tex1 \$0-tex1-r texunit:1 2 -8 1 10 -261682
+-45076 0;
+#X obj 163 40 cnv 2 2 2 \$0-tex2 \$0-tex2-r texunit:2 -14 -8 1 10 -261682
+-45076 0;
+#X msg 681 521 label;
+#X obj 729 546 s \$0-tex1-r;
+#X obj 729 566 s \$0-tex2-r;
+#X obj 728 468 route tex0 tex1;
+#X msg 729 521 label \$1;
+#X msg 817 521 label \$1;
+#X obj 50 169 cnv 5 5 17 empty empty empty 20 12 0 14 -118750 -66577
+0;
+#X obj 775 223 cnv 5 5 17 empty empty empty 20 12 0 14 -118750 -66577
+0;
+#X obj 775 378 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 390 481 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X obj 730 191 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X obj 319 134 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X obj 332 250 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 60 419 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X obj 145 435 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 390 552 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 612 433 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 150 561 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 834 350 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 898 322 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 961 440 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 723 546 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 723 566 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X msg 12 419 print;
+#X obj 701 494 makefilename texunit:%d;
+#X obj 852 494 makefilename texunit:%d;
+#X obj 823 225 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X obj 829 225 r \$0-in;
+#X msg 183 499 tex 1 2;
+#X obj 177 523 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 183 523 s \$0-in;
+#X obj 601 240 t b b;
+#X obj 595 218 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X obj 253 391 list prepend set;
+#X obj 253 408 list trim;
+#X obj 247 431 cnv 5 5 17 empty empty empty 20 12 0 14 -137280 -66577
+0;
+#X obj 533 521 outlet;
+#X obj 527 521 cnv 5 5 17 empty empty empty 20 12 0 14 -102336 -66577
+0;
+#X text 526 539 fader position;
+#X obj 56 560 square 4;
+#X obj 71 197 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X obj 56 246 translateXYZ 0 0 -4;
+#X obj 71 197 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X obj 40 497 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X obj 56 222 gemframebuffer;
+#X obj 56 534 pix_texture;
+#N canvas 0 50 346 300 info 0;
+#X obj 34 39 t b;
+#X obj 34 15 r \$0-info;
+#X obj 34 63 v \$0-howmany;
+#X obj 34 113 until;
+#X obj 34 89 t f b;
+#X msg 75 89 0;
+#X obj 34 136 f;
+#X obj 61 136 + 1;
+#X obj 34 161 t f f;
+#X obj 34 208 pack 0 s;
+#X obj 34 233 print V001_MIXMODES:;
+#X obj 61 184 text get \$0-mixmodes;
+#X obj 28 15 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X connect 0 0 2 0;
+#X connect 1 0 0 0;
+#X connect 2 0 4 0;
+#X connect 3 0 6 0;
+#X connect 4 0 3 0;
+#X connect 4 1 5 0;
+#X connect 5 0 6 1;
+#X connect 6 0 7 0;
+#X connect 6 0 8 0;
+#X connect 7 0 6 1;
+#X connect 8 0 9 0;
+#X connect 8 1 11 0;
+#X connect 9 0 10 0;
+#X connect 11 0 9 1;
+#X restore 800 159 pd info;
+#X obj 209 239 outlet;
+#X obj 203 239 cnv 5 5 17 empty empty empty 20 12 0 14 -102336 -66577
+0;
+#X obj 338 10 gemhead 1;
+#X msg 338 32 1;
+#X obj 338 56 change -1;
+#X text 400 32 otherwise link will fail !, f 10;
+#X obj 351 104 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 357 104 s \$0-lb;
+#X msg 657 52 rectangle 1;
+#X obj 515 113 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 651 74 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 584 14 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X obj 590 14 r \$0-lb;
+#X obj 338 160 f 0;
+#X obj 601 218 r \$0-lb;
+#X obj 521 113 s \$0-buf;
+#X obj 657 74 s \$0-tex;
+#X obj 77 197 r \$0-buf;
+#X obj 46 497 r \$0-tex;
+#X text 96 168 gemlist;
+#X msg 521 52 type BYTE \, format RGBA \, dimen 120 80 \, rectangle
+1 \, texunit 0, f 19;
+#X obj 309 486 outlet;
+#X obj 303 486 cnv 5 5 17 empty empty empty 20 12 0 14 -102336 -66577
+0;
+#X obj 781 257 route float mode tex symbol dim, f 37;
+#X msg 971 322 dimen \$1 \$2;
+#X obj 965 350 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 971 350 s \$0-buf;
+#X msg 253 431;
+#X obj 801 37 cnv 14 200 50 empty empty empty 2 2 0 9 -253181 -66577
+0;
+#X obj 800 36 declare -stdlib Gem -lib Gem, f 33;
+#X obj 800 53 declare -stdlib zexy -lib zexy, f 33;
+#X obj 800 70 declare -stdpath tof -path tof, f 33;
+#X obj 416 97 path current;
+#X obj 416 119 l2s;
+#X obj 800 98 cnv 10 160 20 empty empty needs GEM ZEXY TOF 10 11
+0 14 -4160 -262144 0;
+#X msg 253 341 open \$2/ol_glsl_shaders/v001_Mixers/v001.co2.vert;
+#X msg 253 367 open \$2/ol_glsl_shaders/v001_Mixers/v001.co2.\$1.frag
+;
+#X obj 283 309 t l l;
+#X obj 338 80 t b b b;
+#X obj 283 287 list append;
+#X connect 0 0 97 0;
+#X connect 0 1 34 0;
+#X connect 0 1 120 0;
+#X connect 1 0 4 0;
+#X connect 2 0 1 0;
+#X connect 2 1 1 1;
+#X connect 3 0 2 0;
+#X connect 4 0 29 0;
+#X connect 5 0 6 0;
+#X connect 5 1 7 0;
+#X connect 6 0 0 0;
+#X connect 6 1 3 0;
+#X connect 7 0 1 0;
+#X connect 8 0 96 0;
+#X connect 9 0 30 0;
+#X connect 10 0 122 0;
+#X connect 13 0 12 0;
+#X connect 13 0 33 0;
+#X connect 19 0 21 0;
+#X connect 20 0 22 0;
+#X connect 21 0 20 0;
+#X connect 22 0 11 0;
+#X connect 23 0 112 0;
+#X connect 24 0 26 0;
+#X connect 24 0 138 0;
+#X connect 26 0 25 0;
+#X connect 28 0 0 0;
+#X connect 32 0 31 0;
+#X connect 33 0 9 0;
+#X connect 33 0 88 0;
+#X connect 34 0 35 0;
+#X connect 34 1 80 0;
+#X connect 36 0 31 0;
+#X connect 37 0 36 0;
+#X connect 37 1 32 0;
+#X connect 37 3 38 0;
+#X connect 38 0 31 0;
+#X connect 40 0 39 0;
+#X connect 42 0 41 0;
+#X connect 42 0 55 0;
+#X connect 44 0 27 0;
+#X connect 44 0 37 0;
+#X connect 44 0 40 2;
+#X connect 45 0 24 0;
+#X connect 46 0 49 0;
+#X connect 47 0 46 0;
+#X connect 49 1 48 0;
+#X connect 52 0 53 0;
+#X connect 52 0 54 0;
+#X connect 55 0 76 0;
+#X connect 55 1 77 0;
+#X connect 56 0 53 0;
+#X connect 57 0 54 0;
+#X connect 75 0 0 0;
+#X connect 76 0 56 0;
+#X connect 77 0 57 0;
+#X connect 79 0 122 0;
+#X connect 80 0 82 0;
+#X connect 83 0 44 0;
+#X connect 83 1 52 0;
+#X connect 85 0 86 0;
+#X connect 86 0 126 0;
+#X connect 93 0 5 0;
+#X connect 96 0 93 0;
+#X connect 96 1 97 1;
+#X connect 96 1 99 0;
+#X connect 97 0 91 0;
+#X connect 101 0 102 0;
+#X connect 102 0 103 0;
+#X connect 103 0 137 0;
+#X connect 107 0 115 0;
+#X connect 111 0 119 0;
+#X connect 111 0 107 0;
+#X connect 112 0 45 0;
+#X connect 113 0 83 0;
+#X connect 116 0 96 0;
+#X connect 117 0 97 0;
+#X connect 119 0 114 0;
+#X connect 122 0 22 0;
+#X connect 122 1 40 0;
+#X connect 122 2 42 0;
+#X connect 122 3 46 0;
+#X connect 122 4 123 0;
+#X connect 122 5 47 0;
+#X connect 123 0 125 0;
+#X connect 131 0 132 0;
+#X connect 132 0 138 1;
+#X connect 134 0 5 0;
+#X connect 135 0 6 0;
+#X connect 135 0 85 0;
+#X connect 136 0 134 0;
+#X connect 136 1 135 0;
+#X connect 137 0 112 0;
+#X connect 137 1 106 0;
+#X connect 137 2 131 0;
+#X connect 138 0 136 0;
+#X coords 0 -1 1 1 186 33 2 10 10;

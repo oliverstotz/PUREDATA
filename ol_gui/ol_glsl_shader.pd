@@ -1,0 +1,601 @@
+#N canvas 501 179 964 744 10;
+#X declare -stdlib Gem -lib Gem;
+#X declare -stdlib zexy -lib zexy;
+#X declare -stdpath tof -path tof;
+#X obj 141 426 t b;
+#X obj 66 401 glsl_program, f 13;
+#X obj 66 284 glsl_vertex, f 26;
+#X obj 66 335 glsl_fragment;
+#X obj 11 11 cnv 5 248 20 \$0-cnv \$0-cnv-r empty 20 12 0 14 -233024
+-66577 0;
+#X obj 79 373 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X obj 13 17 bng 8 250 50 0 \$0-bang \$0-bang-r empty 11 4 0 10 -203904
+-1 -1;
+#X obj 693 10 namecanvas \$0-ol_glsl_shader;
+#X msg 693 56 donecanvasdialog 1 -1 3 0 -1 1 1 \$1 \$2 10 10 10 \,
+dirty 0, f 29;
+#X obj 693 91 s \$0-ol_glsl_shader;
+#X obj 693 34 r \$0-GOP;
+#X obj 687 91 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 687 34 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X obj 85 373 r \$0-p;
+#X obj 83 260 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X obj 89 260 r \$0-v;
+#X obj 81 310 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X obj 87 310 r \$0-f;
+#X obj 170 426 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 176 426 s \$0-p;
+#X obj 322 126 inlet;
+#X obj 316 126 cnv 5 5 17 empty empty empty 20 12 0 14 -118750 -66577
+0;
+#X obj 16 635 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X obj 22 635 r \$0-bang;
+#X msg 22 656 print;
+#X obj 16 678 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 22 678 s \$0-p;
+#X obj 83 260 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X obj 646 10 cnv 13 33 15 empty empty empty 2 7 0 10 -257985 -66577
+0;
+#N canvas 616 130 705 822 LB 0;
+#X obj 122 769 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 128 769 s \$0-f;
+#X obj 175 638 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 181 638 s \$0-v;
+#X obj 238 120 list 0 \$1 \$2 \$3 \$4;
+#X obj 238 144 route 0;
+#X obj 238 169 list split 1;
+#X obj 299 501 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 305 501 s \$0-t;
+#X obj 122 247 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X obj 128 247 r \$0-load;
+#X text 518 480 PARAMS & DEFAULTS;
+#X text 398 615 VERT;
+#X text 348 746 FRAG;
+#X obj 15 518 del 10;
+#X obj 9 563 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 15 496 t b;
+#X obj 234 590 s pd-\$0-GUI;
+#X obj 229 590 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 378 133 s pd-\$0-GUI;
+#X obj 373 133 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X msg 378 110 clear;
+#X obj 234 523 list append \$0;
+#X obj 232 235 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 238 235 s \$0-in;
+#X msg 15 540 1;
+#X obj 456 133 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X msg 461 110 1;
+#X obj 461 133 s \$0-shaderrect-r;
+#X obj 15 563 s \$0-shaderstate-r;
+#X obj 197 286 list fromsymbol;
+#X obj 236 307 list length;
+#X obj 236 329 - 1;
+#X obj 197 307 t l l;
+#X obj 197 350 list split;
+#X obj 197 394 list tosymbol;
+#X obj 164 416 symbol;
+#X obj 128 269 t b s s;
+#X obj 114 416 symbol;
+#X obj 112 303 f;
+#X obj 315 409 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 321 409 s \$0-shaderrect-r;
+#N canvas 601 591 450 300 demux 0;
+#X obj 85 39 inlet;
+#X obj 202 37 inlet;
+#X obj 70 191 outlet;
+#X obj 229 194 outlet;
+#X obj 217 128 spigot;
+#X obj 182 70 == 0;
+#X obj 70 125 spigot 1;
+#X obj 220 71 == 1, f 12;
+#X connect 0 0 4 0;
+#X connect 0 0 6 0;
+#X connect 1 0 5 0;
+#X connect 1 0 7 0;
+#X connect 4 0 3 0;
+#X connect 5 0 6 1;
+#X connect 6 0 2 0;
+#X connect 7 0 4 1;
+#X restore 128 667 pd demux;
+#X obj 225 371 == 48;
+#X obj 321 388 == 0;
+#X obj 106 332 sel 0 1;
+#X text 385 19 shadername \, buffer-index;
+#X obj 238 192 route symbol float;
+#X obj 302 214 t b;
+#X msg 238 214 symbol \$1;
+#X obj 53 26 gemhead 1;
+#X msg 53 48 1;
+#X obj 53 71 t b b;
+#X msg 96 71 0;
+#X obj 53 170 s \$0-lb;
+#X text 41 7 GEM loadbang;
+#X obj 47 170 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 36 94 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 232 69 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X obj 238 69 r \$0-lb;
+#X obj 74 146 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 80 146 s \$0-buf;
+#X obj 213 69 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 20 26 1;
+#X msg 80 95 type BYTE \, format RGBA \, dimen 320 240 \, texunit 0
+, f 19;
+#X obj 295 23 loadbang;
+#X obj 455 155 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 461 155 s \$0-shader*100-r;
+#X obj 451 198 path current;
+#X obj 451 222 l2s;
+#X obj 445 246 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X msg 305 480 read \$2/ol_glsl_shaders/\$1/\$1.txt;
+#X msg 181 616 open \$2/ol_glsl_shaders/\$1/\$1.vert;
+#X obj 128 453 list append;
+#X obj 452 436 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X obj 458 436 r \$0-parent_path;
+#X obj 451 246 s \$0-parent_path;
+#X msg 302 235 symbol bc;
+#X symbolatom 412 284 0 0 0 0 - - -;
+#X obj 238 93 t b b b;
+#X obj 128 479 t l l l l, f 27;
+#X msg 234 569 clear \, obj 0 0 \$2/ol_glsl_shaders/\$1/\$1 \$3;
+#X msg 128 746 open \$2/ol_glsl_shaders/\$1/\$1.frag;
+#X obj 219 667 list split 1;
+#X obj 219 691 makefilename %s0;
+#X obj 219 715 list append;
+#X connect 4 0 5 0;
+#X connect 5 0 6 0;
+#X connect 6 0 47 0;
+#X connect 10 0 37 0;
+#X connect 14 0 25 0;
+#X connect 16 0 14 0;
+#X connect 21 0 19 0;
+#X connect 22 0 81 0;
+#X connect 25 0 29 0;
+#X connect 27 0 28 0;
+#X connect 27 0 67 0;
+#X connect 30 0 33 0;
+#X connect 31 0 32 0;
+#X connect 32 0 34 1;
+#X connect 33 0 34 0;
+#X connect 33 1 31 0;
+#X connect 34 0 35 0;
+#X connect 34 1 43 0;
+#X connect 35 0 36 1;
+#X connect 36 0 73 0;
+#X connect 37 0 39 0;
+#X connect 37 1 38 1;
+#X connect 37 2 30 0;
+#X connect 38 0 73 0;
+#X connect 39 0 45 0;
+#X connect 42 0 82 0;
+#X connect 42 1 83 0;
+#X connect 43 0 39 1;
+#X connect 43 0 42 1;
+#X connect 43 0 44 0;
+#X connect 44 0 41 0;
+#X connect 45 0 38 0;
+#X connect 45 1 36 0;
+#X connect 47 0 49 0;
+#X connect 47 1 48 0;
+#X connect 48 0 77 0;
+#X connect 49 0 24 0;
+#X connect 50 0 51 0;
+#X connect 51 0 52 0;
+#X connect 52 0 54 0;
+#X connect 52 0 57 0;
+#X connect 52 1 53 0;
+#X connect 52 1 64 0;
+#X connect 53 0 50 0;
+#X connect 59 0 79 0;
+#X connect 62 0 79 0;
+#X connect 63 0 50 0;
+#X connect 64 0 61 0;
+#X connect 68 0 69 0;
+#X connect 69 0 76 0;
+#X connect 69 0 78 0;
+#X connect 71 0 8 0;
+#X connect 72 0 3 0;
+#X connect 73 0 80 0;
+#X connect 75 0 73 1;
+#X connect 77 0 24 0;
+#X connect 79 0 4 0;
+#X connect 79 1 21 0;
+#X connect 79 1 27 0;
+#X connect 79 2 68 0;
+#X connect 80 0 16 0;
+#X connect 80 0 42 0;
+#X connect 80 1 72 0;
+#X connect 80 2 22 0;
+#X connect 80 3 71 0;
+#X connect 81 0 17 0;
+#X connect 82 0 1 0;
+#X connect 83 0 84 0;
+#X connect 83 1 85 1;
+#X connect 84 0 85 0;
+#X connect 85 0 82 0;
+#X restore 646 9 pd LB;
+#X obj 686 208 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X obj 692 230 text define \$0-shader;
+#X msg 761 213 click;
+#X obj 283 215 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 289 215 s \$0-load;
+#X obj 24 21 cnv 5 5 5 empty empty SHADER 0 0 1 11 -233024 -66577 0
+;
+#X obj 71 14 tgl 12 0 \$0-shaderstate \$0-shaderstate-r on 15 5 1 10
+-262144 -1 -1 1 1;
+#X obj 102 14 tgl 12 0 \$0-shaderrect \$0-shaderrect-r rect 15 5 1
+10 -262144 -1 -1 1 1;
+#X obj 692 208 r \$0-t;
+#X obj 141 474 s \$0-loaded;
+#X obj 136 474 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 644 305 text size \$0-shader;
+#X obj 644 372 until;
+#X obj 644 396 f;
+#X obj 681 396 + 1;
+#X msg 743 349 0;
+#X obj 693 447 text get \$0-shader;
+#X obj 693 491 route //;
+#X obj 693 468 list trim;
+#X obj 687 518 list prepend;
+#X obj 687 540 list trim;
+#X obj 638 283 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X obj 644 283 r \$0-loaded;
+#X obj 687 160 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X msg 762 165 click;
+#X obj 693 182 text define \$0-PRESETS;
+#X obj 693 160 r \$0-tpr;
+#X msg 756 396 clear;
+#X obj 750 420 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 756 420 s \$0-tpr;
+#X obj 827 594 text set \$0-PRESETS 99999, f 10;
+#X obj 741 610 list split 1;
+#X obj 741 633 symbol;
+#X obj 660 610 list split 1;
+#X obj 694 680 s;
+#X obj 741 656 makefilename \$0-%s-r;
+#X obj 687 584 t a a;
+#X obj 516 501 text get \$0-PRESETS;
+#X obj 516 479 r \$0-GUI-presets;
+#X obj 516 523 list split 1;
+#X obj 550 567 list trim;
+#X obj 510 479 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X msg 766 39 250 75;
+#X obj 250 126 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X obj 256 126 r \$0-in;
+#X obj 159 335 change -1;
+#X obj 176 381 pack, f 8;
+#X msg 176 403 link \$1 \$2;
+#X obj 159 357 t f b;
+#N canvas 0 50 450 300 \$0-GUI 0;
+#X obj 0 0 /home/oliver/Documents/Pd/externals/ol_gui/ol_glsl_shaders/bc/bc
+1283;
+#X coords 0 -1 1 1 250 40 2 0 0;
+#X restore 10 32 pd \$0-GUI;
+#X obj 289 189 symbol;
+#X obj 60 234 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X obj 60 234 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X obj 66 234 r \$0-shaderstate;
+#X obj 510 598 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X obj 510 664 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 516 598 r \$0-shaderrect;
+#X obj 516 664 s \$0-tex;
+#X obj 21 547 pix_texture;
+#X msg 516 642 rectangle \$1;
+#X obj 516 621 change -1;
+#X obj 407 10 cnv 14 200 50 empty empty empty 2 2 0 9 -253181 -66577
+0;
+#X obj 142 451 cnv 3 50 15 empty empty empty 2 7 0 10 -257985 -66577
+0;
+#X text 314 105 messages;
+#X obj 510 686 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 516 686 s \$0-buf;
+#X obj 21 260 demux, f 8;
+#X text 424 130 1.) shadername (BC);
+#X text 423 116 arguments (defaults):;
+#X obj 138 530 inlet;
+#X obj 132 530 cnv 5 5 17 empty empty empty 20 12 0 14 -118750 -66577
+0;
+#X text 105 507 gemframebuffer id, f 18;
+#X obj 21 108 inlet;
+#X obj 15 108 cnv 5 5 17 empty empty empty 20 12 0 14 -118750 -66577
+0;
+#X text 15 87 gemlist;
+#X obj 21 570 square 4;
+#X obj 230 14 nbx 2 12 0 99 0 0 \$0-texunit \$0-texunit-r texunit -35
+6 1 10 -262144 -1 -4160 0 256;
+#N canvas 0 50 299 185 shut_ 0;
+#X obj 30 20 inlet;
+#X obj 30 134 outlet;
+#X obj 30 51 t b a;
+#X msg 30 75 0;
+#X obj 80 20 inlet;
+#X obj 80 50 t b;
+#X msg 80 73 1;
+#X text 150 24 right inlet opens \, left inlet passes first item \,
+then closes, f 18;
+#X obj 24 20 cnv 5 5 17 empty empty empty 20 12 0 14 -118750 -66577
+0;
+#X obj 24 134 cnv 5 5 17 empty empty empty 20 12 0 14 -102336 -66577
+0;
+#X obj 74 20 cnv 5 5 17 empty empty empty 20 12 0 14 -118750 -66577
+0;
+#X obj 30 111 spigot 0;
+#X obj 105 126 cnv 15 170 25 empty empty shut_by_default_! 20 13 0
+14 -233017 -66577 0;
+#X obj 105 146 cnv 2 170 2 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X connect 0 0 2 0;
+#X connect 2 0 3 0;
+#X connect 2 1 11 0;
+#X connect 3 0 11 1;
+#X connect 4 0 5 0;
+#X connect 5 0 6 0;
+#X connect 6 0 11 1;
+#X connect 11 0 1 0;
+#X restore 141 450 pd shut_;
+#X obj 33 155 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X obj 21 181 gemframebuffer;
+#X obj 21 203 translateXYZ 0 0 -4;
+#X obj 33 155 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X obj 39 155 r \$0-buf;
+#X msg 591 625 1;
+#X obj 155 198 outlet;
+#X obj 149 198 cnv 5 5 17 empty empty empty 20 12 0 14 -102336 -66577
+0;
+#X text 145 215 framebuffer id;
+#X msg 138 552 \$2 \$3;
+#X obj 138 574 unpack, f 8;
+#X obj 138 596 change;
+#X obj 183 596 change;
+#X obj 138 648 pack;
+#X obj 183 617 t b f;
+#X msg 138 670 dimen \$1 \$2;
+#X text 173 646 update gfb dimen;
+#X obj 132 692 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 138 692 s \$0-buf;
+#X obj 113 671 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 231 556 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X obj 237 556 r \$0-lb;
+#X msg 237 579 set -2;
+#X msg 363 191 dimen \$1 \$2;
+#X obj 357 214 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 363 214 s \$0-buf;
+#X obj 425 214 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 431 214 s \$0-PR-r;
+#X msg 380 144 C 3;
+#X obj 284 368 send;
+#X obj 278 368 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 284 282 list split 1;
+#X obj 284 306 t b s, f 6;
+#X obj 284 330 f;
+#X obj 317 330 list prepend \$0;
+#X msg 317 351 symbol \$1-\$2-r;
+#X text 287 262 anything else: param;
+#X obj 550 545 repack 2;
+#X obj 644 349 t f f b, f 12;
+#X obj 644 419 t f f, f 7;
+#X text 496 419 retrigger last param command after load (probably not
+so good ?), f 24;
+#X obj 689 680 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 317 391 list prepend set;
+#X obj 317 408 list trim;
+#X msg 317 425 1004-C-r;
+#X obj 644 327 min 100;
+#X text 707 325 safety limit;
+#X obj 715 395 - 1;
+#X obj 644 446 select;
+#X obj 139 14 tgl 12 0 \$0-shader*100 \$0-shader*100-r *100 17 6 1
+10 -262144 -1 -1 1 1;
+#X obj 333 495 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X obj 339 495 r \$0-params;
+#X obj 360 518 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X obj 366 518 r \$0-shader*100;
+#X obj 339 540 demux;
+#X obj 366 562 list split 1;
+#X obj 333 660 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 339 660 s \$0-p;
+#X obj 366 609 list;
+#X obj 387 586 * 0.01;
+#X obj 366 632 list trim;
+#X obj 311 425 cnv 5 5 17 empty empty empty 20 12 0 14 -96640 -66577
+0;
+#X obj 775 518 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X obj 781 518 r \$0-shader*100;
+#X obj 694 633 demux;
+#X obj 700 656 * 100;
+#X obj 289 161 route symbol bang dimen preset parscale, f 40;
+#X obj 472 191 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 478 191 s \$0-shader*100-r;
+#X obj 687 562 route PARAMS RECTANGLE PRESETS SCALETOG;
+#X text 756 542 parse the .txt file:;
+#X obj 794 678 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 800 678 s \$0-shader*100-r;
+#X obj 738 705 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 744 705 s \$0-shaderrect-r;
+#X obj 406 9 declare -stdlib Gem -lib Gem, f 33;
+#X obj 406 26 declare -stdlib zexy -lib zexy, f 33;
+#X obj 406 43 declare -stdpath tof -path tof, f 33;
+#X obj 406 69 cnv 10 160 20 empty empty needs GEM ZEXY TOF 10 11
+0 14 -4160 -262144 0;
+#X connect 0 0 107 0;
+#X connect 1 0 88 0;
+#X connect 1 1 0 0;
+#X connect 2 0 3 0;
+#X connect 2 1 76 1;
+#X connect 3 0 1 0;
+#X connect 3 1 75 0;
+#X connect 8 0 9 0;
+#X connect 10 0 8 0;
+#X connect 13 0 1 0;
+#X connect 15 0 2 0;
+#X connect 17 0 3 0;
+#X connect 20 0 174 0;
+#X connect 23 0 24 0;
+#X connect 24 0 26 0;
+#X connect 32 0 31 0;
+#X connect 38 0 31 0;
+#X connect 41 0 153 0;
+#X connect 42 0 43 0;
+#X connect 43 0 44 0;
+#X connect 43 0 147 0;
+#X connect 44 0 43 1;
+#X connect 45 0 43 1;
+#X connect 46 0 48 0;
+#X connect 47 0 49 1;
+#X connect 47 1 49 0;
+#X connect 48 0 47 0;
+#X connect 49 0 50 0;
+#X connect 50 0 177 0;
+#X connect 52 0 41 0;
+#X connect 54 0 55 0;
+#X connect 56 0 55 0;
+#X connect 57 0 59 0;
+#X connect 61 0 62 0;
+#X connect 62 0 65 0;
+#X connect 63 1 172 0;
+#X connect 65 0 64 1;
+#X connect 66 0 63 0;
+#X connect 66 1 61 0;
+#X connect 67 0 69 0;
+#X connect 68 0 67 0;
+#X connect 69 1 145 0;
+#X connect 70 0 66 0;
+#X connect 72 0 8 0;
+#X connect 74 0 174 0;
+#X connect 75 0 78 0;
+#X connect 76 0 77 0;
+#X connect 77 0 19 0;
+#X connect 78 0 76 0;
+#X connect 78 1 107 1;
+#X connect 80 0 34 0;
+#X connect 83 0 96 1;
+#X connect 86 0 90 0;
+#X connect 88 0 105 0;
+#X connect 89 0 87 0;
+#X connect 89 0 95 0;
+#X connect 90 0 89 0;
+#X connect 96 0 88 0;
+#X connect 96 1 2 0;
+#X connect 99 0 88 1;
+#X connect 99 0 117 0;
+#X connect 102 0 109 0;
+#X connect 107 0 39 0;
+#X connect 109 0 110 0;
+#X connect 109 1 114 0;
+#X connect 110 0 96 0;
+#X connect 112 0 109 0;
+#X connect 113 0 89 0;
+#X connect 117 0 118 0;
+#X connect 118 0 119 0;
+#X connect 118 1 120 0;
+#X connect 119 0 121 0;
+#X connect 120 0 122 0;
+#X connect 121 0 123 0;
+#X connect 121 0 127 0;
+#X connect 122 0 121 0;
+#X connect 122 1 121 1;
+#X connect 123 0 126 0;
+#X connect 129 0 130 0;
+#X connect 130 0 119 0;
+#X connect 130 0 120 0;
+#X connect 131 0 133 0;
+#X connect 136 0 174 0;
+#X connect 139 0 140 0;
+#X connect 139 1 141 1;
+#X connect 140 0 141 0;
+#X connect 140 1 142 0;
+#X connect 141 0 137 0;
+#X connect 142 0 143 0;
+#X connect 143 0 137 1;
+#X connect 143 0 150 0;
+#X connect 145 0 70 0;
+#X connect 146 0 42 0;
+#X connect 146 1 155 0;
+#X connect 146 2 45 0;
+#X connect 146 2 57 0;
+#X connect 147 0 156 0;
+#X connect 147 1 46 0;
+#X connect 150 0 151 0;
+#X connect 151 0 152 0;
+#X connect 153 0 146 0;
+#X connect 155 0 156 1;
+#X connect 156 0 141 0;
+#X connect 159 0 162 0;
+#X connect 161 0 162 1;
+#X connect 162 0 165 0;
+#X connect 162 1 163 0;
+#X connect 163 0 166 0;
+#X connect 163 1 167 0;
+#X connect 166 0 168 0;
+#X connect 167 0 166 1;
+#X connect 168 0 165 0;
+#X connect 171 0 172 1;
+#X connect 172 0 64 0;
+#X connect 172 1 173 0;
+#X connect 173 0 64 0;
+#X connect 174 0 80 0;
+#X connect 174 1 80 0;
+#X connect 174 2 131 0;
+#X connect 174 3 135 0;
+#X connect 174 4 176 0;
+#X connect 174 5 139 0;
+#X connect 177 0 66 0;
+#X connect 177 1 182 0;
+#X connect 177 2 60 0;
+#X connect 177 3 180 0;
+#X coords 0 -1 1 1 250 62 2 10 10;
