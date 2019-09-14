@@ -1,0 +1,277 @@
+#N struct 1009-template float x float y float q array 1009-poswave
+1009-array-element array 1009-negwave 1009-array-element;
+#N struct 1009-array-element float y;
+#N canvas 313 92 1172 780 10;
+#X declare -stdpath ol_gui -path ol_gui -stdpath ol_abs -path ol_abs
+;
+#X obj 713 414 ol_msg;
+#X text 663 413 ol_msg;
+#X text 53 195 ol_knob;
+#X text 59 273 ol_num;
+#X text 53 316 ol_grid;
+#X text 307 449 toggle/bang with text display;
+#X text 47 113 ol_ggate;
+#X text 35 126 ol_gswitch;
+#X obj 156 119 ol_gswitch;
+#X obj 713 168 ol_gpak;
+#X text 654 168 ol_gpak;
+#X text 648 192 ol_gpak3;
+#X obj 713 191 ol_gpak3;
+#X text 41 158 ol_spigot;
+#X text 303 156 graphical spigot;
+#X text 56 485 ol_tab;
+#X obj 111 361 ol_rslider;
+#X text 33 363 ol_rslider;
+#X text 307 360 region slider (has 5 modes);
+#X text 28 405 ol_waveform;
+#X text 308 407 waveform display and selector;
+#X obj 111 402 ol_waveform \$0-waveform 120 30;
+#X text 623 103 ol_cellblock;
+#X obj 713 82 ol_cellblock;
+#X text 39 449 ol_toggle;
+#X text 648 214 ol_gpak4;
+#X text 944 184 graphical paks, f 9;
+#X obj 713 214 ol_gpak4;
+#X text 43 233 ol_incdec;
+#X text 303 231 up/down counter;
+#X obj 713 260 ol_metro;
+#X text 848 258 graphical metro;
+#X text 849 342 graphical countdown;
+#X text 649 259 ol_metro;
+#X text 626 342 ol_countdown;
+#X obj 112 272 ol_num;
+#X text 307 573 a popup menu \, with browser function;
+#X text 850 413 display utility;
+#X obj 713 344 ol_countdown;
+#X obj 111 452 ol_toggle;
+#X obj 112 119 ol_ggate;
+#X text 607 308 ol_metrocounter;
+#X text 849 300 timed counter (f.e. for film frames);
+#X obj 111 487 ol_tab;
+#X obj 716 515 cnv 10 10 10 empty empty supports  attributes  on  creation
+20 5 1 10 -258113 -66577 0;
+#X obj 716 548 cnv 10 10 10 empty empty supports  drag  &  drop
+20 5 1 10 -4160 -66577 0;
+#X obj 716 532 cnv 10 10 10 empty empty properties  can  be  set  with  right-click / "properties"
+20 5 1 10 -3330 -66577 0;
+#X obj 716 564 cnv 10 10 10 empty empty empty 20 5 1 10 -99865 -66577
+0;
+#X obj 717 565 cnv 8 8 8 empty empty is  recognized  by  ol_sss  (part  of  "ol_abs")
+20 4 1 10 -262081 -66577 0;
+#X obj 926 108 cnv 8 8 8 empty empty empty 0 0 1 10 -4160 -66577 0
+;
+#X obj 284 278 cnv 8 8 8 empty empty empty 20 5 1 10 -99865 -66577
+0;
+#X obj 285 279 cnv 6 6 6 empty empty empty 0 0 1 10 -262081 -66577
+0;
+#X obj 249 278 cnv 8 8 8 empty empty empty 0 0 1 10 -258113 -66577
+0;
+#X obj 261 278 cnv 8 8 8 empty empty empty 0 0 1 10 -3330 -66577 0
+;
+#X obj 938 108 cnv 8 8 8 empty empty empty 20 5 1 10 -99865 -66577
+0;
+#X obj 939 109 cnv 6 6 6 empty empty empty 0 0 1 10 -262081 -66577
+0;
+#X obj 902 108 cnv 8 8 8 empty empty empty 0 0 1 10 -258113 -66577
+0;
+#X obj 914 108 cnv 8 8 8 empty empty empty 0 0 1 10 -3330 -66577 0
+;
+#X obj 284 201 cnv 8 8 8 empty empty empty 20 5 1 10 -99865 -66577
+0;
+#X obj 285 202 cnv 6 6 6 empty empty empty 0 0 1 10 -262081 -66577
+0;
+#X obj 249 201 cnv 8 8 8 empty empty empty 0 0 1 10 -258113 -66577
+0;
+#X obj 261 201 cnv 8 8 8 empty empty empty 0 0 1 10 -3330 -66577 0
+;
+#X obj 284 124 cnv 8 8 8 empty empty empty 20 5 1 10 -99865 -66577
+0;
+#X obj 285 125 cnv 6 6 6 empty empty empty 0 0 1 10 -262081 -66577
+0;
+#X obj 261 124 cnv 8 8 8 empty empty empty 0 0 1 10 -3330 -66577 0
+;
+#X obj 284 162 cnv 8 8 8 empty empty empty 20 5 1 10 -99865 -66577
+0;
+#X obj 285 163 cnv 6 6 6 empty empty empty 0 0 1 10 -262081 -66577
+0;
+#X obj 261 162 cnv 8 8 8 empty empty empty 0 0 1 10 -3330 -66577 0
+;
+#X obj 273 585 cnv 8 8 8 empty empty empty 0 0 1 10 -4160 -66577 0
+;
+#X obj 285 585 cnv 8 8 8 empty empty empty 20 5 1 10 -99865 -66577
+0;
+#X obj 286 586 cnv 6 6 6 empty empty empty 0 0 1 10 -262081 -66577
+0;
+#X obj 249 585 cnv 8 8 8 empty empty empty 0 0 1 10 -258113 -66577
+0;
+#X obj 261 585 cnv 8 8 8 empty empty empty 0 0 1 10 -3330 -66577 0
+;
+#X text 306 478 sizeable graphical selector;
+#X text 304 490 (like MAX's [tab]);
+#X obj 273 491 cnv 8 8 8 empty empty empty 0 0 1 10 -4160 -66577 0
+;
+#X obj 285 491 cnv 8 8 8 empty empty empty 20 5 1 10 -99865 -66577
+0;
+#X obj 286 492 cnv 6 6 6 empty empty empty 0 0 1 10 -262081 -66577
+0;
+#X obj 249 491 cnv 8 8 8 empty empty empty 0 0 1 10 -258113 -66577
+0;
+#X obj 261 491 cnv 8 8 8 empty empty empty 0 0 1 10 -3330 -66577 0
+;
+#X obj 273 455 cnv 8 8 8 empty empty empty 0 0 1 10 -4160 -66577 0
+;
+#X obj 285 455 cnv 8 8 8 empty empty empty 20 5 1 10 -99865 -66577
+0;
+#X obj 286 456 cnv 6 6 6 empty empty empty 0 0 1 10 -262081 -66577
+0;
+#X obj 249 455 cnv 8 8 8 empty empty empty 0 0 1 10 -258113 -66577
+0;
+#X obj 261 455 cnv 8 8 8 empty empty empty 0 0 1 10 -3330 -66577 0
+;
+#X obj 273 414 cnv 8 8 8 empty empty empty 0 0 1 10 -4160 -66577 0
+;
+#X obj 249 414 cnv 8 8 8 empty empty empty 0 0 1 10 -258113 -66577
+0;
+#X obj 261 414 cnv 8 8 8 empty empty empty 0 0 1 10 -3330 -66577 0
+;
+#X obj 273 367 cnv 8 8 8 empty empty empty 0 0 1 10 -4160 -66577 0
+;
+#X obj 285 367 cnv 8 8 8 empty empty empty 20 5 1 10 -99865 -66577
+0;
+#X obj 286 368 cnv 6 6 6 empty empty empty 0 0 1 10 -262081 -66577
+0;
+#X obj 249 367 cnv 8 8 8 empty empty empty 0 0 1 10 -258113 -66577
+0;
+#X obj 261 367 cnv 8 8 8 empty empty empty 0 0 1 10 -3330 -66577 0
+;
+#X text 301 72 drag and drop a file;
+#X text 302 85 & get its full name;
+#X text 305 309 X/Y grid with settable;
+#X text 304 322 size and colors;
+#X obj 273 321 cnv 8 8 8 empty empty empty 0 0 1 10 -4160 -66577 0
+;
+#X obj 285 321 cnv 8 8 8 empty empty empty 20 5 1 10 -99865 -66577
+0;
+#X obj 286 322 cnv 6 6 6 empty empty empty 0 0 1 10 -262081 -66577
+0;
+#X obj 249 321 cnv 8 8 8 empty empty empty 0 0 1 10 -258113 -66577
+0;
+#X obj 261 321 cnv 8 8 8 empty empty empty 0 0 1 10 -3330 -66577 0
+;
+#X obj 273 83 cnv 8 8 8 empty empty empty 0 0 1 10 -4160 -66577 0;
+#X obj 886 174 cnv 8 8 8 empty empty empty 20 5 1 10 -99865 -66577
+0;
+#X obj 887 175 cnv 6 6 6 empty empty empty 0 0 1 10 -262081 -66577
+0;
+#X obj 886 196 cnv 8 8 8 empty empty empty 20 5 1 10 -99865 -66577
+0;
+#X obj 887 197 cnv 6 6 6 empty empty empty 0 0 1 10 -262081 -66577
+0;
+#X obj 886 220 cnv 8 8 8 empty empty empty 20 5 1 10 -99865 -66577
+0;
+#X obj 887 221 cnv 6 6 6 empty empty empty 0 0 1 10 -262081 -66577
+0;
+#X text 303 110 sizeable graphical gate/switch;
+#X text 301 122 (like the MAX objects);
+#X text 303 266 numberbox with up/down;
+#X text 303 278 arrow function;
+#X text 303 187 scaleable knob with 5;
+#X text 302 200 different knob-images;
+#X text 961 83 highly customizable cell utility. can also be used as
+a file browser or playlist, f 28;
+#X text 959 124 (like MAX's [jit.cellblock]);
+#X obj 713 378 ol_line;
+#X text 656 377 ol_line;
+#X text 849 377 graphical line;
+#X obj 713 294 ol_metrocounter;
+#X obj 112 230 ol_incdec;
+#X obj 249 237 cnv 8 8 8 empty empty empty 0 0 1 10 -258113 -66577
+0;
+#X obj 261 237 cnv 8 8 8 empty empty empty 0 0 1 10 -3330 -66577 0
+;
+#X obj 111 310 ol_grid 100 27;
+#X obj 111 195 ol_knob none 2 2 0 127 0 127;
+#X text 57 672 ol_net;
+#X obj 249 675 cnv 8 8 8 empty empty empty 0 0 1 10 -258113 -66577
+0;
+#X obj 261 675 cnv 8 8 8 empty empty empty 0 0 1 10 -3330 -66577 0
+;
+#X text 307 664 OSC and general netsend /;
+#X text 307 676 netreceive utility;
+#X obj 714 453 ol_key 1;
+#X text 663 451 ol_key;
+#X text 715 468 [ol_key 1];
+#X text 850 461 avoid key repetitions;
+#X text 850 449 Keyname utility \, but also;
+#X obj 261 83 cnv 8 8 8 empty empty empty 0 0 1 10 -3330 -66577 0;
+#X text 45 530 ol_radio;
+#X text 45 581 ol_menu+;
+#X obj 109 581 ol_menu+;
+#X obj 310 595 cnv 3 3 3 empty empty THERE'S ALSO A SIMPLER VERSION: "OL_MENU"
+0 0 0 10 -262144 -258113 0;
+#X obj 110 525 ol_radio 15 8 2 0;
+#X obj 273 538 cnv 8 8 8 empty empty empty 0 0 1 10 -4160 -66577 0
+;
+#X obj 285 538 cnv 8 8 8 empty empty empty 20 5 1 10 -99865 -66577
+0;
+#X obj 286 539 cnv 6 6 6 empty empty empty 0 0 1 10 -262081 -66577
+0;
+#X obj 249 538 cnv 8 8 8 empty empty empty 0 0 1 10 -258113 -66577
+0;
+#X obj 261 538 cnv 8 8 8 empty empty empty 0 0 1 10 -3330 -66577 0
+;
+#X text 306 532 customisable radio with x/y cells;
+#X text 28 79 ol_dropfile;
+#X text 45 625 ol_entry;
+#X obj 109 624 ol_entry;
+#X obj 249 630 cnv 8 8 8 empty empty empty 0 0 1 10 -258113 -66577
+0;
+#X obj 261 630 cnv 8 8 8 empty empty empty 0 0 1 10 -3330 -66577 0
+;
+#X text 307 623 a text entry utility;
+#X obj 112 159 ol_spigot 0 0 16;
+#X obj 111 77 ol_dropfile none 60 20 1 -1.67772e+07 -1 1;
+#X obj 850 554 cnv 3 3 3 empty empty * 0 0 1 18 -262144 -4160 0;
+#X obj 737 583 cnv 3 30 3 empty empty (please see also "02__ol_sss_(state-saving-system).pd" in "ol_abs"
+0 0 1 10 -262144 -4160 0;
+#X obj 110 667 ol_net OSC 0 2345 3456;
+#X text 716 724 Download and install them via DEKEN (Help/Find Externals)
+;
+#X text 716 738 Or see individual help patches for required externals
+;
+#X obj 715 612 cnv 4 350 106 empty empty empty 20 12 0 14 -135232 -66577
+0;
+#X obj 720 667 cnv 10 340 26 empty empty IEMLIB  IEMGUTS  IEMGUI  IEMMATRIX
+10 14 1 16 -203904 -1 0;
+#X obj 720 647 cnv 10 340 26 empty empty DND-PLUGIN  ZEXY  HCS  TOF  GEM
+10 14 1 16 -203904 -1 0;
+#X obj 720 616 cnv 10 340 26 empty empty OL_GUI  OBJECTS  NEED  THE  FOLLOWING  EXTERNALS:
+10 14 1 12 -128992 -262144 0;
+#X obj 720 687 cnv 10 340 26 empty empty (GGEE  MOTEX) 10 14 1 16
+-203904 -1 0;
+#X obj 60 751 cnv 3 3 3 empty empty PLEASE REFER TO "00_README.txt" FOR DRAG AND DROP REQUIREMENTS !
+1 -7 1 12 -262144 -4160 0;
+#X obj 49 747 cnv 3 3 3 empty empty * 0 0 1 18 -262144 -4160 0;
+#N canvas 1156 147 423 170 init 0;
+#X msg 38 91 editmode 0;
+#X obj 38 11 loadbang;
+#X obj 38 116 s \$0-ol_gui;
+#X text 166 52 brauchts unter linux;
+#X obj 38 37 del 100;
+#X connect 0 0 2 0;
+#X connect 1 0 4 0;
+#X connect 4 0 0 0;
+#X restore 242 30 pd init;
+#X obj 292 30 namecanvas \$0-ol_gui;
+#X obj 638 30 declare -stdpath ol_gui -path ol_gui -stdpath ol_abs
+-path ol_abs, f 82;
+#X obj 11 12 cnv 3 1132 39 empty empty empty 20 12 0 14 -66577 -66577
+0;
+#X obj 13 14 cnv 20 1127 35 empty \$0-cnv1 OL_GUI 10 18 1 16 -62784
+-4034 0;
+#X obj 431 14 cnv 8 8 8 empty \$0-cnv1 Control: 80 18 1 26 -62784 -262081
+0;
+#X obj 478 42 cnv 5 20 5 empty \$0-cnv1 empty 460 15 1 20 -62784 -262081
+0;
+#X obj 578 43 cnv 5 20 5 empty \$0-cnv1 empty 460 15 1 20 -62784 -262081
+0;

@@ -1,0 +1,20 @@
+#N canvas 491 330 656 433 10;
+#X obj 1 1 cnv 5 248 38 \$1-cnv \$1-cnv-r empty 2 2 0 7 -204786 -66577
+0;
+#X obj 44 9 nbx 4 14 -1e+037 1e+037 0 0 \$1-blur_size \$1-blur_size-r
+blur_size 0 20 1 10 -262144 -1 -1 0 256;
+#X obj 170 21 hradio 10 1 0 7 \$1-PR \$1-PR-r BC 28 -8 1 11 -262144
+-1 -4160 0;
+#X msg 240 14 just a marker;
+#X obj 213 112 s \$1-GUI-presets;
+#X obj 213 78 r \$1-PR;
+#X text 21 178 will be sent to glsl program in [ol_glsl_shader], f 16;
+#X text 368 -1 every send/receive must be preceded with \$1 (= \$0
+of parent patch), f 23;
+#X msg 38 113 blur_size \$1;
+#X obj 28 79 r \$1-blur_size;
+#X obj 38 143 s \$1-params;
+#X connect 5 0 4 0;
+#X connect 8 0 10 0;
+#X connect 9 0 8 0;
+#X coords 0 -1 1 1 250 40 2 0 0;

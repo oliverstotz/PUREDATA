@@ -1,0 +1,77 @@
+#N canvas 907 525 580 400 10;
+#X obj 115 107 s \$1-GUI-presets;
+#X obj 115 87 r \$1-PR;
+#X text 182 172 will be sent to glsl program in [ol_glsl_shader], f 16
+;
+#X obj 52 87 r \$1-swap;
+#X msg 52 107 swap \$1;
+#X obj 285 84 r \$1-thresh;
+#X obj 130 305 pack 0 0 0 0 0;
+#X msg 130 326 thresh \$2 \$3 \$4 \$5;
+#X obj 285 104 t b f f;
+#X msg 324 124 set \$1;
+#X obj 52 197 t b f;
+#X obj 92 220 t b f;
+#X obj 142 242 t b f;
+#X obj 192 264 t b f;
+#X obj 324 144 s \$1-thresh1-r;
+#X obj 324 165 s \$1-thresh2-r;
+#X obj 324 186 s \$1-thresh3-r;
+#X obj 324 207 s \$1-thresh4-r;
+#X obj 192 244 r \$1-thresh4;
+#X obj 142 222 r \$1-thresh3;
+#X obj 92 200 r \$1-thresh2;
+#X obj 52 177 r \$1-thresh1;
+#X text 368 -1 every send/receive must be preceded with \$1 (= \$0
+of parent patch), f 23;
+#X obj 1 1 cnv 5 248 38 \$1-cnv \$1-cnv-r empty 2 2 0 7 -204786 -66577
+0;
+#X obj 120 12 tgl 14 0 \$1-swap \$1-swap-r swap -5 20 1 10 -262144
+-1 -1 0 1;
+#X obj 8 4 hsl 80 8 0 1 0 0 \$1-thresh1 \$1-thresh1-r empty 0 3 0 10
+-260129 -1 -1 3950 1;
+#X obj 8 12 hsl 80 8 0 1 0 0 \$1-thresh2 \$1-thresh2-r empty 0 0 0
+10 -135137 -1 -1 3950 1;
+#X obj 8 20 hsl 80 8 0 1 0 0 \$1-thresh3 \$1-thresh3-r empty 0 0 0
+10 -178880 -1 -1 3950 1;
+#X obj 8 28 hsl 80 8 0 1 0 0 \$1-thresh4 \$1-thresh4-r empty 0 0 0
+10 -262144 -1 -1 3950 1;
+#X obj 90 6 vsl 12 27 0 1 0 0 \$1-thresh \$1-thresh-r thresh -58 14
+1 12 -262130 -1 -262144 1300 1;
+#X obj 170 21 hradio 10 1 0 7 \$1-PR \$1-PR-r THRESHOLD 4 -8 1 11 -262144
+-1 -4160 0;
+#X msg 240 14 just a marker;
+#X obj 52 127 s \$1-p;
+#X obj 130 347 s \$1-p;
+#X text 323 239 this patch sends his parameters to [\$0-p] \, (which
+means directly to [glsl_program]) \, thus bypassing the *100 switch.
+, f 24;
+#X connect 1 0 0 0;
+#X connect 3 0 4 0;
+#X connect 4 0 32 0;
+#X connect 5 0 8 0;
+#X connect 6 0 7 0;
+#X connect 7 0 33 0;
+#X connect 8 0 6 0;
+#X connect 8 1 6 4;
+#X connect 8 1 6 3;
+#X connect 8 1 6 2;
+#X connect 8 1 6 1;
+#X connect 8 2 9 0;
+#X connect 9 0 14 0;
+#X connect 9 0 15 0;
+#X connect 9 0 16 0;
+#X connect 9 0 17 0;
+#X connect 10 0 6 0;
+#X connect 10 1 6 1;
+#X connect 11 0 6 0;
+#X connect 11 1 6 2;
+#X connect 12 0 6 0;
+#X connect 12 1 6 3;
+#X connect 13 0 6 0;
+#X connect 13 1 6 4;
+#X connect 18 0 13 0;
+#X connect 19 0 12 0;
+#X connect 20 0 11 0;
+#X connect 21 0 10 0;
+#X coords 0 -1 1 1 250 40 2 0 0;

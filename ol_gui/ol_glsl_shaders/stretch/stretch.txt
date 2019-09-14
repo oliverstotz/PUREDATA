@@ -1,0 +1,15 @@
+// PARAMS;
+width 0 0;
+origin 0 0;
+// PRESETS;
+0 width_x 0 width_y 0 origin_x 0 origin_y 0;
+0 width_x 0 width_y 300 origin_x -400 origin_y 0;
+0 width_x 450 width_y 580 origin_x 0 origin_y 0;
+0 width_x 300 width_y 1040 origin_x 0 origin_y 230;
+0 width_x 800 width_y 1300 origin_x 800 origin_y 230;
+0 width_x 640 width_y 750 origin_x 0 origin_y -100;
+0 width_x 640 width_y 1000 origin_x 500 origin_y 150;
+// SCALETOG;
+0;
+// RECTANGLE;
+1;

@@ -1,0 +1,14 @@
+// RECTANGLE;
+1;
+// SCALETOG;
+1;
+// PARAMS;
+scale 1;
+// PRESETS;
+0 scale 1;
+1 scale 10;
+2 scale 20;
+3 scale 40;
+4 scale 60;
+5 scale 80;
+6 scale 100;

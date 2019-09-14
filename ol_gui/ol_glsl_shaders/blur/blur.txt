@@ -1,0 +1,14 @@
+// RECTANGLE;
+1;
+// SCALETOG;
+1;
+// PARAMS;
+blur_size 0;
+// PRESETS;
+0 blur_size 0;
+1 blur_size 1;
+2 blur_size 2;
+3 blur_size 3;
+4 blur_size 5;
+5 blur_size 7;
+6 blur_size 10;

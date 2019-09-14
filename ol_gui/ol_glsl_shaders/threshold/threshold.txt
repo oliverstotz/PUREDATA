@@ -1,0 +1,15 @@
+// RECTANGLE;
+1;
+// SCALETOG;
+1;
+// PARAMS;
+thresh 0.5 0.5 0.5 0.5;
+swap 0;
+// PRESETS;
+0 thresh 0.5 swap 0;
+1 thresh 0.5 swap 1;
+2 thresh 0.25 swap 0;
+3 thresh 0.25 swap 1;
+4 thresh1 0.8 thresh2 0.2 thresh3 0.3 thresh4 1 swap 0;
+5 thresh1 0.4 thresh2 0.4 thresh3 1 thresh4 1 swap 0;
+6 thresh1 0.5 thresh2 0.5 thresh3 0 thresh4 1 swap 0;

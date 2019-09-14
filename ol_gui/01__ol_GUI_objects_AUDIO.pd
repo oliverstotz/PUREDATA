@@ -1,0 +1,104 @@
+#N canvas 407 92 993 707 10;
+#X declare -stdpath ol_gui -path ol_gui -stdpath ol_abs -path ol_abs
+;
+#X text 29 158 ol_num~;
+#X obj 83 108 ol_vu~ 1;
+#X text 35 108 ol_vu~;
+#X obj 83 252 ol_dac~;
+#X text 29 251 ol_dac~;
+#X text 29 205 ol_vol~;
+#X text 256 246 settable DAC~ outlet \,;
+#X text 255 151 displays signal values \,;
+#X text 255 170 send out an audio signal;
+#X text 256 161 but also has a switch to;
+#X text 257 200 volume slider with, f 21;
+#X text 257 211 mute and VU function;
+#X obj 83 206 ol_vol~;
+#X text 255 105 VU-meter \,;
+#X text 255 114 comes in 2 sizes;
+#X text 785 220 Harddisk player;
+#X obj 82 513 ol_scope~;
+#X text 17 552 ol_scope~;
+#X text 256 560 signal oscilloscope;
+#X obj 82 298 ol_xfade~;
+#X text 18 306 ol_xfade~;
+#X obj 82 495 osc~ 440;
+#X text 258 303 crossfader with ramp;
+#X text 257 257 with volume slider;
+#X text 784 293 speed variable Harddisk player, f 15;
+#X obj 560 468 catch~ out_L;
+#X obj 652 468 catch~ out_R;
+#X text 757 460 just to avoid "no matching catch" warnings:, f 25
+;
+#X text 784 148 Harddisk recorder;
+#X obj 569 152 cnv 2 30 2 empty empty empty 0 6 1 16 -262144 -4160
+0;
+#X obj 629 152 cnv 2 120 2 empty empty empty 0 6 1 16 -262144 -4160
+0;
+#X text 782 230 (uses [ol_readsf~]);
+#X text 781 319 (uses [ol_sfplay~]);
+#X obj 759 229 cnv 8 8 8 empty empty empty 0 0 1 10 -4160 -66577 0
+;
+#X obj 759 310 cnv 8 8 8 empty empty empty 0 0 1 10 -4160 -66577 0
+;
+#X obj 82 375 ol_eq4~;
+#X text 321 405 4-band EQ;
+#X text 27 384 ol_eq4~;
+#X obj 562 128 ol_writesf~ 1;
+#X text 483 306 ol_sfplay~;
+#X text 481 146 ol_writesf~;
+#X text 15 411 ol_eq4-2~;
+#X text 24 424 (stereo;
+#X text 23 434 version);
+#X text 559 613 Download and install them via DEKEN (Help/Find Externals)
+;
+#X text 559 627 Or see individual help patches for required externals
+;
+#X obj 83 159 ol_num~;
+#X obj 562 101 cnv 3 3 3 empty empty OBJECTS WITH OPTIONAL GUI MODE:
+0 0 1 14 -262144 -131136 0;
+#X text 481 228 ol_readsf~;
+#X obj 562 209 ol_readsf~ 1;
+#X obj 759 154 cnv 8 8 8 empty empty empty 0 0 1 10 -4160 -66577 0
+;
+#X obj 562 289 ol_sfplay~ 1;
+#X obj 80 681 cnv 3 3 3 empty empty PLEASE REFER TO "00_README.txt" FOR DRAG AND DROP REQUIREMENTS !
+1 -7 1 12 -262144 -4160 0;
+#X obj 69 677 cnv 3 3 3 empty empty * 0 0 1 18 -262144 -4160 0;
+#X obj 560 412 cnv 10 10 10 empty empty supports  drag  &  drop
+20 5 1 10 -4160 -66577 0;
+#X obj 694 418 cnv 3 3 3 empty empty * 0 0 1 18 -262144 -4160 0;
+#X obj 560 499 cnv 4 350 106 empty empty empty 20 12 0 14 -135232 -66577
+0;
+#X obj 565 554 cnv 10 340 26 empty empty IEMLIB  IEMGUTS  IEMGUI  IEMMATRIX
+10 14 1 16 -203904 -1 0;
+#X obj 565 534 cnv 10 340 26 empty empty DND-PLUGIN  ZEXY  HCS  TOF  GEM
+10 14 1 16 -203904 -1 0;
+#X obj 565 503 cnv 10 340 26 empty empty OL_GUI  OBJECTS  NEED  THE  FOLLOWING  EXTERNALS:
+10 14 1 12 -128992 -262144 0;
+#X obj 565 574 cnv 10 340 26 empty empty (GGEE  MOTEX) 10 14 1 16
+-203904 -1 0;
+#N canvas 1156 147 423 170 init 0;
+#X msg 38 91 editmode 0;
+#X obj 38 11 loadbang;
+#X obj 38 116 s \$0-ol_gui;
+#X text 166 52 brauchts unter linux;
+#X obj 38 37 del 100;
+#X connect 0 0 2 0;
+#X connect 1 0 4 0;
+#X connect 4 0 0 0;
+#X restore 242 30 pd init;
+#X obj 292 30 namecanvas \$0-ol_gui;
+#X obj 458 30 declare -stdpath ol_gui -path ol_gui -stdpath ol_abs
+-path ol_abs, f 82;
+#X obj 11 12 cnv 3 954 39 empty empty empty 20 12 0 14 -66577 -66577
+0;
+#X obj 13 14 cnv 20 950 35 empty \$0-cnv1 OL_GUI 10 18 1 16 -62784
+-4034 0;
+#X obj 351 14 cnv 8 8 8 empty \$0-cnv1 Audio: 80 18 1 26 -62784 -262081
+0;
+#X obj 398 42 cnv 5 20 5 empty \$0-cnv1 empty 460 15 1 20 -62784 -262081
+0;
+#X obj 498 43 cnv 5 20 5 empty \$0-cnv1 empty 460 15 1 20 -62784 -262081
+0;
+#X connect 21 0 16 0;

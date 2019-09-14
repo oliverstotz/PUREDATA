@@ -1,0 +1,15 @@
+// RECTANGLE;
+1;
+// SCALETOG;
+0;
+// PARAMS;
+offset 0 0 0 0;
+width 4;
+// PRESETS;
+0 color 0 width 4;
+1 color 100 width 4;
+2 R 1 G 0 B 0 width 4;
+3 R 0 G 1 B 0 width 4;
+4 R 0 G 0 B 1 width 4;
+5 color 0 width 12;
+6 color 100 width 12;

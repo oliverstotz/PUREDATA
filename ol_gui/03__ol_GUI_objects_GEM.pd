@@ -1,0 +1,97 @@
+#N canvas 380 92 1041 711 10;
+#X declare -stdpath ol_gui -path ol_gui -stdpath ol_abs -path ol_abs
+;
+#X obj 99 151 ol_dim;
+#X text 47 150 ol_dim;
+#X text 335 149 displays pix dim;
+#X obj 99 228 ol_gemwin;
+#X text 336 248 gemwin settings (with presets), f 15;
+#X text 29 247 ol_gemwin;
+#X text 573 436 ol_glsl_v001mixer;
+#X text 685 465 GLSL: vades mixer shaders !;
+#X obj 688 431 ol_glsl_v001mixer;
+#X obj 688 100 ol_glsl_shader;
+#X text 592 122 ol_glsl_shader;
+#X text 34 186 ol_color;
+#X obj 99 82 ol_gemhead 45;
+#X text 336 184 compose a color;
+#X text 333 81 gemhead utility;
+#X text 602 281 ol_glsl_blur;
+#X text 782 281 2-pass gaussian blur;
+#X obj 688 330 ol_glsl_chromakey;
+#X text 573 354 ol_glsl_chromakey;
+#X text 868 346 chroma;
+#X text 877 356 key;
+#X obj 689 75 cnv 10 10 10 empty empty GLSL: 0 6 1 16 -262144 -4160
+0;
+#X text 36 469 ol_movie;
+#X obj 688 280 ol_glsl_blur;
+#X obj 688 243 cnv 10 10 10 empty empty SPECIAL  GLSL  SHADERS:
+0 6 1 13 -262144 -2490 0;
+#X obj 99 116 ol_gem_blend 1;
+#X text 13 114 ol_gem_blend;
+#X text 333 114 alpha blending;
+#X text 14 359 ol_cornerpin;
+#X text 443 349 cornerpin for GEM \, with presets, f 12;
+#X text 688 165 glsl shader module with automatic interface;
+#X text 689 178 for usage \, see "README_ol_glsl.txt" in folder "ol_glsl_shaders"
+;
+#X obj 317 476 cnv 8 8 8 empty empty empty 0 0 1 10 -4160 -66577 0
+;
+#X obj 99 180 ol_color 100 30;
+#X obj 99 329 ol_cornerpin 1;
+#X obj 301 191 cnv 8 8 8 empty empty empty 20 5 1 10 -99865 -66577
+0;
+#X obj 302 192 cnv 6 6 6 empty empty empty 0 0 1 10 -262081 -66577
+0;
+#X obj 265 191 cnv 8 8 8 empty empty empty 0 0 1 10 -258113 -66577
+0;
+#X obj 277 191 cnv 8 8 8 empty empty empty 0 0 1 10 -3330 -66577 0
+;
+#X obj 99 451 ol_movie;
+#X obj 598 30 declare -stdpath ol_gui -path ol_gui -stdpath ol_abs
+-path ol_abs, f 66;
+#X text 24 30 ol_gemhead;
+#X obj 11 12 cnv 3 1005 39 empty empty empty 20 12 0 14 -66577 -66577
+0;
+#X obj 13 14 cnv 20 1000 35 empty \$0-cnv1 OL_GUI 10 18 1 16 -62784
+-4034 0;
+#X obj 381 14 cnv 8 8 8 empty \$0-cnv1 Gem: 90 18 1 26 -62784 -262081
+0;
+#X obj 428 42 cnv 5 20 5 empty \$0-cnv1 empty 460 15 1 20 -62784 -262081
+0;
+#X obj 528 43 cnv 5 20 5 empty \$0-cnv1 empty 460 15 1 20 -62784 -262081
+0;
+#X obj 99 549 cnv 10 10 10 empty empty supports  attributes  on  creation
+20 5 1 10 -258113 -66577 0;
+#X obj 99 582 cnv 10 10 10 empty empty supports  drag  &  drop
+20 5 1 10 -4160 -66577 0;
+#X obj 99 566 cnv 10 10 10 empty empty properties  can  be  set  with  right-click / "properties"
+20 5 1 10 -3330 -66577 0;
+#X obj 99 598 cnv 10 10 10 empty empty empty 20 5 1 10 -99865 -66577
+0;
+#X obj 100 599 cnv 8 8 8 empty empty is  recognized  by  ol_sss  (part  of  "ol_abs")
+20 4 1 10 -262081 -66577 0;
+#X obj 119 619 cnv 3 30 3 empty empty (please see also "02__ol_sss_(state-saving-system).pd" in "ol_abs"
+0 0 1 10 -262144 -4160 0;
+#X obj 235 588 cnv 3 3 3 empty empty * 0 0 1 18 -262144 -4160 0;
+#X text 341 457 movie player module \, with or without gemframebuffer
+method, f 22;
+#X text 647 653 Download and install them via DEKEN (Help/Find Externals)
+;
+#X text 647 667 Or see individual help patches for required externals
+;
+#X obj 110 681 cnv 3 3 3 empty empty PLEASE REFER TO "00_README.txt" FOR DRAG AND DROP REQUIREMENTS !
+1 -7 1 12 -262144 -4160 0;
+#X obj 99 677 cnv 3 3 3 empty empty * 0 0 1 18 -262144 -4160 0;
+#X obj 646 532 cnv 4 350 106 empty empty empty 20 12 0 14 -135232 -66577
+0;
+#X obj 651 587 cnv 10 340 26 empty empty IEMLIB  IEMGUTS  IEMGUI  IEMMATRIX
+10 14 1 16 -203904 -1 0;
+#X obj 651 567 cnv 10 340 26 empty empty DND-PLUGIN  ZEXY  HCS  TOF  GEM
+10 14 1 16 -203904 -1 0;
+#X obj 651 536 cnv 10 340 26 empty empty OL_GUI  OBJECTS  NEED  THE  FOLLOWING  EXTERNALS:
+10 14 1 12 -128992 -262144 0;
+#X obj 651 607 cnv 10 340 26 empty empty (GGEE  MOTEX) 10 14 1 16
+-203904 -1 0;
+#X text 24 81 ol_gemhead;

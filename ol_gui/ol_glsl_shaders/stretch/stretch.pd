@@ -1,0 +1,44 @@
+#N canvas 491 330 656 433 10;
+#X obj 1 1 cnv 5 248 38 \$1-cnv \$1-cnv-r empty 2 2 0 7 -204786 -66577
+0;
+#X obj 15 6 nbx 4 14 -1e+037 1e+037 0 0 \$1-width_x \$1-width_x-r empty
+5 20 1 10 -262144 -1 -1 0 256;
+#X obj 170 21 hradio 10 1 0 7 \$1-PR \$1-PR-r stretch 17 -8 1 11 -262144
+-1 -4160 0;
+#X msg 240 14 just a marker;
+#X obj 503 112 s \$1-GUI-presets;
+#X obj 503 78 r \$1-PR;
+#X text 21 228 will be sent to glsl program in [ol_glsl_shader], f 16;
+#X text 368 -1 every send/receive must be preceded with \$1 (= \$0
+of parent patch), f 23;
+#X msg 15 157 width \$1 \$2;
+#X msg 187 158 origin \$1 \$2;
+#X obj 15 135 pack;
+#X obj 187 136 pack;
+#X obj 98 96 t b f;
+#X obj 281 95 t b f;
+#X obj 56 6 nbx 4 14 -1e+037 1e+037 0 0 \$1-width_y \$1-width_y-r width
+45 7 1 10 -262144 -1 -1 0 256;
+#X obj 15 20 nbx 4 14 -1e+037 1e+037 0 0 \$1-origin_x \$1-origin_x-r
+empty 5 20 1 10 -262144 -1 -1 0 256;
+#X obj 56 20 nbx 4 14 -1e+037 1e+037 0 0 \$1-origin_y \$1-origin_y-r
+origin 45 7 1 10 -262144 -1 -1 0 256;
+#X obj 15 73 r \$1-width_x;
+#X obj 98 73 r \$1-width_y;
+#X obj 187 73 r \$1-origin_x;
+#X obj 281 73 r \$1-origin_y;
+#X obj 99 198 s \$1-params;
+#X connect 5 0 4 0;
+#X connect 8 0 21 0;
+#X connect 9 0 21 0;
+#X connect 10 0 8 0;
+#X connect 11 0 9 0;
+#X connect 12 0 10 0;
+#X connect 12 1 10 1;
+#X connect 13 0 11 0;
+#X connect 13 1 11 1;
+#X connect 17 0 10 0;
+#X connect 18 0 12 0;
+#X connect 19 0 11 0;
+#X connect 20 0 13 0;
+#X coords 0 -1 1 1 250 40 2 0 0;

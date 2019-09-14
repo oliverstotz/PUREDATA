@@ -1,0 +1,30 @@
+#N canvas 491 330 656 433 10;
+#X obj 1 1 cnv 5 248 38 \$1-cnv \$1-cnv-r empty 2 2 0 7 -204786 -66577
+0;
+#X obj 14 9 nbx 4 14 -1e+037 1e+037 0 0 \$1-B \$1-B-r brightness -7
+20 1 10 -262144 -1 -1 0 256;
+#X obj 86 9 nbx 4 14 -1e+037 1e+037 0 0 \$1-C \$1-C-r contrast -2 20
+1 10 -262144 -1 -1 1.11 256;
+#X obj 170 21 hradio 10 1 0 7 \$1-PR \$1-PR-r BC 28 -8 1 11 -262144
+-1 -4160 0;
+#X msg 240 14 just a marker;
+#X msg 37 113 B \$1;
+#X msg 79 113 C \$1;
+#X obj 213 112 s \$1-GUI-presets;
+#X obj 28 79 r \$1-B;
+#X obj 89 79 r \$1-C;
+#X obj 213 78 r \$1-PR;
+#X text 21 178 will be sent to glsl program in [ol_glsl_shader], f 16;
+#X text 368 -1 every send/receive must be preceded with \$1 (= \$0
+of parent patch), f 23;
+#X obj 66 34 cnv 5 5 5 empty empty (B) -5 -5 1 10 -204786 -66577 0
+;
+#X obj 132 34 cnv 5 5 5 empty empty (C) -5 -5 1 10 -204786 -66577 0
+;
+#X obj 52 156 s \$1-params;
+#X connect 5 0 15 0;
+#X connect 6 0 15 0;
+#X connect 8 0 5 0;
+#X connect 9 0 6 0;
+#X connect 10 0 7 0;
+#X coords 0 -1 1 1 250 40 2 0 0;

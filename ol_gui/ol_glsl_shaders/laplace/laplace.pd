@@ -1,0 +1,74 @@
+#N canvas 491 330 546 433 10;
+#X obj 1 1 cnv 5 248 38 \$1-cnv \$1-cnv-r empty 2 2 0 7 -204786 -66577
+0;
+#X obj 9 9 nbx 4 14 -1e+037 1e+037 0 0 \$1-width \$1-width-r width
+5 20 1 10 -262144 -1 -1 0 256;
+#X obj 170 21 hradio 10 1 0 7 \$1-PR \$1-PR-r laplace 18 -8 1 11 -262144
+-1 -4160 0;
+#X msg 240 14 just a marker;
+#X obj 417 94 s \$1-GUI-presets;
+#X obj 417 71 r \$1-PR;
+#X text 27 349 will be sent to glsl program in [ol_glsl_shader], f 16;
+#X text 368 -1 every send/receive must be preceded with \$1 (= \$0
+of parent patch), f 23;
+#X obj 28 79 r \$1-width;
+#X msg 28 103 width \$1;
+#X obj 65 5 hsl 55 10 0 1 0 0 \$1-R \$1-R-r R 10 5 1 10 -261234 -1
+-1 0 1;
+#X obj 65 15 hsl 55 10 0 1 0 0 \$1-G \$1-G-r G 10 5 1 10 -204786 -1
+-1 0 1;
+#X obj 65 25 hsl 55 10 0 1 0 0 \$1-B \$1-B-r B 10 5 1 10 -203904 -1
+-1 0 1;
+#X obj 122 5 nbx 3 20 0 100 0 0 \$1-color \$1-color-r color 6 26 1
+9 -262131 -1 -1 0 256;
+#X obj 106 172 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 173 172 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 240 172 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 139 78 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X obj 145 101 * 0.01;
+#X obj 141 214 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X obj 191 214 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X obj 242 214 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X obj 197 237 t b f;
+#X obj 248 237 t b f;
+#X obj 145 146 unpack 0 0 0;
+#X msg 145 124 \$1 \$1 \$1;
+#X obj 197 270 pack 0 0 0, f 13;
+#X msg 197 294 offset \$1 \$2 \$3 1;
+#X obj 145 78 r \$1-color;
+#X obj 112 172 s \$1-R-r;
+#X obj 179 172 s \$1-G-r;
+#X obj 246 172 s \$1-B-r;
+#X obj 147 214 r \$1-R;
+#X obj 197 214 r \$1-G;
+#X obj 248 214 r \$1-B;
+#X obj 28 289 s \$1-params;
+#X obj 197 317 s \$1-p;
+#X text 319 260 this list is sent to [\$0-p] \, (which means directly
+to [glsl_program]) \, thus bypassing the *100 switch., f 28;
+#X connect 5 0 4 0;
+#X connect 8 0 9 0;
+#X connect 9 0 35 0;
+#X connect 18 0 25 0;
+#X connect 22 0 26 0;
+#X connect 22 1 26 1;
+#X connect 23 0 26 0;
+#X connect 23 1 26 2;
+#X connect 24 0 29 0;
+#X connect 24 1 30 0;
+#X connect 24 2 31 0;
+#X connect 25 0 24 0;
+#X connect 26 0 27 0;
+#X connect 27 0 36 0;
+#X connect 28 0 18 0;
+#X connect 32 0 26 0;
+#X connect 33 0 22 0;
+#X connect 34 0 23 0;
+#X coords 0 -1 1 1 250 40 2 0 0;
