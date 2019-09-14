@@ -1,4 +1,4 @@
-Collections of asbtractions for PUREDATA
+Collections of abstractions for PUREDATA
 
 See README files inside folders
 
