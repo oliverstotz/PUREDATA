@@ -1,0 +1,143 @@
+#N canvas 534 209 715 607 10;
+#X obj 24 254 inlet~ audio;
+#X obj 43 500 metro 100;
+#X obj 357 141 inlet control;
+#X obj 370 484 pack 1.01 512 -1.01;
+#X obj 454 435 t f f;
+#X obj 481 460 * -1;
+#X obj 43 410 sel 0;
+#X msg 43 438 0;
+#X msg 75 437 1;
+#X obj 357 352 s \$0-onoff;
+#X obj 495 280 s \$0-yscale;
+#X obj 449 303 s \$0-xscale;
+#X text 489 328 refresh 10 - 1000 (ms);
+#X text 530 304 xscale 128 - 1024;
+#X text 574 278 yscale 0.2 - 2;
+#X obj 403 328 s \$0-refresh;
+#X text 212 14 a simple oscilloscope for signals -1.01 - 1.01;
+#X obj 454 407 r \$0-yscale;
+#X msg 356 440 resize \$1;
+#X obj 356 409 t f f;
+#X msg 370 509 bounds 0 \$1 \$2 \$3;
+#X obj 356 381 r \$0-xscale;
+#N canvas 0 50 450 300 defaults 0;
+#X obj 73 205 outlet;
+#X msg 73 117 bang;
+#X obj 73 63 r \$0-reset;
+#X obj 67 205 cnv 5 5 17 empty empty empty 20 12 0 14 -102336 -66577
+0;
+#X obj 67 63 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X msg 73 165 1 \, refresh 100 \, xscale 512 \, yscale 1;
+#X connect 1 0 5 0;
+#X connect 2 0 1 0;
+#X connect 5 0 0 0;
+#X restore 475 142 pd defaults;
+#X obj 43 382 r \$0-onoff;
+#X obj 94 472 r \$0-refresh;
+#X obj 24 342 clip~ -1 1;
+#X obj 606 172 s \$0-reset;
+#X obj 99 286 r \$0-yscale;
+#X obj 52 313 * -1;
+#X obj 99 313 - 0.009;
+#X text 213 39 shameless copy/adaptation of Frank Barknecht's [oscilloscope]
+which I found on the pd-list in 2008 or so;
+#X obj 20 20 cnv 15 120 100 empty empty empty 20 12 0 14 -191407 -66577
+0;
+#X obj 23 33 cnv 15 106 75 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 25 108 hsl 101 10 128 1024 0 0 \$0-xscale \$0-xscale empty -2
+-8 0 10 -261234 -66577 -1 2232 1;
+#X obj 128 35 vsl 10 70 0.2 2 0 0 \$0-yscale \$0-yscale empty 0 -9
+0 10 -261234 -66577 -1 997 1;
+#X obj 128 108 bng 10 250 50 0 \$0-reset \$0-reset empty 17 7 0 10
+-99865 -228856 -1;
+#X obj 128 23 tgl 10 0 \$0-onoff \$0-onoff empty 17 7 0 10 -99865 -4034
+-1 1 1;
+#X obj 83 23 nbx 4 10 11 1000 0 0 \$0-refresh \$0-refresh empty 0 -8
+0 10 -99865 -228856 -228856 100 256;
+#N canvas 0 50 450 300 (subpatch) 0;
+#X array \$0-i 328 float 0;
+#X coords 0 0.46 328 -0.46 106 75 2 0 0;
+#X restore 22 33 graph;
+#X obj 24 541 tabwrite~ \$0-i;
+#X obj 356 539 s \$0-i;
+#X text 213 83 shamelessly stolen from Dan Wilcox' rc library by me
+;
+#X obj 18 254 cnv 5 5 17 empty empty empty 20 12 0 14 -118750 -66577
+0;
+#X obj 351 141 cnv 5 5 17 empty empty empty 20 12 0 14 -118750 -66577
+0;
+#X obj 351 352 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 489 280 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 443 303 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 397 328 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 448 407 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X obj 350 381 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X obj 37 382 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X obj 88 472 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X obj 600 172 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 93 286 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X obj 231 285 loadbang;
+#X obj 208 251 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X obj 214 251 r ol_GUI_reinit;
+#X text 213 218 force loadbang from outside, f 15;
+#X obj 214 317 s \$0-reset;
+#X obj 208 317 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 357 172 route float refresh xscale yscale reset;
+#X obj 357 275 clip 0 1;
+#X obj 357 298 int;
+#X obj 449 247 clip 128 1024;
+#X obj 495 210 clip 0.2 2;
+#X obj 403 210 clip 11 1000;
+#X connect 0 0 25 0;
+#X connect 1 0 39 0;
+#X connect 2 0 60 0;
+#X connect 3 0 20 0;
+#X connect 4 0 3 0;
+#X connect 4 1 5 0;
+#X connect 5 0 3 2;
+#X connect 6 0 7 0;
+#X connect 6 1 8 0;
+#X connect 7 0 1 0;
+#X connect 8 0 1 0;
+#X connect 17 0 4 0;
+#X connect 18 0 40 0;
+#X connect 19 0 18 0;
+#X connect 19 1 3 1;
+#X connect 20 0 40 0;
+#X connect 21 0 19 0;
+#X connect 22 0 60 0;
+#X connect 23 0 6 0;
+#X connect 24 0 1 1;
+#X connect 25 0 39 0;
+#X connect 27 0 29 0;
+#X connect 28 0 25 1;
+#X connect 29 0 25 2;
+#X connect 29 0 28 0;
+#X connect 54 0 58 0;
+#X connect 56 0 58 0;
+#X connect 60 0 61 0;
+#X connect 60 1 65 0;
+#X connect 60 2 63 0;
+#X connect 60 3 64 0;
+#X connect 60 4 26 0;
+#X connect 61 0 62 0;
+#X connect 62 0 9 0;
+#X connect 63 0 11 0;
+#X connect 64 0 10 0;
+#X connect 65 0 15 0;
+#X coords 0 -1 1 1 120 100 1 20 20;

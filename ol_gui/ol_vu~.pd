@@ -1,0 +1,161 @@
+#N canvas 40 204 824 541 10;
+#X declare -stdlib iemlib -lib iemlib;
+#X obj 202 151 inlet~;
+#X msg 335 156 t_metro \$1;
+#X obj 296 15 loadbang;
+#X obj 296 84 \$1;
+#X obj 296 109 sel 0 1;
+#X obj 335 131 max 20;
+#X obj 491 272 s \$0-slider-r;
+#X obj 202 223 spigot;
+#X obj 267 206 != 1;
+#X obj 490 38 == 1;
+#X obj 457 59 spigot;
+#X obj 491 158 list prepend label;
+#X obj 491 184 list trim;
+#X msg 443 158 set \$1;
+#X obj 457 113 t f f f, f 12;
+#X obj 586 255 list trim;
+#X obj 586 235 list prepend color;
+#X obj 491 135 makefilename %d;
+#X obj 607 158 t b;
+#X obj 671 159 t b;
+#X obj 710 158 t b;
+#X msg 671 210 11 \$1 0;
+#X msg 640 185 16;
+#X msg 671 185 15;
+#X msg 703 185 13;
+#X floatatom 638 106 5 0 0 0 - - -;
+#X obj 607 130 moses -12;
+#X text 363 319 GOP size;
+#X obj 674 9 namecanvas \$0-ol_vu;
+#X obj 314 253 sel 1 0, f 17;
+#X obj 296 62 del 100;
+#X obj 296 40 t b b;
+#X obj 242 201 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 202 173 prvu~ 100 100 100;
+#X obj 546 308 cnv 10 240 200 empty empty GOPS 100 17 1 20 -204786
+-4160 0;
+#X obj 566 350 r \$0-GOP, f 10;
+#X obj 593 467 s \$0-ol_vu;
+#X msg 593 422 donecanvasdialog 1 -1 3 0 -1 1 1 \$1 \$2 10 10 \, dirty
+0, f 28;
+#N canvas 955 102 450 300 \$0-GOP 0;
+#X obj 11 12 vu 23 120 \$0-vu empty -1 -8 0 10 -66577 -128992 1 0;
+#X coords 0 -1 1 1 25 124 2 10 10;
+#X restore 10 10 pd \$0-GOP;
+#X obj 363 303 s \$0-GOP;
+#X msg 10 295 list $ 0;
+#X obj 202 244 s \$0-vu;
+#X msg 363 278 60 20;
+#X obj 258 253 pipe 10;
+#X obj 258 278 sel 1 0;
+#X msg 163 317 list $ 0;
+#X msg 163 339 obj 13 10 hsl 55 20 -99 6 0 0 \$1\$2-slider \$1\$2-slider-r
+6 6 11 0 14 -128992 -258699 -262144 0 1 \, obj 48 21 cnv 5 2 2 empty
+\$1\$2-cnv db 0 0 0 12 -128992 -262144 0;
+#X obj 668 462 s pd-\$0-GOP;
+#X obj 267 228 t f f b, f 12;
+#X msg 353 205 clear;
+#X obj 163 400 s pd-\$0-GOP;
+#X obj 353 228 s pd-\$0-GOP;
+#X msg 10 317 obj 11 12 vu 23 120 \$1\$2-vu empty -1 -8 0 10 -66577
+-128992 1 0, f 22;
+#X msg 314 278 25 124;
+#X obj 196 151 cnv 5 5 17 empty empty empty 20 12 0 14 -118750 -66577
+0;
+#X obj 485 272 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 560 350 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X obj 587 467 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 357 303 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 196 244 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 662 462 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 157 400 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 347 228 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 663 59 cnv 10 130 20 empty empty needs_IEMLIB 10 11 0 14 -4160
+-262144 0;
+#X obj 663 75 cnv 4 130 4 empty empty empty 10 11 0 14 -4160 -262144
+0;
+#X obj 671 130 moses 0;
+#X msg 457 86 \$2;
+#X obj 586 35 cnv 14 207 15 empty empty empty 2 2 0 9 -253181 -66577
+0;
+#X obj 585 34 declare -stdlib iemlib -lib iemlib;
+#X obj 358 23 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X obj 364 23 r ol_GUI_reinit;
+#X text 364 5 force loadbang from outside;
+#X obj 566 374 t b l;
+#X msg 566 398 editmode 0;
+#X connect 0 0 33 0;
+#X connect 1 0 33 0;
+#X connect 2 0 31 0;
+#X connect 3 0 4 0;
+#X connect 3 0 8 0;
+#X connect 3 0 9 0;
+#X connect 4 2 5 0;
+#X connect 5 0 1 0;
+#X connect 7 0 41 0;
+#X connect 8 0 7 1;
+#X connect 8 0 48 0;
+#X connect 9 0 10 1;
+#X connect 10 0 66 0;
+#X connect 11 0 12 0;
+#X connect 12 0 6 0;
+#X connect 13 0 6 0;
+#X connect 14 0 13 0;
+#X connect 14 1 17 0;
+#X connect 14 2 26 0;
+#X connect 15 0 6 0;
+#X connect 16 0 15 0;
+#X connect 17 0 11 0;
+#X connect 18 0 22 0;
+#X connect 19 0 23 0;
+#X connect 20 0 24 0;
+#X connect 21 0 16 0;
+#X connect 22 0 21 0;
+#X connect 23 0 21 0;
+#X connect 24 0 21 0;
+#X connect 26 0 18 0;
+#X connect 26 0 25 0;
+#X connect 26 1 65 0;
+#X connect 29 0 53 0;
+#X connect 29 1 42 0;
+#X connect 30 0 3 0;
+#X connect 31 0 30 0;
+#X connect 32 0 8 0;
+#X connect 33 0 7 0;
+#X connect 33 0 10 0;
+#X connect 35 0 72 0;
+#X connect 37 0 36 0;
+#X connect 37 0 47 0;
+#X connect 40 0 52 0;
+#X connect 42 0 39 0;
+#X connect 43 0 44 0;
+#X connect 44 0 40 0;
+#X connect 44 1 45 0;
+#X connect 45 0 46 0;
+#X connect 46 0 50 0;
+#X connect 48 0 43 0;
+#X connect 48 1 29 0;
+#X connect 48 2 49 0;
+#X connect 49 0 51 0;
+#X connect 52 0 50 0;
+#X connect 53 0 39 0;
+#X connect 65 0 19 0;
+#X connect 65 1 20 0;
+#X connect 66 0 14 0;
+#X connect 70 0 31 0;
+#X connect 72 0 73 0;
+#X connect 72 1 37 0;
+#X connect 73 0 36 0;
+#X coords 0 -1 1 1 25 124 2 10 10;

@@ -1,0 +1,262 @@
+#N canvas 322 91 808 646 10;
+#X msg 30 476 colors;
+#X text 78 476 set default values;
+#X obj 461 17 cnv 15 305 25 empty empty TK_COLOR_NAMES_(selection):
+7 13 0 18 -261682 -66577 0;
+#X obj 461 37 cnv 4 305 4 empty empty empty 110 13 0 20 -261682 -66577
+0;
+#X obj 28 328 vsl 12 70 0 255 0 0 \$0-R \$0-R-r R 3 -8 1 10 -261234
+-1 -1 6900 0;
+#X obj 40 328 vsl 12 70 0 255 0 0 \$0-G \$0-G-r G 3 -8 1 10 -204786
+-1 -1 6900 0;
+#X obj 52 328 vsl 12 70 0 255 0 0 \$0-B \$0-B-r B 3 -8 1 10 -203904
+-1 -1 6900 0;
+#X obj 28 419 cnv 4 4 4 \$0-color_R_cnv \$0-color_R_cnv-r 255 4 4 1
+9 -262130 -258113 0;
+#X obj 48 419 cnv 4 4 4 \$0-color_G_cnv \$0-color_G_cnv-r 255 4 4 1
+9 -262130 -2498 0;
+#X obj 68 419 cnv 4 4 4 \$0-color_B_cnv \$0-color_B_cnv-r 255 4 4 1
+9 -262130 -4160 0;
+#X obj 71 385 nbx 3 16 0 29 0 0 \$0-tcltk \$0-tcltk-r empty 0 -7 1
+12 -262144 -1 -1 0 256;
+#X obj 71 326 nbx 3 16 0 107 0 0 \$0-tkpresets \$0-tkpresets-r empty
+0 -7 1 12 -262144 -1 -1 0 256;
+#N canvas 541 307 573 472 calc 0;
+#X obj 38 18 r \$0-tkpresets;
+#X obj 38 43 text get \$0-tk;
+#X obj 222 178 expr ($f1*(-65536)+$f2*(-256)+$f3*(-1))-1, f 42;
+#X obj 38 68 list split 1;
+#X obj 222 149 list trim;
+#X obj 179 328 s \$0-testfleck-r;
+#X msg 179 306 color \$1 \$1 \$1;
+#X obj 38 328 s \$0-tkpresets-cnv-r;
+#X obj 38 258 symbol;
+#X msg 38 304 label \$1;
+#X obj 179 19 r \$0-tcltk;
+#X obj 179 212 t f f;
+#X msg 206 257 label \$1;
+#X obj 206 281 s \$0-color_cnv-r;
+#X obj 173 19 cnv 5 5 17 empty empty empty 20 12 0 14 -260097 -66577
+0;
+#X obj 206 235 makefilename %d;
+#X obj 303 103 pack 0 0 0, f 13;
+#X obj 322 45 t b f;
+#X obj 386 45 t b f;
+#X obj 256 19 cnv 5 5 17 empty empty empty 20 12 0 14 -260097 -66577
+0;
+#X obj 316 19 cnv 5 5 17 empty empty empty 20 12 0 14 -260097 -66577
+0;
+#X obj 380 19 cnv 5 5 17 empty empty empty 20 12 0 14 -260097 -66577
+0;
+#X obj 262 46 int;
+#X obj 341 70 int;
+#X obj 397 69 int;
+#X obj 352 396 makefilename %d;
+#X obj 346 430 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X msg 352 413 label \$1;
+#X obj 352 240 unpack 0 0 0;
+#X obj 386 335 makefilename %d;
+#X obj 380 369 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X msg 386 352 label \$1;
+#X obj 421 273 makefilename %d;
+#X obj 415 307 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X msg 421 290 label \$1;
+#X obj 386 19 r \$0-B;
+#X obj 322 19 r \$0-G;
+#X obj 262 19 r \$0-R;
+#X obj 179 42 int;
+#X obj 421 307 s \$0-color_B_cnv-r;
+#X obj 386 369 s \$0-color_G_cnv-r;
+#X obj 352 430 s \$0-color_R_cnv-r;
+#X obj 94 372 unpack 0 0 0;
+#X msg 198 408 set \$1;
+#X msg 128 408 set \$1;
+#X msg 49 409 set \$1;
+#X obj 43 434 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 49 434 s \$0-R-r;
+#X obj 122 433 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 128 433 s \$0-G-r;
+#X obj 192 433 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 198 433 s \$0-B-r;
+#X obj 69 149 makefilename Tcl/Tk:_%d;
+#X obj 32 18 cnv 5 5 17 empty empty empty 20 12 0 14 -260097 -66577
+0;
+#X obj 32 328 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 173 328 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 108 232 loadbang;
+#X msg 108 254 label;
+#X text 301 141 formula to create Tcl/Tk number from RGB values, f
+25;
+#X obj 471 17 loadbang;
+#X obj 471 40 \$0;
+#X msg 471 63 \; \$1-R-r 255 \; \$1-G-r 255 \; \$1-B-r 255;
+#X connect 0 0 1 0;
+#X connect 1 0 3 0;
+#X connect 2 0 11 0;
+#X connect 3 0 8 0;
+#X connect 3 1 4 0;
+#X connect 4 0 2 0;
+#X connect 4 0 42 0;
+#X connect 4 0 28 0;
+#X connect 6 0 5 0;
+#X connect 8 0 9 0;
+#X connect 9 0 7 0;
+#X connect 10 0 38 0;
+#X connect 11 0 6 0;
+#X connect 11 1 15 0;
+#X connect 12 0 13 0;
+#X connect 15 0 12 0;
+#X connect 16 0 4 0;
+#X connect 17 0 16 0;
+#X connect 17 1 23 0;
+#X connect 18 0 16 0;
+#X connect 18 1 24 0;
+#X connect 22 0 16 0;
+#X connect 23 0 16 1;
+#X connect 24 0 16 2;
+#X connect 25 0 27 0;
+#X connect 27 0 41 0;
+#X connect 28 0 25 0;
+#X connect 28 1 29 0;
+#X connect 28 2 32 0;
+#X connect 29 0 31 0;
+#X connect 31 0 40 0;
+#X connect 32 0 34 0;
+#X connect 34 0 39 0;
+#X connect 35 0 18 0;
+#X connect 36 0 17 0;
+#X connect 37 0 22 0;
+#X connect 38 0 11 0;
+#X connect 38 0 52 0;
+#X connect 42 0 45 0;
+#X connect 42 1 44 0;
+#X connect 42 2 43 0;
+#X connect 43 0 51 0;
+#X connect 44 0 49 0;
+#X connect 45 0 47 0;
+#X connect 52 0 9 0;
+#X connect 56 0 57 0;
+#X connect 57 0 7 0;
+#X connect 59 0 60 0;
+#X connect 60 0 61 0;
+#X restore 87 23 pd calc;
+#X text 115 325 <--- scroll through Tk names list;
+#X text 109 413 <--- RGB values;
+#X obj 338 396 cnv 5 1 1 \$0-tkpresets-cnv \$0-tkpresets-cnv-r empty
+0 0 1 11 -262144 -99865 0;
+#X msg 462 62 aquamarine \; azure \; beige \; bisque \; black \; blue
+\; BlueViolet \; brown \; CadetBlue \; chartreuse \; chocolate \; coral
+\; CornflowerBlue \; crymson \; cyan \; DarkBlue \; DarkCyan \; DarkGoldenrod
+\; DarkGreen \; DarkGrey \; DarkMagenta \; DarkOrange \; DarkOrchid
+\; DarkRed \; DarkSeaGreen \; DarkTurquoise \; DarkViolet \; DeepPink
+\; DeepSkyBlue \; DodgerBlue \; firebrick \; fuchsia \; GhostWhite
+\; gold \; green \; GreenYellow \;;
+#X msg 562 62 grey \; grey20 \; grey40 \; grey60 \; grey80 \; grey90
+\; khaki \; lavender \; LightBlue \; LightCoral \; LightCyan \; LightGreen
+\; LightSeaGreen \; LightSkyBlue \; LightSlateBlue \; LightYellow \;
+lime \; LimeGreen \; linen \; magenta \; maroon \; MediumAquamarine
+\; MediumBlue \; MediumOrchid \; MediumPurple \; MediumSeaGreen \;
+MediumTurquoise \; MediumVioletRed \; MintCream \; MistyRose \; moccasin
+\; OldLace \; orange \; OrangeRed \; orchid \;;
+#X msg 675 62 PaleGreen \; PaleTurquoise \; PaleVioletRed \; pink \;
+plum \; purple \; red \; RosyBrown \; RoyalBlue \; SaddleBrown \; salmon
+\; SandyBrown \; SeaGreen \; seashell \; sienna \; silver \; SkyBlue
+\; SlateBlue \; SlateGray \; snow \; SpringGreen3 \; SpringGreen \;
+SteelBlue \; teal \; thistle \; tomato \; turquoise \; violet \; VioletRed
+\; wheat \; white \; WhiteSmoke \; yellow \;;
+#X text 595 556 <--- TK name presets;
+#X text 115 349 <--- set RGB independently;
+#X obj 463 557 cnv 15 122 15 empty empty empty 20 12 0 14 -180224 -66577
+0;
+#X obj 462 556 text define -k \$0-tk;
+#A set aquamarine 127 255 212 \; azure 240 255 255 \; beige 245 245
+220 \; bisque 255 228 196 \; black 0 0 0 \; blue 0 0 255 \; BlueViolet
+138 43 226 \; brown 165 42 42 \; CadetBlue 95 158 160 \; chartreuse
+127 255 0 \; chocolate 210 105 30 \; coral 255 127 80 \; CornflowerBlue
+100 149 237 \; crymson 220 20 60 \; cyan 0 255 255 \; DarkBlue 0 0
+139 \; DarkCyan 0 139 139 \; DarkGoldenrod 184 134 11 \; DarkGreen
+0 100 0 \; DarkGrey 169 169 169 \; DarkMagenta 139 0 139 \; DarkOrange
+255 140 0 \; DarkOrchid 153 50 204 \; DarkRed 139 0 0 \; DarkSeaGreen
+143 188 143 \; DarkTurquoise 0 206 209 \; DarkViolet 148 0 211 \; DeepPink
+255 20 147 \; DeepSkyBlue 0 191 255 \; DodgerBlue 30 144 255 \; firebrick
+178 34 34 \; fuchsia 255 0 255 \; GhostWhite 248 248 255 \; gold 255
+215 0 \; green 0 255 0 \; GreenYellow 173 255 47 \; grey 190 190 190
+\; grey10 26 26 26 \; grey20 51 51 51 \; grey30 77 77 77 \; grey40
+102 102 102 \; grey50 127 127 127 \; grey60 153 153 153 \; grey70 179
+179 179 \; grey80 204 204 204 \; grey90 229 229 229 \; khaki 240 230
+140 \; lavender 230 230 250 \; LightBlue 173 216 230 \; LightCoral
+240 128 128 \; LightCyan 224 255 255 \; LightGreen 144 238 144 \; LightSeaGreen
+32 178 170 \; LightSkyBlue 135 206 250 \; LightSlateBlue 132 112 255
+\; LightYellow 255 255 224 \; lime 0 255 0 \; LimeGreen 50 205 50 \;
+linen 250 240 230 \; magenta 255 0 255 \; maroon 176 48 96 \; MediumAquamarine
+102 205 170 \; MediumBlue 0 0 205 \; MediumOrchid 186 85 211 \; MediumPurple
+147 112 219 \; MediumSeaGreen 60 179 113 \; MediumTurquoise 72 209
+204 \; MediumVioletRed 199 21 133 \; MintCream 245 255 250 \; MistyRose
+255 228 225 \; moccasin 255 228 181 \; OldLace 253 245 230 \; orange
+255 165 0 \; OrangeRed 255 69 0 \; orchid 218 112 214 \; PaleGreen
+152 251 152 \; PaleTurquoise 175 238 238 \; PaleVioletRed 219 112 147
+\; pink 255 192 203 \; plum 221 160 221 \; purple 160 32 240 \; red
+255 0 0 \; RosyBrown 188 143 143 \; RoyalBlue 65 105 225 \; SaddleBrown
+139 69 19 \; salmon 250 128 114 \; SandyBrown 244 164 96 \; SeaGreen
+46 139 87 \; seashell 255 245 238 \; sienna 160 82 45 \; silver 192
+192 192 \; SkyBlue 135 206 235 \; SlateBlue 106 90 205 \; SlateGray
+112 128 144 \; snow 255 250 250 \; SpringGreen3 0 205 102 \; SpringGreen
+0 255 127 \; SteelBlue 70 130 180 \; teal 0 128 128 \; thistle 216
+191 216 \; tomato 255 99 71 \; turquoise 64 224 208 \; violet 238 130
+238 \; VioletRed 208 32 144 \; wheat 245 222 179 \; white 255 255 255
+\; WhiteSmoke 245 245 245 \; yellow 255 255 0 \;;
+#X text 23 54 colors are always given as a list;
+#X text 21 67 (for all settable colors of the object):;
+#X text 24 90 a color list element can be a...:;
+#X obj 27 122 cnv 3 3 3 empty empty SYMBOL 0 0 0 12 -262144 -66577
+0;
+#X obj 28 138 cnv 3 3 3 empty empty FLOAT 0 0 0 12 -262144 -66577 0
+;
+#X obj 28 154 cnv 3 3 3 empty empty RGB VALUES 0 0 0 12 -262144 -66577
+0;
+#X text 108 128 (Tcl/Tk values).;
+#X text 108 112 (Tk names - see list to the right);
+#X text 107 144 (formatted as a symbol (!) with;
+#X text 112 158 underscores between the RGB value numbers;
+#X text 112 172 for example "0_255_0" for 100% green), f 42;
+#X text 25 229 FLOATS:;
+#X obj 24 19 cnv 15 110 25 empty empty COLORS: 10 13 0 20 -204786 -66577
+0;
+#X obj 31 457 cnv 3 3 3 empty empty EXAMPLES OF VALID COLOR LISTS:
+0 0 0 12 -262144 -66577 0;
+#X text 24 190 SYMBOLS:;
+#X text 25 204 use "-" \, "_" or "." to set single defaults;
+#X obj 30 584 ol_incdec 30 6;
+#X msg 30 546 colors 7 - blue .;
+#X msg 30 523 colors 14 white 0_150_150 100_0_255;
+#X msg 30 500 colors MediumSeaGreen red yellow white;
+#X text 277 500 TK names;
+#X text 255 523 mixed;
+#X text 145 546 set single defaults using "-" \, "_" or ".";
+#X obj 338 343 cnv 3 86 44 empty empty COLOR 18 -10 1 14 -1 -66577
+0;
+#X obj 341 347 cnv 8 80 36 \$0-testfleck \$0-testfleck-r empty 0 0
+0 8 -262144 -262144 0;
+#X text 111 573 background \, foreground \, border \, hilite, f 12
+;
+#X text 26 244 Positive Numbers range from 0 to 29 and represent the
+Tcl/Tk color presets (as seen in PD-native GUI properties). Negative
+values are absolute Tcl/Tk numbers., f 58;
+#X text 115 369 <--- scroll through Tcl/Tk, f 28;
+#X text 141 384 color presets, f 15;
+#X obj 70 320 cnv 3 3 3 empty empty TK PRESETS: 0 0 1 9 -262144 -66577
+0;
+#X obj 72 379 cnv 3 3 3 empty empty TCL/TK: 0 0 1 10 -262144 -66577
+0;
+#X connect 0 0 39 0;
+#X connect 40 0 39 0;
+#X connect 41 0 39 0;
+#X connect 42 0 39 0;

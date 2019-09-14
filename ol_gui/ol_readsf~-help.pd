@@ -1,0 +1,771 @@
+#N canvas 536 51 928 828 10;
+#X floatatom 132 281 10 0 0 0 - - -, f 10;
+#X floatatom 183 356 10 0 0 0 - - -, f 10;
+#X obj 583 216 openpanel;
+#X obj 583 185 bng 20 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 228 471 hsl 100 20 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 9897 0;
+#X msg 225 495 seek \$1;
+#X msg 267 416 set \$1;
+#X obj 30 185 r \$0-sf;
+#X obj 225 516 s \$0-sf;
+#X obj 583 334 s \$0-sf;
+#X text 27 470 seeking value between 0 and 1 is "relative seek" (0.
+- 1 representing the whole length), f 31;
+#X obj 464 46 namecanvas \$0-ol_help;
+#N canvas 1249 138 626 800 init 0;
+#X obj 470 388 cnv 8 120 25 empty empty empty 20 12 0 14 -204786 -66577
+0;
+#X obj 97 553 cnv 8 300 80 empty empty empty 20 12 0 14 -204786 -66577
+0;
+#X obj 461 76 cnv 8 120 26 empty empty empty 20 12 0 14 -204786 -66577
+0;
+#X obj 60 287 cnv 8 200 25 empty empty empty 20 12 0 14 -204786 -66577
+0;
+#X msg 245 33 vis 0 \, relocate \$3x\$4+0+0 0x0+\$1+\$2 \, vis 1 \,
+editmode 0;
+#X obj 245 55 s \$0-ol_help;
+#X msg 118 64 300 50 900 700;
+#X obj 118 219 s \$0-frame-r;
+#X floatatom 118 176 5 0 0 0 - - -, f 5;
+#X obj 28 450 s \$0-title-r;
+#X msg 98 406 label \$1;
+#X floatatom 263 143 5 0 0 0 - - -, f 5;
+#X obj 263 183 s \$0-bgnd-r;
+#X obj 56 119 del 10;
+#X obj 56 99 t b b;
+#X text 244 80 1.) set pos and size of main window;
+#X msg 172 115 \$3;
+#X obj 118 132 f;
+#X text 151 143 minus frame sizes, f 11;
+#X text 124 266 2.) set name of title;
+#X obj 56 141 s \$0-lb;
+#X obj 118 107 r \$0-lb;
+#X obj 29 244 r \$0-lb;
+#X obj 29 406 unpack 0 s;
+#X text 175 530 3.) set description;
+#X obj 263 262 s \$0-frame2-r;
+#X obj 182 463 s \$0-text1-r;
+#X obj 29 626 cnv 3 68 15 empty empty empty 2 7 0 10 -257985 -66577
+0;
+#N canvas 341 335 425 542 tosymbol 0;
+#X obj 67 94 list length;
+#X obj 67 42 list;
+#X obj 101 226 list, f 7;
+#X obj 67 175 f, f 10;
+#X obj 154 175 + 1;
+#X obj 67 150 until;
+#X obj 101 251 list split;
+#X msg 157 94 0;
+#X obj 139 276 list split 1;
+#X obj 139 361 list fromsymbol;
+#X obj 139 302 route symbol float;
+#X obj 191 329 makefilename %s;
+#X obj 139 435 textfile;
+#X msg 202 94 clear;
+#X obj 139 387 list prepend add2;
+#X obj 67 201 t b b b f;
+#X obj 79 276 + 1;
+#X obj 67 122 t f f;
+#X obj 78 300 <;
+#X obj 20 335 spigot;
+#X msg 20 394 add2 32;
+#X obj 139 411 list trim;
+#X obj 67 335 f;
+#X obj 67 361 sel 0;
+#X obj 139 463 list tosymbol;
+#X obj 67 68 t l l b b, f 23;
+#X text 184 486 symbol out with correct spaces;
+#X text 57 2 string in;
+#X msg 136 25 #/zi 3 4 oo ä;
+#X msg 229 25 1.23457e+019;
+#X floatatom 315 28 5 0 0 0 - - -, f 5;
+#X obj 67 22 cnv 13 34 15 empty empty empty 2 2 0 9 -163816 -66577
+0;
+#X obj 139 487 cnv 14 40 15 empty empty empty 2 2 0 9 -163840 -66577
+0;
+#X obj 67 21 inlet;
+#X obj 139 486 outlet;
+#X connect 0 0 17 0;
+#X connect 1 0 25 0;
+#X connect 2 0 6 0;
+#X connect 3 0 4 0;
+#X connect 3 0 15 0;
+#X connect 4 0 3 1;
+#X connect 5 0 3 0;
+#X connect 6 1 8 0;
+#X connect 7 0 3 1;
+#X connect 8 0 10 0;
+#X connect 9 0 14 0;
+#X connect 10 0 9 0;
+#X connect 10 1 11 0;
+#X connect 11 0 9 0;
+#X connect 12 0 24 0;
+#X connect 13 0 12 0;
+#X connect 14 0 21 0;
+#X connect 15 0 22 0;
+#X connect 15 1 19 0;
+#X connect 15 2 2 0;
+#X connect 15 3 6 1;
+#X connect 15 3 16 0;
+#X connect 16 0 18 0;
+#X connect 17 0 5 0;
+#X connect 17 1 18 1;
+#X connect 18 0 19 1;
+#X connect 18 0 22 1;
+#X connect 19 0 20 0;
+#X connect 20 0 12 0;
+#X connect 21 0 12 0;
+#X connect 22 0 23 0;
+#X connect 23 0 12 0;
+#X connect 24 0 34 0;
+#X connect 25 0 0 0;
+#X connect 25 1 2 1;
+#X connect 25 2 7 0;
+#X connect 25 3 13 0;
+#X connect 28 0 1 0;
+#X connect 29 0 1 0;
+#X connect 30 0 1 0;
+#X connect 33 0 1 0;
+#X restore 28 625 pd tosymbol;
+#X obj 199 390 r \$0-lb;
+#X obj 199 413 t b b;
+#X obj 268 463 s \$0-text2-r;
+#X obj 354 463 s \$0-text3-r;
+#X msg 28 488 bang;
+#X msg 118 195 vis_size \$1 45;
+#X msg 263 240 vis_size \$1 43;
+#X text 349 389 init text labels;
+#X obj 28 719 pack s 0 0;
+#X msg 28 740 label \$1 \, label_pos \$2 \$3;
+#X obj 531 524 unpack;
+#X msg 531 500 171 -32;
+#X floatatom 493 391 5 0 0 0 - - -, f 5;
+#X floatatom 531 391 5 0 0 0 - - -, f 5;
+#X obj 531 421 t b f;
+#X msg 545 471 set \$1 \$2;
+#X obj 493 471 t b b l;
+#X text 503 370 x;
+#X text 540 370 y;
+#X text 466 352 4.) set label position;
+#X obj 564 545 f;
+#X msg 321 367 color \$1 \$1 \$1;
+#X msg 263 161 vis_size \$1 55;
+#X floatatom 79 174 5 0 0 0 - - -, f 5;
+#X obj 118 153 - 13;
+#X obj 263 122 + 10;
+#X obj 263 219 - 254;
+#X obj 56 56 t b f;
+#X msg 260 390 -1.47533e+006;
+#X msg 260 368 set \$1;
+#X obj 56 11 loadbang;
+#N canvas 36 456 791 300 better_colors 0;
+#X obj 89 19 inlet;
+#X obj 320 262 outlet;
+#X obj 89 40 random 10;
+#X obj 89 61 sel 0 1 2 3 4 5 6 7 8 9, f 83;
+#X obj 320 239 expr ($f1*(-65536)+$f2*(-256)+$f3*(-1))-1;
+#X msg 16 162 140 0 0;
+#X msg 69 162 0 156 144;
+#X msg 136 162 0 140 0;
+#X msg 252 162 231 112 0;
+#X msg 191 162 100 0 255;
+#X msg 317 162 100 100 100;
+#X msg 397 162 255 255 0;
+#X msg 541 162 123 33 5;
+#X msg 464 162 22 131 5;
+#X msg 607 163 147 0 163;
+#X connect 0 0 2 0;
+#X connect 2 0 3 0;
+#X connect 3 0 5 0;
+#X connect 3 1 6 0;
+#X connect 3 2 7 0;
+#X connect 3 3 9 0;
+#X connect 3 4 8 0;
+#X connect 3 5 10 0;
+#X connect 3 6 11 0;
+#X connect 3 7 13 0;
+#X connect 3 8 12 0;
+#X connect 3 9 14 0;
+#X connect 4 0 1 0;
+#X connect 5 0 4 0;
+#X connect 6 0 4 0;
+#X connect 7 0 4 0;
+#X connect 8 0 4 0;
+#X connect 9 0 4 0;
+#X connect 10 0 4 0;
+#X connect 11 0 4 0;
+#X connect 12 0 4 0;
+#X connect 13 0 4 0;
+#X connect 14 0 4 0;
+#X restore 56 34 pd better_colors;
+#X obj 56 78 del 50;
+#X msg 170 17 bang;
+#X text 200 114 width;
+#X msg 29 428 label_pos \$1 21;
+#X obj 479 124 list prepend set;
+#X obj 479 146 list trim;
+#X text 246 10 probably dangerous when initialized with loadbang!;
+#X msg 29 383 66 ol_readsf~;
+#X obj 28 775 s \$0-text1-r;
+#X obj 195 719 pack s 0 0;
+#X obj 195 775 s \$0-text2-r;
+#X obj 351 719 pack s 0 0;
+#X msg 351 740 label \$1 \, label_pos \$2 \$3;
+#X obj 351 775 s \$0-text3-r;
+#X obj 28 648 list prepend 0;
+#X obj 564 567 + 14;
+#X obj 564 590 + 14;
+#X obj 28 510 t b b b b b b b, f 20;
+#X obj 28 672 route 1 2 3, f 66;
+#X msg 86 532 2, f 1;
+#X msg 125 531 1, f 1;
+#X msg 47 532 3, f 1;
+#X msg 153 608 empty;
+#X obj 531 272 loadbang;
+#X msg 531 293 set -26;
+#X floatatom 73 292 5 0 0 0 - - -, f 5;
+#X symbolatom 108 292 20 0 0 0 - - -, f 20;
+#X obj 73 333 pack 0 s;
+#X obj 108 310 t b s;
+#X obj 73 354 t b l;
+#X msg 113 354 set \$1 \$2;
+#X msg 73 261 set 66;
+#X obj 493 448 pack 0 -26;
+#X msg 135 584 (useful for use with video synching);
+#X msg 106 560 modified readsf~. can seek and sends out playing position
+;
+#X msg 195 740 label \$1 \, label_pos \$2 \$3 \, label_font 1 10,
+f 23;
+#X msg 260 413 size 1 \, pos 300 65 \, vis_size 1 1 \, color \$1 \$1
+2 \, label_font 1 11 \, label, f 26;
+#X msg 479 80 300 50 900 700;
+#X connect 4 0 5 0;
+#X connect 6 0 16 0;
+#X connect 8 0 34 0;
+#X connect 8 0 54 0;
+#X connect 8 0 55 0;
+#X connect 10 0 9 0;
+#X connect 11 0 51 0;
+#X connect 13 0 20 0;
+#X connect 14 0 13 0;
+#X connect 14 1 6 0;
+#X connect 16 0 17 1;
+#X connect 17 0 53 0;
+#X connect 21 0 17 0;
+#X connect 22 0 68 0;
+#X connect 22 0 92 0;
+#X connect 23 0 64 0;
+#X connect 23 1 10 0;
+#X connect 28 0 75 0;
+#X connect 29 0 30 0;
+#X connect 30 0 78 0;
+#X connect 30 1 40 0;
+#X connect 30 1 57 0;
+#X connect 33 0 78 0;
+#X connect 34 0 7 0;
+#X connect 35 0 25 0;
+#X connect 37 0 38 0;
+#X connect 38 0 69 0;
+#X connect 39 0 37 1;
+#X connect 39 0 70 1;
+#X connect 39 0 72 1;
+#X connect 39 1 49 0;
+#X connect 40 0 39 0;
+#X connect 41 0 93 0;
+#X connect 42 0 43 0;
+#X connect 43 0 93 0;
+#X connect 43 1 93 1;
+#X connect 44 0 40 0;
+#X connect 45 0 33 0;
+#X connect 45 1 40 0;
+#X connect 45 2 44 0;
+#X connect 49 0 37 2;
+#X connect 49 0 76 0;
+#X connect 50 0 12 0;
+#X connect 51 0 12 0;
+#X connect 52 0 34 0;
+#X connect 53 0 8 0;
+#X connect 54 0 11 0;
+#X connect 55 0 35 0;
+#X connect 56 0 61 0;
+#X connect 56 1 58 0;
+#X connect 57 0 97 0;
+#X connect 57 0 50 0;
+#X connect 58 0 57 0;
+#X connect 59 0 60 0;
+#X connect 60 0 56 0;
+#X connect 61 0 14 0;
+#X connect 62 0 60 0;
+#X connect 64 0 9 0;
+#X connect 65 0 66 0;
+#X connect 66 0 6 0;
+#X connect 68 0 23 0;
+#X connect 70 0 96 0;
+#X connect 72 0 73 0;
+#X connect 73 0 74 0;
+#X connect 75 0 79 0;
+#X connect 76 0 70 2;
+#X connect 76 0 77 0;
+#X connect 77 0 72 2;
+#X connect 78 0 83 0;
+#X connect 78 1 82 0;
+#X connect 78 2 94 0;
+#X connect 78 3 80 0;
+#X connect 78 4 95 0;
+#X connect 78 5 81 0;
+#X connect 79 0 37 0;
+#X connect 79 1 70 0;
+#X connect 79 2 72 0;
+#X connect 80 0 75 1;
+#X connect 81 0 75 1;
+#X connect 82 0 75 1;
+#X connect 83 0 28 0;
+#X connect 84 0 85 0;
+#X connect 85 0 42 0;
+#X connect 86 0 88 0;
+#X connect 87 0 89 0;
+#X connect 88 0 90 0;
+#X connect 89 0 86 0;
+#X connect 89 1 88 1;
+#X connect 90 0 68 0;
+#X connect 90 1 91 0;
+#X connect 91 0 68 0;
+#X connect 92 0 86 0;
+#X connect 93 0 45 0;
+#X connect 94 0 28 0;
+#X connect 95 0 28 0;
+#X connect 96 0 71 0;
+#X connect 97 0 26 0;
+#X connect 97 0 31 0;
+#X connect 97 0 32 0;
+#X connect 98 0 4 0;
+#X connect 98 0 65 0;
+#X restore 19 48 pd init;
+#X obj 11 11 cnv 8 897 55 \$0-bgnd \$0-bgnd-r empty 0 20 0 4 -22530
+-22530 0;
+#X obj 15 16 cnv 8 887 45 \$0-frame \$0-frame-r empty 20 20 0 14 -1
+-262144 0;
+#X obj 16 17 cnv 15 250 43 \$0-title \$0-title-r ol_readsf~ 66 21 1
+24 -236864 -64 0;
+#X obj 268 17 cnv 15 633 43 \$0-frame2 \$0-frame2-r empty 25 18 1 24
+-216384 -4160 0;
+#X obj 300 65 cnv 1 1 1 \$0-text1 \$0-text1-r modified readsf~. can seek and sends out playing position
+171 -32 1 11 -22530 -66577 0;
+#X obj 300 65 cnv 1 1 1 \$0-text2 \$0-text2-r (useful for use with video synching)
+171 -18 1 10 -22530 -66577 0;
+#X obj 300 65 cnv 1 1 1 \$0-text3 \$0-text3-r empty 171 -4 1 11 -22530
+-66577 0;
+#X obj 30 389 dac~, f 9;
+#X obj 27 570 hradio 14 1 0 8 \$0-blockasms \$0-blockasms-r Blocksize_as_ms
+0 -8 1 10 -262144 -1 -1 0;
+#X obj 28 596 cnv 15 80 15 empty empty empty 20 12 0 14 -257985 -66577
+0;
+#N canvas 1392 430 471 349 blocksizes 0;
+#X obj 184 107 r \$0-blockasms;
+#X obj 184 173 pow;
+#X msg 184 152 2 \$1;
+#X obj 184 129 + 6;
+#X obj 37 241 / 44.1;
+#X obj 184 239 / 48;
+#X msg 37 265 set \$1;
+#X msg 184 263 set \$1;
+#X obj 37 290 s \$0-44100-r;
+#X obj 184 287 s \$0-48000-r;
+#X obj 350 220 loadbang;
+#X obj 350 241 del 10;
+#X msg 350 263 0;
+#X obj 350 286 s \$0-blockasms-r;
+#X obj 303 118 makefilename %d;
+#X msg 303 140 label \$1;
+#X obj 303 162 s \$0-bs-r;
+#X obj 37 167 s \$0-sf;
+#X obj 31 167 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X msg 37 143 blocksize \$1;
+#X text 131 21 this subpatch just calculates the millisecond values
+for a given blocksize at a given samplerate., f 35;
+#X connect 0 0 3 0;
+#X connect 1 0 4 0;
+#X connect 1 0 5 0;
+#X connect 1 0 14 0;
+#X connect 1 0 19 0;
+#X connect 2 0 1 0;
+#X connect 3 0 2 0;
+#X connect 4 0 6 0;
+#X connect 5 0 7 0;
+#X connect 6 0 8 0;
+#X connect 7 0 9 0;
+#X connect 10 0 11 0;
+#X connect 11 0 12 0;
+#X connect 12 0 13 0;
+#X connect 14 0 15 0;
+#X connect 15 0 16 0;
+#X connect 19 0 17 0;
+#X restore 27 595 pd blocksizes;
+#X obj 186 570 nbx 5 13 -1e+037 1e+037 0 0 \$0-44100 \$0-44100-r 44100
+7 -7 1 10 -262144 -1 -4160 1.45125 256;
+#X obj 239 570 nbx 5 13 -1e+037 1e+037 0 0 \$0-48000 \$0-48000-r 48000
+7 -7 1 10 -262144 -1 -4160 1.33333 256;
+#X obj 20 566 cnv 6 100 2 \$0-bs \$0-bs-r 64 128 11 1 12 -262144 -159808
+0;
+#X obj 28 620 cnv 15 146 15 empty empty empty 20 12 0 14 -257985 -66577
+0;
+#X text 181 372 length in ms, f 6;
+#X obj 594 244 hradio 15 1 0 4 empty empty empty 0 -8 0 10 -262144
+-1 -1 1;
+#X text 131 296 time in seconds;
+#X obj 267 386 != 0;
+#X text 308 285 state: 0 = off;
+#X text 350 296 1 = play;
+#X text 350 307 2 = pause;
+#X text 269 432 state;
+#X obj 310 355 bng 20 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 352 385 bng 20 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 334 354 end bang;
+#X text 377 379 end bang when in loop mode, f 13;
+#X obj 594 309 list trim;
+#X obj 66 332 hsl 80 15 0.01 1 1 0 empty empty volume 22 7 1 10 -262144
+-1 -1 0 1;
+#N canvas 723 430 707 247 multichannel_versions 0;
+#X text 23 21 they only accept 1 argument (block size) \,;
+#X obj 232 178 cnv 15 194 15 empty empty empty 20 12 0 14 -192477 -66577
+0;
+#X obj 455 177 cnv 15 194 15 empty empty empty 20 12 0 14 -192477 -66577
+0;
+#X obj 27 180 cnv 15 140 15 empty empty empty 20 12 0 14 -192477 -66577
+0;
+#X obj 454 176 ol_readsf8~, f 32;
+#X obj 454 202 dac~ 1 2 3 4 5 6 7 8, f 25;
+#X obj 454 107 openpanel;
+#X obj 454 83 bng 20 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 454 130 t b s;
+#X msg 454 153 1;
+#X text 483 84 load an 8 channel soundfile;
+#X floatatom 622 202 0 0 0 0 - - -;
+#X text 618 217 time in ms;
+#X msg 521 153 seek \$1;
+#X floatatom 521 106 5 0 0 0 - - -, f 5;
+#X msg 484 153 0;
+#X obj 521 127 * 1000;
+#X obj 231 108 openpanel;
+#X obj 231 84 bng 20 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 231 131 t b s;
+#X msg 231 154 1;
+#X floatatom 393 203 0 0 0 0 - - -;
+#X text 389 218 time in ms;
+#X msg 298 154 seek \$1;
+#X floatatom 298 107 5 0 0 0 - - -, f 5;
+#X msg 261 154 0;
+#X obj 298 128 * 1000;
+#X obj 231 177 ol_readsf6~, f 32;
+#X obj 231 203 dac~ 1 2 3 4 5 6, f 23;
+#X text 260 85 load a 6 channel soundfile;
+#X obj 26 108 openpanel;
+#X obj 26 84 bng 20 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 26 131 t b s;
+#X msg 26 154 1;
+#X floatatom 134 202 0 0 0 0 - - -;
+#X text 132 217 time in ms;
+#X msg 93 154 seek \$1;
+#X floatatom 93 107 5 0 0 0 - - -, f 5;
+#X msg 56 154 0;
+#X obj 93 128 * 1000;
+#X obj 26 179 ol_readsf4~, f 23;
+#X obj 27 203 dac~ 1 2 3 4, f 14;
+#X text 55 85 load a 4 channel soundfile;
+#X text 23 7 [ol_readsf~] exists also in 4- \, 6- \, or 8-channel versions
+(non-GUI only), f 94;
+#X text 23 36 so: no direct DAC~ output;
+#X connect 4 0 5 0;
+#X connect 4 1 5 1;
+#X connect 4 2 5 2;
+#X connect 4 3 5 3;
+#X connect 4 4 5 4;
+#X connect 4 5 5 5;
+#X connect 4 6 5 6;
+#X connect 4 7 5 7;
+#X connect 4 8 11 0;
+#X connect 6 0 8 0;
+#X connect 7 0 6 0;
+#X connect 8 0 9 0;
+#X connect 8 1 4 0;
+#X connect 9 0 4 0;
+#X connect 13 0 4 0;
+#X connect 14 0 16 0;
+#X connect 15 0 4 0;
+#X connect 16 0 13 0;
+#X connect 17 0 19 0;
+#X connect 18 0 17 0;
+#X connect 19 0 20 0;
+#X connect 19 1 27 0;
+#X connect 20 0 27 0;
+#X connect 23 0 27 0;
+#X connect 24 0 26 0;
+#X connect 25 0 27 0;
+#X connect 26 0 23 0;
+#X connect 27 0 28 0;
+#X connect 27 1 28 1;
+#X connect 27 2 28 2;
+#X connect 27 3 28 3;
+#X connect 27 4 28 4;
+#X connect 27 5 28 5;
+#X connect 27 6 21 0;
+#X connect 30 0 32 0;
+#X connect 31 0 30 0;
+#X connect 32 0 33 0;
+#X connect 32 1 40 0;
+#X connect 33 0 40 0;
+#X connect 36 0 40 0;
+#X connect 37 0 39 0;
+#X connect 38 0 40 0;
+#X connect 39 0 36 0;
+#X connect 40 0 41 0;
+#X connect 40 1 41 1;
+#X connect 40 2 41 2;
+#X connect 40 3 41 3;
+#X connect 40 4 34 0;
+#X restore 27 619 pd multichannel_versions;
+#X obj 594 287 list prepend;
+#X msg 828 127 \; pd dsp 1;
+#X obj 828 84 loadbang;
+#X obj 828 105 del 10;
+#X obj 29 99 cnv 1 146 1 empty empty ARGUMENTS: (defaults) 1 -7 0
+12 -66577 -66577 0;
+#X obj 314 99 cnv 1 50 1 empty empty INLETS: 1 -7 0 12 -66577 -66577
+0;
+#X obj 589 420 cnv 1 60 1 empty empty MESSAGES: 1 -7 0 12 -66577 -66577
+0;
+#X text 28 117 2.) blocksize (256);
+#X text 28 104 1.) GOP mode (0);
+#X text 28 132 3.) if symbol: send audio to throw~ [name];
+#X text 52 146 if float: use outlets (0);
+#X text 313 104 1.) messages;
+#X obj 424 99 cnv 1 55 1 empty empty OUTLETS: 1 -7 0 12 -66577 -66577
+0;
+#X text 423 104 1.) ~ audio 1 out;
+#X text 423 117 2.) ~ audio 2 out;
+#X text 423 130 3.) play time in seconds;
+#X text 423 143 4.) info messages;
+#X msg 589 568 vol \$1;
+#X obj 589 433 tgl 20 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X msg 589 458 pause;
+#X msg 589 512 seek \$1;
+#X msg 589 485 loop \$1;
+#X floatatom 556 512 5 0 0 0 - - -, f 5;
+#X floatatom 557 568 5 0 200 0 - - -, f 5;
+#X obj 574 485 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 643 568 volume (0 - 100);
+#X obj 589 787 s \$0-sf;
+#X text 641 456 pause;
+#X text 641 484 loop;
+#X obj 734 495 * 1000;
+#X floatatom 734 473 5 0 0 0 - - -, f 5;
+#X text 768 470 seek (s);
+#X floatatom 557 597 5 2 500 0 - - -, f 5;
+#X msg 589 597 smooth \$1;
+#X text 653 588 crossfade in ms when seeking (minimum 2) \, def 5ms
+, f 29;
+#X floatatom 556 539 5 0 0 0 - - -, f 5;
+#X msg 589 539 play \$1;
+#X text 641 512 seek (ms);
+#X text 641 539 play (ms) - same as seek but also starts;
+#X obj 787 522 * 1000;
+#X floatatom 787 500 5 0 0 0 - - -, f 5;
+#X text 641 435 play/stop (restart from last seek);
+#X text 210 212 if first argument is 1 \, [ol_readsf~] is created with
+a handy GUI. Otherwise the object works the same in both modes., f
+31;
+#X msg 663 216 load;
+#X text 100 185 [ol_readsf~ 1];
+#X text 713 214 load \, but don't play;
+#X text 713 232 load and play immediately;
+#X text 640 124 [ol_readsf~];
+#X obj 635 91 cnv 2 2 2 empty empty OBJECT VERSION: 0 0 0 12 -262144
+-66577 0;
+#X obj 219 516 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 24 185 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X obj 583 787 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 577 334 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X msg 594 264 symbol ol_media/ol_test_\$1.wav;
+#X msg 663 233 bang;
+#X text 316 408 0 = off;
+#X text 316 417 1 = play;
+#X text 316 430 2 = paused;
+#X obj 663 785 cnv 10 220 20 empty empty needs IEMLIB ZEXY IEMGUTS
+10 11 0 14 -4160 -262144 0;
+#X obj 663 801 cnv 4 120 4 empty empty empty 10 11 0 14 -4160 -262144
+0;
+#X obj 27 691 cnv 1 448 1 empty empty PLEASE REFER TO "00_README.txt" FOR DRAG AND DROP REQUIREMENTS !
+1 -7 0 12 -4160 -4160 0;
+#X text 25 656 Soundfiles can also be loaded via "drag and drop" onto
+the [ol_sfplay~] GUI, f 78;
+#X msg 589 648 goplevel \$1;
+#X msg 601 631 1, f 2;
+#X msg 621 631 2, f 2;
+#X msg 641 631 3, f 2;
+#X text 669 651 set goplevel for drag and drop;
+#X text 668 630 2 = inside s a GOP;
+#X text 668 640 3 = inside a GOP in a GOP;
+#N canvas 0 50 588 197 \$0-inagop 0;
+#X obj 1 1 cnv 15 498 88 empty empty ol_readsf~ in a GOP: 40 10
+0 12 -204786 -66577 0;
+#X obj 362 22 cnv 3 3 3 empty empty The GOP's margins 0 0 1 13 -204786
+-258113 0;
+#X obj 353 40 cnv 3 3 3 empty empty MUST be set to (0 0) !!!
+0 0 1 13 -204786 -258113 0;
+#X obj 217 101 loadbang;
+#X obj 217 125 del 100;
+#X obj 28 81 *~ 0.3;
+#X obj 28 106 dac~, f 10;
+#X obj 79 81 *~ 0.3;
+#X msg 182 8 goplevel 2 \, dropfileautoplay 1;
+#X text 212 10 ... needs a "goplevel 2" message to allow "drag and
+drop"., f 22;
+#X text 211 52 (in this subpatch "dropfileautoplay" is also set to
+1 !), f 37;
+#X obj 28 25 ol_readsf~ 1;
+#X connect 3 0 4 0;
+#X connect 4 0 8 0;
+#X connect 5 0 6 0;
+#X connect 7 0 6 1;
+#X connect 8 0 11 0;
+#X connect 11 0 5 0;
+#X connect 11 1 7 0;
+#X coords 0 -1 1 1 500 90 2 0 0;
+#X restore 27 715 pd \$0-inagop;
+#X msg 589 677 dropfileautoplay \$1;
+#X obj 566 679 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 721 669 play a dropped file immediately, f 16;
+#X text 668 621 1 = parent patch (default);
+#X obj 574 715 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 643 714 output (0 = outlets \, 1 = direct to dac~);
+#X msg 589 715 dac \$1;
+#X text 615 165 sending a symbol to [ol_readsf~] loads that soundfile
+and immediately starts playing., f 33;
+#X text 663 308 symbols prepended by "open" \, "load" or "read" just
+loads the soundfile (without playing)., f 32;
+#X obj 30 213 ol_readsf~ 1 256 0;
+#X obj 30 360 *~ 0.3;
+#X obj 82 360 *~ 0.3;
+#X obj 321 27 cnv 15 100 22 empty empty WAV_ONLY_! 5 12 1 14 -260583
+-66577 0;
+#X obj 321 46 cnv 3 100 3 empty empty empty 5 12 1 14 -260583 -66577
+0;
+#X obj 480 352 print REST;
+#X obj 183 330 route length reltime state EOF EOFL block sample, f
+50;
+#X floatatom 395 355 5 0 0 0 - - -, f 5;
+#X floatatom 433 355 7 0 0 0 - - -, f 7;
+#X text 362 468 REPORT SWITCHES:;
+#X text 363 514 3.) sample;
+#X text 363 499 2.) block;
+#X text 363 484 1.) relative time (0. - 1.);
+#X obj 365 619 s \$0-sf;
+#X obj 359 619 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X text 780 559 (default);
+#X msg 365 595 report;
+#X msg 365 555 report +++;
+#X msg 365 572 report +--;
+#X text 417 595 use default;
+#X msg 365 538 report ---;
+#X text 434 568 <-- only relative;
+#X text 457 578 time (default);
+#X text 434 539 <-- all off;
+#X text 434 555 <-- all on;
+#X obj 331 131 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 646 104 ol_readsf~;
+#X obj 118 596 cnv 15 133 15 empty empty empty 20 12 0 14 -257985 -66577
+0;
+#N canvas 821 411 471 335 playback samplerate 0;
+#X text 39 115 the only possible way at the moment is to change PD's
+samplerate with either a crude message to pd itself \, or (better)
+to use the object [audiosettings] from the MEDIASETTINGS library.;
+#X text 38 30 since [ol_readsf~] uses PD's native [readsf~] object
+\, there's no easy way to play back files that have a different samplerate
+than PD's global samplerate at correct pitches., f 64;
+#X text 39 84 (ol_test_2.wav is thus played back too slow as it is
+48khz), f 64;
+#X text 40 180 this is a process that will require stop and restart
+(resync) PD's audio engine \, which seemed like a too drastic approach
+to me. so \, the user of [ol_readsf~] is asked to take care for correct
+samplerates him- / herself., f 64;
+#X text 40 247 however \, the right ("info") outlet provides the loaded
+soundfile's samplerate with a dedicated message (see console window
+when loading a soundfile) for further usage., f 64;
+#X restore 117 595 pd playback samplerate;
+#X connect 2 0 9 0;
+#X connect 3 0 2 0;
+#X connect 4 0 5 0;
+#X connect 5 0 8 0;
+#X connect 6 0 61 0;
+#X connect 7 0 122 0;
+#X connect 29 0 96 0;
+#X connect 31 0 6 0;
+#X connect 40 0 9 0;
+#X connect 41 0 123 1;
+#X connect 41 0 124 1;
+#X connect 43 0 40 0;
+#X connect 45 0 46 0;
+#X connect 46 0 44 0;
+#X connect 60 0 69 0;
+#X connect 61 0 69 0;
+#X connect 62 0 69 0;
+#X connect 63 0 69 0;
+#X connect 64 0 69 0;
+#X connect 65 0 63 0;
+#X connect 66 0 60 0;
+#X connect 67 0 64 0;
+#X connect 72 0 63 0;
+#X connect 73 0 72 0;
+#X connect 75 0 76 0;
+#X connect 76 0 69 0;
+#X connect 78 0 79 0;
+#X connect 79 0 69 0;
+#X connect 82 0 79 0;
+#X connect 83 0 82 0;
+#X connect 86 0 43 1;
+#X connect 96 0 43 0;
+#X connect 97 0 43 1;
+#X connect 105 0 69 0;
+#X connect 106 0 105 0;
+#X connect 107 0 105 0;
+#X connect 108 0 105 0;
+#X connect 113 0 69 0;
+#X connect 114 0 113 0;
+#X connect 117 0 119 0;
+#X connect 119 0 69 0;
+#X connect 122 0 123 0;
+#X connect 122 1 124 0;
+#X connect 122 2 0 0;
+#X connect 122 3 128 0;
+#X connect 123 0 20 0;
+#X connect 124 0 20 1;
+#X connect 128 0 1 0;
+#X connect 128 1 4 0;
+#X connect 128 2 31 0;
+#X connect 128 3 36 0;
+#X connect 128 4 37 0;
+#X connect 128 5 129 0;
+#X connect 128 6 130 0;
+#X connect 128 7 127 0;
+#X connect 138 0 135 0;
+#X connect 139 0 135 0;
+#X connect 140 0 135 0;
+#X connect 142 0 135 0;

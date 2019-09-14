@@ -1,0 +1,692 @@
+#N canvas 535 92 887 730 10;
+#X msg 538 253 bang;
+#X obj 256 255 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 256 300 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 573 254 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X msg 277 253 bang;
+#X obj 538 230 cnv 15 15 15 empty \$0-cnv1 BANG MODE: 0 12 0 14 -262144
+-62784 0;
+#X floatatom 614 523 5 1 3 0 - - -;
+#X floatatom 648 523 5 0 0 0 - - -;
+#X floatatom 681 523 5 0 0 0 - - -;
+#X obj 630 546 t b f;
+#X obj 669 546 t b f;
+#X floatatom 715 523 5 0 0 0 - - -;
+#X obj 708 546 t b f;
+#X obj 614 585 list prepend font;
+#X obj 614 606 list trim;
+#X floatatom 357 525 5 0 0 0 - - -;
+#X floatatom 399 525 5 0 0 0 - - -;
+#X floatatom 445 524 5 0 0 0 - - -;
+#X obj 399 548 t b f;
+#X obj 438 548 t b f;
+#X floatatom 492 524 5 0 0 0 - - -;
+#X obj 477 548 t b f;
+#X obj 383 608 list trim;
+#X obj 383 587 list prepend colors;
+#X obj 383 565 pack 0 0 0 0 0;
+#X floatatom 538 523 5 0 0 0 - - -;
+#X obj 513 548 t b f;
+#X text 348 505 bg off \, bg on \, text off \, text on \, border;
+#X obj 199 608 list trim;
+#X obj 199 587 list prepend text;
+#X obj 199 565 pack s s;
+#X symbolatom 199 525 10 0 0 0 - - -;
+#X symbolatom 263 525 10 0 0 0 - - -;
+#X obj 263 548 t b s;
+#X text 200 505 off state \, on state;
+#X floatatom 33 525 5 10 300 0 - - -;
+#X floatatom 67 525 5 14 60 0 - - -;
+#X floatatom 100 525 5 0 0 0 - - -;
+#X obj 49 548 t b f;
+#X obj 88 548 t b f;
+#X obj 33 608 list trim;
+#X obj 33 587 list prepend size;
+#X text 25 505 width \, height \, border;
+#X text 133 519 thickness, f 5;
+#X obj 255 184 print OUTPUT;
+#X obj 75 499 cnv 3 1 1 empty empty SIZE: -3 -2 1 14 -262144 -66577
+0;
+#X obj 244 499 cnv 3 1 1 empty empty TEXT: -3 -2 1 14 -262144 -66577
+0;
+#X obj 434 499 cnv 3 1 1 empty empty COLORS**: -3 -2 1 14 -262144 -4160
+0;
+#X obj 623 499 cnv 3 1 1 empty empty FONT: -3 -2 1 14 -262144 -4160
+0;
+#X floatatom 757 523 5 0 0 0 - - -;
+#X obj 745 546 t b f;
+#X floatatom 791 523 5 0 0 0 - - -;
+#X obj 784 546 t b f;
+#X text 605 504 type \, size \, pos_x \, pos_y \, pos_x \, pos_y;
+#X obj 688 499 cnv 3 1 1 empty empty -----0----- -3 -2 1 14 -262144
+-4160 0;
+#X obj 775 499 cnv 3 1 1 empty empty -----1----- -3 -2 1 14 -262144
+-4160 0;
+#X obj 614 563 pack 0 0 0 0 0 0;
+#X obj 33 565 pack 0 0 0;
+#X msg 33 381 font 2 16 6 7 6 7;
+#X text 614 648 DEFAULTS: 2 10 3 4 3 4;
+#X text 689 603 1 = courier \; 2 = helvetica (default) \; 3 = times
+;
+#X text 382 647 DEFAULTS: 1 14 0 22 2;
+#X msg 455 612 colors;
+#X msg 571 611 font;
+#X text 455 628 word alone sets defaults;
+#X obj 299 298 route dropped;
+#X obj 416 183 print INFO;
+#X msg 575 421 hover \$1;
+#X obj 575 400 * 100;
+#X obj 575 381 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 416 158 spigot;
+#X obj 463 158 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 614 395 hover;
+#X text 613 404 speedlim;
+#X obj 464 47 namecanvas \$0-ol_help;
+#N canvas 135 164 626 800 init 0;
+#X obj 470 388 cnv 8 120 25 empty empty empty 20 12 0 14 -204786 -66577
+0;
+#X obj 97 553 cnv 8 300 80 empty empty empty 20 12 0 14 -204786 -66577
+0;
+#X obj 461 76 cnv 8 120 26 empty empty empty 20 12 0 14 -204786 -66577
+0;
+#X obj 60 287 cnv 8 200 25 empty empty empty 20 12 0 14 -204786 -66577
+0;
+#X msg 245 33 vis 0 \, relocate \$3x\$4+0+0 0x0+\$1+\$2 \, vis 1 \,
+editmode 0;
+#X obj 245 55 s \$0-ol_help;
+#X msg 118 64 520 50 850 700;
+#X obj 118 219 s \$0-frame-r;
+#X floatatom 118 176 5 0 0 0 - - -;
+#X obj 28 450 s \$0-title-r;
+#X msg 98 406 label \$1;
+#X floatatom 263 143 5 0 0 0 - - -;
+#X obj 263 183 s \$0-bgnd-r;
+#X obj 56 119 del 10;
+#X obj 56 99 t b b;
+#X text 244 80 1.) set pos and size of main window;
+#X msg 172 115 \$3;
+#X obj 118 132 f;
+#X text 151 143 minus frame sizes, f 11;
+#X text 124 266 2.) set name of title;
+#X obj 56 141 s \$0-lb;
+#X obj 118 107 r \$0-lb;
+#X obj 29 244 r \$0-lb;
+#X obj 29 406 unpack 0 s;
+#X text 175 530 3.) set description;
+#X obj 263 262 s \$0-frame2-r;
+#X obj 182 463 s \$0-text1-r;
+#X obj 29 626 cnv 3 68 15 empty empty empty 2 7 0 10 -257985 -66577
+0;
+#N canvas 341 335 425 542 tosymbol 0;
+#X obj 67 94 list length;
+#X obj 67 42 list;
+#X obj 101 226 list, f 7;
+#X obj 67 175 f, f 10;
+#X obj 154 175 + 1;
+#X obj 67 150 until;
+#X obj 101 251 list split;
+#X msg 157 94 0;
+#X obj 139 276 list split 1;
+#X obj 139 361 list fromsymbol;
+#X obj 139 302 route symbol float;
+#X obj 191 329 makefilename %s;
+#X obj 139 435 textfile;
+#X msg 202 94 clear;
+#X obj 139 387 list prepend add2;
+#X obj 67 201 t b b b f;
+#X obj 79 276 + 1;
+#X obj 67 122 t f f;
+#X obj 78 300 <;
+#X obj 20 335 spigot;
+#X msg 20 394 add2 32;
+#X obj 139 411 list trim;
+#X obj 67 335 f;
+#X obj 67 361 sel 0;
+#X obj 139 463 list tosymbol;
+#X obj 67 68 t l l b b, f 23;
+#X text 184 486 symbol out with correct spaces;
+#X text 57 2 string in;
+#X msg 136 25 #/zi 3 4 oo ä;
+#X msg 229 25 1.23457e+19;
+#X floatatom 315 28 5 0 0 0 - - -;
+#X obj 67 22 cnv 13 34 15 empty empty empty 2 2 0 9 -163816 -66577
+0;
+#X obj 139 487 cnv 14 40 15 empty empty empty 2 2 0 9 -163840 -66577
+0;
+#X obj 67 21 inlet;
+#X obj 139 486 outlet;
+#X connect 0 0 17 0;
+#X connect 1 0 25 0;
+#X connect 2 0 6 0;
+#X connect 3 0 4 0;
+#X connect 3 0 15 0;
+#X connect 4 0 3 1;
+#X connect 5 0 3 0;
+#X connect 6 1 8 0;
+#X connect 7 0 3 1;
+#X connect 8 0 10 0;
+#X connect 9 0 14 0;
+#X connect 10 0 9 0;
+#X connect 10 1 11 0;
+#X connect 11 0 9 0;
+#X connect 12 0 24 0;
+#X connect 13 0 12 0;
+#X connect 14 0 21 0;
+#X connect 15 0 22 0;
+#X connect 15 1 19 0;
+#X connect 15 2 2 0;
+#X connect 15 3 6 1;
+#X connect 15 3 16 0;
+#X connect 16 0 18 0;
+#X connect 17 0 5 0;
+#X connect 17 1 18 1;
+#X connect 18 0 19 1;
+#X connect 18 0 22 1;
+#X connect 19 0 20 0;
+#X connect 20 0 12 0;
+#X connect 21 0 12 0;
+#X connect 22 0 23 0;
+#X connect 23 0 12 0;
+#X connect 24 0 34 0;
+#X connect 25 0 0 0;
+#X connect 25 1 2 1;
+#X connect 25 2 7 0;
+#X connect 25 3 13 0;
+#X connect 28 0 1 0;
+#X connect 29 0 1 0;
+#X connect 30 0 1 0;
+#X connect 33 0 1 0;
+#X restore 28 625 pd tosymbol;
+#X obj 199 390 r \$0-lb;
+#X obj 199 413 t b b;
+#X obj 268 463 s \$0-text2-r;
+#X obj 354 463 s \$0-text3-r;
+#X msg 28 488 bang;
+#X msg 118 195 vis_size \$1 45;
+#X msg 263 240 vis_size \$1 43;
+#X text 349 389 init text labels;
+#X obj 28 719 pack s 0 0;
+#X msg 28 740 label \$1 \, label_pos \$2 \$3;
+#X obj 531 524 unpack;
+#X msg 531 500 158 -32;
+#X floatatom 493 391 5 0 0 0 - - -;
+#X floatatom 531 391 5 0 0 0 - - -;
+#X obj 531 421 t b f;
+#X msg 545 471 set \$1 \$2;
+#X obj 493 471 t b b l;
+#X text 503 370 x;
+#X text 540 370 y;
+#X text 466 352 4.) set label position;
+#X obj 564 545 f;
+#X msg 321 367 color \$1 \$1 \$1;
+#X msg 263 161 vis_size \$1 55;
+#X floatatom 79 174 5 0 0 0 - - -;
+#X obj 118 153 - 13;
+#X obj 263 122 + 10;
+#X obj 263 219 - 254;
+#X obj 56 56 t b f;
+#X msg 260 390 -1.47533e+06;
+#X msg 260 368 set \$1;
+#X obj 56 11 loadbang;
+#N canvas 36 456 791 300 better_colors 0;
+#X obj 89 19 inlet;
+#X obj 320 262 outlet;
+#X obj 89 40 random 10;
+#X obj 89 61 sel 0 1 2 3 4 5 6 7 8 9, f 83;
+#X obj 320 239 expr ($f1*(-65536)+$f2*(-256)+$f3*(-1))-1;
+#X msg 16 162 140 0 0;
+#X msg 69 162 0 156 144;
+#X msg 136 162 0 140 0;
+#X msg 252 162 231 112 0;
+#X msg 191 162 100 0 255;
+#X msg 317 162 100 100 100;
+#X msg 397 162 255 255 0;
+#X msg 541 162 123 33 5;
+#X msg 464 162 22 131 5;
+#X msg 607 163 147 0 163;
+#X connect 0 0 2 0;
+#X connect 2 0 3 0;
+#X connect 3 0 5 0;
+#X connect 3 1 6 0;
+#X connect 3 2 7 0;
+#X connect 3 3 9 0;
+#X connect 3 4 8 0;
+#X connect 3 5 10 0;
+#X connect 3 6 11 0;
+#X connect 3 7 13 0;
+#X connect 3 8 12 0;
+#X connect 3 9 14 0;
+#X connect 4 0 1 0;
+#X connect 5 0 4 0;
+#X connect 6 0 4 0;
+#X connect 7 0 4 0;
+#X connect 8 0 4 0;
+#X connect 9 0 4 0;
+#X connect 10 0 4 0;
+#X connect 11 0 4 0;
+#X connect 12 0 4 0;
+#X connect 13 0 4 0;
+#X connect 14 0 4 0;
+#X restore 56 34 pd better_colors;
+#X obj 56 78 del 50;
+#X msg 170 17 bang;
+#X text 200 114 width;
+#X msg 29 428 label_pos \$1 21;
+#X obj 479 124 list prepend set;
+#X obj 479 146 list trim;
+#X text 246 10 probably dangerous when initialized with loadbang!;
+#X msg 29 383 76 ol_toggle;
+#X obj 28 775 s \$0-text1-r;
+#X obj 195 719 pack s 0 0;
+#X obj 195 775 s \$0-text2-r;
+#X obj 351 719 pack s 0 0;
+#X msg 351 740 label \$1 \, label_pos \$2 \$3;
+#X obj 351 775 s \$0-text3-r;
+#X obj 28 648 list prepend 0;
+#X msg 195 740 label \$1 \, label_pos \$2 \$3 \, label_font 1 11,
+f 23;
+#X obj 564 567 + 14;
+#X obj 564 590 + 14;
+#X obj 28 510 t b b b b b b b, f 20;
+#X obj 28 672 route 1 2 3, f 66;
+#X msg 86 532 2, f 1;
+#X msg 125 531 1, f 1;
+#X msg 47 532 3, f 1;
+#X msg 153 608 empty;
+#X obj 531 272 loadbang;
+#X msg 531 293 set -26;
+#X floatatom 73 292 5 0 0 0 - - -;
+#X symbolatom 108 292 20 0 0 0 - - -;
+#X obj 73 333 pack 0 s;
+#X obj 108 310 t b s;
+#X obj 73 354 t b l;
+#X msg 113 354 set \$1 \$2;
+#X msg 73 261 set 66;
+#X obj 493 448 pack 0 -26;
+#X msg 479 80 520 50 850 700;
+#X msg 106 560 customisable toggle (or button) with text;
+#X msg 135 584 (works like [textbutton] in MAX/MSP);
+#X msg 260 413 size 1 \, pos 300 65 \, vis_size 1 1 \, color \$1 \$1
+2 \, label_font 1 11 \, label, f 26;
+#X connect 4 0 5 0;
+#X connect 6 0 16 0;
+#X connect 8 0 34 0;
+#X connect 8 0 54 0;
+#X connect 8 0 55 0;
+#X connect 10 0 9 0;
+#X connect 11 0 51 0;
+#X connect 13 0 20 0;
+#X connect 14 0 13 0;
+#X connect 14 1 6 0;
+#X connect 16 0 17 1;
+#X connect 17 0 53 0;
+#X connect 21 0 17 0;
+#X connect 22 0 68 0;
+#X connect 22 0 93 0;
+#X connect 23 0 64 0;
+#X connect 23 1 10 0;
+#X connect 28 0 75 0;
+#X connect 29 0 30 0;
+#X connect 30 0 79 0;
+#X connect 30 1 40 0;
+#X connect 30 1 57 0;
+#X connect 33 0 79 0;
+#X connect 34 0 7 0;
+#X connect 35 0 25 0;
+#X connect 37 0 38 0;
+#X connect 38 0 69 0;
+#X connect 39 0 37 1;
+#X connect 39 0 70 1;
+#X connect 39 0 72 1;
+#X connect 39 1 49 0;
+#X connect 40 0 39 0;
+#X connect 41 0 94 0;
+#X connect 42 0 43 0;
+#X connect 43 0 94 0;
+#X connect 43 1 94 1;
+#X connect 44 0 40 0;
+#X connect 45 0 33 0;
+#X connect 45 1 40 0;
+#X connect 45 2 44 0;
+#X connect 49 0 37 2;
+#X connect 49 0 77 0;
+#X connect 50 0 12 0;
+#X connect 51 0 12 0;
+#X connect 52 0 34 0;
+#X connect 53 0 8 0;
+#X connect 54 0 11 0;
+#X connect 55 0 35 0;
+#X connect 56 0 61 0;
+#X connect 56 1 58 0;
+#X connect 57 0 98 0;
+#X connect 57 0 50 0;
+#X connect 58 0 57 0;
+#X connect 59 0 60 0;
+#X connect 60 0 56 0;
+#X connect 61 0 14 0;
+#X connect 62 0 60 0;
+#X connect 64 0 9 0;
+#X connect 65 0 66 0;
+#X connect 66 0 6 0;
+#X connect 68 0 23 0;
+#X connect 70 0 76 0;
+#X connect 72 0 73 0;
+#X connect 73 0 74 0;
+#X connect 75 0 80 0;
+#X connect 76 0 71 0;
+#X connect 77 0 70 2;
+#X connect 77 0 78 0;
+#X connect 78 0 72 2;
+#X connect 79 0 84 0;
+#X connect 79 1 83 0;
+#X connect 79 2 97 0;
+#X connect 79 3 81 0;
+#X connect 79 4 96 0;
+#X connect 79 5 82 0;
+#X connect 80 0 37 0;
+#X connect 80 1 70 0;
+#X connect 80 2 72 0;
+#X connect 81 0 75 1;
+#X connect 82 0 75 1;
+#X connect 83 0 75 1;
+#X connect 84 0 28 0;
+#X connect 85 0 86 0;
+#X connect 86 0 42 0;
+#X connect 87 0 89 0;
+#X connect 88 0 90 0;
+#X connect 89 0 91 0;
+#X connect 90 0 87 0;
+#X connect 90 1 89 1;
+#X connect 91 0 68 0;
+#X connect 91 1 92 0;
+#X connect 92 0 68 0;
+#X connect 93 0 87 0;
+#X connect 94 0 45 0;
+#X connect 95 0 4 0;
+#X connect 95 0 65 0;
+#X connect 96 0 28 0;
+#X connect 97 0 28 0;
+#X connect 98 0 26 0;
+#X connect 98 0 31 0;
+#X connect 98 0 32 0;
+#X restore 19 48 pd init;
+#X obj 11 11 cnv 8 847 55 \$0-bgnd \$0-bgnd-r empty 0 20 0 4 -22530
+-22530 0;
+#X obj 15 16 cnv 8 837 45 \$0-frame \$0-frame-r empty 20 20 0 14 -1
+-262144 0;
+#X obj 16 17 cnv 15 250 43 \$0-title \$0-title-r ol_toggle 76 21 1
+24 -236864 -64 0;
+#X obj 268 17 cnv 15 583 43 \$0-frame2 \$0-frame2-r empty 25 18 1 24
+-216384 -4160 0;
+#X obj 300 65 cnv 1 1 1 \$0-text1 \$0-text1-r customisable toggle (or button) with text
+158 -32 1 11 -22530 -66577 0;
+#X obj 300 65 cnv 1 1 1 \$0-text2 \$0-text2-r (works like [textbutton] in MAX/MSP)
+158 -18 1 11 -22530 -66577 0;
+#X obj 300 65 cnv 1 1 1 \$0-text3 \$0-text3-r empty 158 -4 1 11 -22530
+-66577 0;
+#X text 388 291 <-- DRAG & DROP OUTPUT*, f 12;
+#X obj 721 307 cnv 13 99 15 empty empty empty 2 7 0 10 -257985 -66577
+0;
+#N canvas 654 201 476 435 more_examples 0;
+#X obj 142 222 bng 15 250 100 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 142 204 bng 15 250 100 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 165 203 save;
+#X text 165 220 save as ...;
+#X text 78 16 "SAVE / SAVE AS ..." switch that checks for pressed SHIFT
+key:, f 23;
+#X text 176 182 result;
+#X text 71 304 USE IT AS A UBUTTON:;
+#X obj 87 395 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 87 374 r \$0-ubutton;
+#X obj 271 164 route mod;
+#X obj 271 186 == 1;
+#X text 270 124 check for pressed SHIFT key;
+#X obj 76 156 t f f;
+#X obj 40 182 print result;
+#X obj 123 182 sel 1 0;
+#X obj 271 209 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 76 132 r \$0-switch;
+#X obj 122 154 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 271 142 r \$0-switch-info;
+#X obj 271 232 s \$0-switch-r;
+#X text 192 73 [ol_toggle \$0-switch 100 30 2 0 SAVE SAVE_AS_... @font
+2 16 22 14 4 14], f 37;
+#X text 203 351 [ol_toggle \$0-ubutton 100 30 -1 2 CLICK CLICK @colors
+white white black red white @font 2 20 22 14 22 14], f 37;
+#X obj 76 75 ol_toggle \$0-switch 100 30 2 0 SAVE SAVE_AS_... @font
+2 16 22 14 4 14;
+#X obj 75 333 ol_toggle \$0-ubutton 100 30 -1 2 CLICK CLICK @colors
+white white black red white @font 2 20 22 14 22 14;
+#X obj 81 374 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X obj 265 232 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 265 142 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X obj 70 132 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X connect 8 0 7 0;
+#X connect 9 0 10 0;
+#X connect 10 0 15 0;
+#X connect 12 0 13 0;
+#X connect 12 1 14 0;
+#X connect 12 1 17 0;
+#X connect 14 0 0 0;
+#X connect 14 1 1 0;
+#X connect 15 0 19 0;
+#X connect 16 0 12 0;
+#X connect 18 0 9 0;
+#X restore 720 306 pd more_examples;
+#X obj 256 231 cnv 15 15 15 empty \$0-cnv1 TOGGLE MODE (default):
+0 12 0 14 -262144 -62784 0;
+#X obj 538 320 print BANGMODE;
+#X text 312 274 [ol_toggle];
+#X text 430 127 r [name]-info;
+#X text 478 156 <-- INFO OUTPUT;
+#X text 498 166 (many infos !);
+#X obj 299 323 print INFO-OUTLET;
+#X obj 721 330 cnv 13 86 15 empty empty empty 2 7 0 10 -257985 -66577
+0;
+#N canvas 1159 300 482 292 info_outlet 0;
+#X text 22 26 The right outlet sends several messages about MOUSE \,
+KEY or DRAG'N'DROP states. route them to your needs.;
+#X text 22 61 MESSAGES:;
+#X text 19 218 (needs activation);
+#X text 23 121 mod [f] (= modifier keys: 0/1/2/3 - OFF / SHIFT / STRG
+/ STRG+SHIFT), f 71;
+#X text 21 79 dropped [s] (= full name of dropped file);
+#X text 21 93 drop_pos [f f] (= position where file was dropped);
+#X text 21 107 gop_pos [f f] (= position of GOP relative to parent
+patch);
+#X text 23 147 mousestate [f] (= clicked or not clicked);
+#X text 23 160 mousedown [f f] (= coordinates when clicked);
+#X text 23 173 mouseup [f f] (= coordinates when click released);
+#X text 22 134 pos [f f] (= coordinates of mouse inside GOP);
+#X text 22 245 hover_state [f] (= is mouse hovering over GOP ?);
+#X text 22 232 hover [f f] (coordinates of mouse hovering over GOP)
+;
+#X restore 720 329 pd info_outlet;
+#X obj 525 301 bng 12 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 544 297 [ol_toggle @mode 2];
+#X msg 33 406 colors grey red yellow white purple, f 19;
+#N canvas 522 383 450 300 \$0-inagop 0;
+#X obj 1 1 cnv 15 248 138 empty empty ol_toggle_in_a_GOP: 70 10 0 12
+-204786 -66577 0;
+#X obj 111 17 cnv 3 70 1 empty empty empty 0 0 0 7 -204786 -66577 0
+;
+#X text 7 121 [ol_toggle \$0-toggleingop @goplevel 2];
+#X text 15 25 ... needs a "goplevel 2" message (or the attribute "@goplevel
+2") to work., f 37;
+#X obj 71 70 cnv 3 3 3 empty empty The GOP's margins 0 0 1 13 -233017
+-258113 0;
+#X obj 62 88 cnv 3 3 3 empty empty MUST be set to (0 0) !!! 0
+0 1 13 -233017 -258113 0;
+#X obj 106 103 ol_toggle \$0-toggleingop @goplevel 2;
+#X coords 0 -1 1 1 250 140 2 0 0;
+#X restore 607 81 pd \$0-inagop;
+#X obj 721 253 cnv 15 134 15 empty empty empty 2 7 0 10 -257985 -66577
+0;
+#X obj 721 277 cnv 15 86 15 empty empty empty 2 7 0 10 -257985 -66577
+0;
+#X obj 720 276 ol_z_colors, f 14;
+#X obj 720 252 ol_z_info OL_TOGGLE, f 22;
+#X obj 32 683 cnv 10 190 20 empty empty needs_IEMGUTS_&_ZEXY 10 11
+0 14 -4160 -262144 0;
+#X obj 32 699 cnv 4 190 4 empty empty empty 10 11 0 14 -4160 -262144
+0;
+#X text 23 118 Remote Name (optional);
+#X obj 24 100 cnv 1 146 1 empty empty ARGUMENTS: (defaults) 1 -7 0
+12 -66577 -66577 0;
+#X text 701 272 **;
+#X text 24 164 1.) width (50);
+#X text 24 178 2.) height (16);
+#X text 24 192 3.) border (2) (use -1 for 0 !);
+#X obj 29 366 cnv 1 64 1 empty empty MESSAGES: 2 -7 0 12 -66577 -66577
+0;
+#X text 252 114 [ol_toggle \$0-tog 120 24 2 @text REC REC], f 21;
+#X obj 33 445 s \$0-tog-r;
+#X obj 255 159 r \$0-tog;
+#X obj 33 630 s \$0-tog-r;
+#X obj 199 630 s \$0-tog-r;
+#X obj 383 629 s \$0-tog-r;
+#X obj 614 628 s \$0-tog-r;
+#X obj 416 109 r \$0-tog-info;
+#X text 414 80 Receive info output:;
+#X obj 575 443 s \$0-tog-r;
+#X obj 366 369 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 342 394 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X msg 366 394 set \$1;
+#X obj 342 421 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 366 445 s \$0-tog-r;
+#X text 151 380 see also exmaples below;
+#X text 159 398 colors can be set as a list of floats or symbols,
+f 18;
+#X text 271 424 **;
+#X text 387 368 change value;
+#X text 414 388 set value;
+#X text 411 398 (no output);
+#X text 47 219 (0 = toggle \, 1 = toggle + init on \, 2 = button),
+f 26;
+#X text 24 204 4.) mode (0);
+#X text 24 247 5.) text off (OFF)*;
+#X text 24 262 6.) text on (ON)*;
+#X obj 254 86 ol_toggle \\\$0-tog 120 24 2 0 REC REC grey70 14 white
+black grey20 2 11 15 6 15 6 1;
+#X msg 366 421 togmode \$1;
+#X text 436 415 set mode to toggle;
+#X text 435 425 (0) or button (1);
+#X obj 538 277 ol_toggle @mode 2;
+#X obj 256 276 ol_toggle;
+#X obj 27 445 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 249 159 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X obj 27 630 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 193 630 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 377 629 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 608 628 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 410 109 cnv 5 5 17 empty empty empty 20 12 0 14 -260626 -66577
+0;
+#X obj 569 443 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X obj 360 445 cnv 5 5 17 empty empty empty 20 12 0 14 -194593 -66577
+0;
+#X text 40 134 (see "ol_z_info" for details);
+#X obj 384 701 cnv 3 3 3 empty empty PLEASE REFER TO "00_README.txt" FOR DRAG AND DROP REQUIREMENTS !
+1 -7 1 12 -262144 -4160 0;
+#X obj 373 697 cnv 3 3 3 empty empty * 0 0 1 18 -262144 -4160 0;
+#X connect 0 0 141 0;
+#X connect 1 0 142 0;
+#X connect 3 0 141 0;
+#X connect 4 0 142 0;
+#X connect 6 0 56 0;
+#X connect 7 0 9 0;
+#X connect 8 0 10 0;
+#X connect 9 0 56 0;
+#X connect 9 1 56 1;
+#X connect 10 0 56 0;
+#X connect 10 1 56 2;
+#X connect 11 0 12 0;
+#X connect 12 0 56 0;
+#X connect 12 1 56 3;
+#X connect 13 0 14 0;
+#X connect 14 0 118 0;
+#X connect 15 0 24 0;
+#X connect 16 0 18 0;
+#X connect 17 0 19 0;
+#X connect 18 0 24 0;
+#X connect 18 1 24 1;
+#X connect 19 0 24 0;
+#X connect 19 1 24 2;
+#X connect 20 0 21 0;
+#X connect 21 0 24 0;
+#X connect 21 1 24 3;
+#X connect 22 0 117 0;
+#X connect 23 0 22 0;
+#X connect 24 0 23 0;
+#X connect 25 0 26 0;
+#X connect 26 0 24 0;
+#X connect 26 1 24 4;
+#X connect 28 0 116 0;
+#X connect 29 0 28 0;
+#X connect 30 0 29 0;
+#X connect 31 0 30 0;
+#X connect 32 0 33 0;
+#X connect 33 0 30 0;
+#X connect 33 1 30 1;
+#X connect 35 0 57 0;
+#X connect 36 0 38 0;
+#X connect 37 0 39 0;
+#X connect 38 0 57 0;
+#X connect 38 1 57 1;
+#X connect 39 0 57 0;
+#X connect 39 1 57 2;
+#X connect 40 0 115 0;
+#X connect 41 0 40 0;
+#X connect 49 0 50 0;
+#X connect 50 0 56 0;
+#X connect 50 1 56 4;
+#X connect 51 0 52 0;
+#X connect 52 0 56 0;
+#X connect 52 1 56 5;
+#X connect 56 0 13 0;
+#X connect 57 0 41 0;
+#X connect 58 0 113 0;
+#X connect 62 0 117 0;
+#X connect 63 0 118 0;
+#X connect 65 0 92 0;
+#X connect 67 0 121 0;
+#X connect 68 0 67 0;
+#X connect 69 0 68 0;
+#X connect 70 0 66 0;
+#X connect 71 0 70 1;
+#X connect 97 0 113 0;
+#X connect 114 0 44 0;
+#X connect 119 0 70 0;
+#X connect 122 0 126 0;
+#X connect 123 0 124 0;
+#X connect 124 0 126 0;
+#X connect 125 0 138 0;
+#X connect 138 0 126 0;
+#X connect 141 0 87 0;
+#X connect 141 0 95 0;
+#X connect 142 0 2 0;
+#X connect 142 1 65 0;

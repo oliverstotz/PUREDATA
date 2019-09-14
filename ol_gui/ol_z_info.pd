@@ -1,0 +1,144 @@
+#N canvas 194 71 1030 829 10;
+#N canvas 1173 403 450 300 init 0;
+#X obj 70 15 loadbang;
+#X obj 70 40 symbol \$1;
+#X obj 70 152 s \$0-header;
+#X msg 141 23 OL_GRID;
+#X msg 88 123 label;
+#X msg 70 62 label GUIDE FOR \$1;
+#X connect 0 0 1 0;
+#X connect 1 0 5 0;
+#X connect 3 0 1 0;
+#X connect 4 0 2 0;
+#X connect 5 0 2 0;
+#X restore 959 27 pd init;
+#X obj 12 11 cnv 5 1000 800 empty empty empty 0 20 1 7 -1 -159808 0
+;
+#X obj 15 14 cnv 25 994 54 empty empty empty 30 28 1 28 -241339 -159808
+0;
+#X obj 15 73 cnv 15 495 734 empty empty CREATION: 22 25 0 16 -241339
+-4160 0;
+#X obj 18 154 cnv 15 15 15 empty empty ARGUMENTS: 20 15 0 16 -241339
+-4160 0;
+#X obj 20 557 cnv 10 10 10 empty empty Arguments via Right-click/Properties
+20 12 0 16 -241339 -4160 0;
+#X obj 20 357 cnv 10 10 10 empty empty THE REMOTE NAME: 20 12 0 16
+-241339 -4160 0;
+#X obj 40 517 s myname-r;
+#X text 111 517 <--- the sender;
+#X obj 239 516 r myname;
+#X text 298 516 <--- the receiver;
+#X obj 514 73 cnv 15 495 550 empty empty empty 20 25 1 18 -241339 -4160
+0;
+#X obj 520 81 cnv 15 15 15 empty empty ATTRIBUTES: 20 15 0 16 -241339
+-4160 0;
+#X text 538 110 Apart from the arguments \, you can also type "attributes"
+as creation arguments. Like in MAX \, an attribute starts with a @.
+, f 76;
+#X text 538 172 "Colors" \, "Font" and "Range" Attributes must be set
+as a complete list (i.e. no single color settings), f 72;
+#X text 594 258 creates the object with default settings \, but with
+a width of 180 \, center align \, and 3 items, f 48;
+#X obj 520 300 cnv 15 15 15 empty empty ITEMS: 20 15 0 16 -241339 -4160
+0;
+#X obj 514 627 cnv 15 495 180 empty empty DEPENDENCIES: 160 25 1 20
+-241339 -159808 0;
+#X obj 639 745 cnv 8 15 15 empty empty ZEXY / IEMLIB / GEM / IEMMATRIX
+10 10 0 16 -241339 -4160 0;
+#X obj 638 763 cnv 8 15 15 empty empty IEMGUTS / IEMGUI / TOF / HCS
+10 10 0 16 -241339 -4160 0;
+#X obj 637 790 cnv 5 280 2 empty empty empty 0 0 0 8 -241339 -4160
+0;
+#X obj 531 745 cnv 8 15 15 empty empty LIBRARIES: 10 10 0 16 -241339
+-1 0;
+#X obj 531 763 cnv 8 15 15 empty empty EXTERNALS: 10 10 0 16 -241339
+-1 0;
+#X obj 522 483 cnv 15 15 15 empty empty GOPLEVEL: 20 15 0 16 -241339
+-4160 0;
+#X text 539 544 1: GUI is located in parent window (the default),
+f 73;
+#X text 539 557 2: GUI is located inside a GOP, f 73;
+#X text 539 570 3: GUI is located inside a GOP of another GOP, f 73
+;
+#X obj 379 38 cnv 10 10 10 empty \$0-header GUIDE FOR OL_NET 0 0
+1 24 -241339 -159808 0;
+#X text 34 772 ** exception: [ol_menu] \, where you need to click into
+the BORDER region !, f 76;
+#X obj 536 509 cnv 8 440 30 empty empty empty 20 12 0 14 -262130 -66577
+0;
+#X obj 533 213 cnv 8 260 20 empty empty empty 20 12 0 14 -262130 -66577
+0;
+#X text 539 213 ATTRIBUTES OVERRIDE CREATION ARGUMENTS !, f 74;
+#X text 36 277 1.) width (in pixels), f 57;
+#X text 36 291 2.) height (in pixels), f 57;
+#X text 36 305 3.) border (in pixels) *, f 57;
+#X obj 33 181 cnv 8 450 70 empty empty empty 20 12 0 14 -262130 -66577
+0;
+#X text 38 217 If the first argument is a float \, it is argument nr.
+1 (the width) \, and no REMOTE NAME is given (though it can still be
+set with an attribute !), f 72;
+#X text 38 411 The remote name can also contain "\$0" (so f.e. "\$0-myname"
+is valid)., f 73;
+#X obj 34 438 cnv 8 340 50 empty empty empty 20 12 0 14 -262130 -66577
+0;
+#X text 38 456 RECEIVER = receive [remote name], f 54;
+#X text 37 468 SENDER = send [remote name]-r, f 54;
+#X text 538 147 Any valid message OR argument can also be an attribute
+, f 70;
+#X text 40 756 * exception: [ol_waveform] \, where argument 3 is the
+array name !, f 69;
+#X text 37 258 The other arguments for (almost) all ol_gui objects
+are:, f 72;
+#X text 36 326 (Though many ol_gui objects allow much more. see individual
+help files), f 72;
+#X text 38 439 THE RULE FOR ALL OL_GUI OBJECTS REMOTE NAME USEAGE IS:
+;
+#X text 38 494 EXAMPLE: if you give an ol_gui object the remote name
+"myname", f 67;
+#X text 38 587 Since [ol_gui] objects consist of many details (color
+\, font \, text position etc.) \, they also have a Properties dialog
+for settings that can not be given as Arguments., f 70;
+#X text 38 641 Right-click somewhere inside the GUI object (**) and
+a context menu appears. Select "Properties" there. A "Properties" window
+appears and allows you to change your settings (symbol entries must
+be confirmed with ENTER !)., f 74;
+#X text 39 704 When all properties are set \, click "OK" and resave
+the main patch (!). Next time you open the patch \, the [ol_gui] object
+will load with the new settings., f 77;
+#X text 538 240 EXAMPLE: [ol_menu+ @width 180 @align 1 @items one|two|three]:
+, f 74;
+#X text 35 115 Every object from the [ol_gui] collection is created
+by typing its name into an empty object box \, followed by optional
+arguments or attributes., f 75;
+#X text 37 184 If the first argument is a symbol \, it is the REMOTE
+NAME (see next paragraph)., f 57;
+#X text 37 384 Giving a "Remote Name" allows you to send/receive messages
+to/from any ol_gui object remotely (i.e. no patch cables). No spaces
+are allowed !, f 76;
+#X text 540 358 Items are one or more symbols that are presented by
+the [ol_gui] object \, either inside a box or a menu. When the object
+is created \, items can be given as an attribute. Multiple items must
+be separated by the letter "|" (ascii value 124) - see example above.
+Items should not contain white spaces but non-breaking-spaces (ascii
+value 160)., f 73;
+#X text 539 588 The GOPLEVEL can be set as a message or attribute \,
+or via "Properties"., f 73;
+#X text 540 508 if you want to use an [ol_gui] object inside a GOP
+\, you have to set a destinctive GOPLEVEL (1 - 3) for some (see individual
+help files)., f 70;
+#X text 539 666 All [ol_gui] objects depend on some external libraries
+that you must download via DEKEN (Help/Find Externals) and add to PD's
+search path before you can use them. Even though they are noted in
+every ol_ helpfile \, here's a list of my most often used externals/libraries.
+Add them to PD's stsartup search path and you should be good., f 73
+;
+#X obj 638 781 cnv 8 15 15 empty empty DND 10 10 0 16 -241339 -4160
+0;
+#X obj 531 781 cnv 8 15 15 empty empty PLUGINS: 10 10 0 16 -241339
+-1 0;
+#X obj 683 781 cnv 8 15 15 empty empty (for drag and drop support)
+0 10 0 12 -241339 -4160 0;
+#X text 539 328 [ol_menu] \, [ol_menu+] and [ol_tab] use items, f
+73;
+#X text 539 445 [ol_tab] allows items to be given as lists (without
+the "|" separator), f 71;
